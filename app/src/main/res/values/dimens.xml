@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bav_header_rl">150dp</dimen>
+    <dimen name="nav_header_desc_tv">10dp</dimen>
+</resources>

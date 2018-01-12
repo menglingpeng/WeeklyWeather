@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/icon_group1"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_share_menu"
+            android:title="@string/nav_share_menu"
+            android:icon="@drawable/ic_share_grey_600_36dp"/>
+    </group>
+
+    <group
+        android:id="@+id/icon_group2">
+
+        <item
+            android:id="@+id/nav_settings_menu"
+            android:title="@string/nav_settings_menu"
+            android:icon="@drawable/ic_settings_grey_600_36dp"/>
+    </group>
+
+</menu>

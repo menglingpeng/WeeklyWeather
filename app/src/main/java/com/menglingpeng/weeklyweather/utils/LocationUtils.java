@@ -26,13 +26,19 @@ import java.util.Locale;
 public class LocationUtils implements LocationListener {
 
     public static String getBestLocation(Context context) {
-        String provider;
+        String provider = null;
         Location location = null;
         String locations = null;
         Address address;
         String countryName = null;
         String locality = null;
         String adressLine = null;
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager
+                .PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission
+                .ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION }, Constants.REQUEST_LOCATION_PERMISSION_CODE);
+        }
         LocationManager lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         List<String> providers = lm.getProviders(true);
         if (providers.contains(lm.GPS_PROVIDER) || providers.contains(lm.NETWORK_PROVIDER)) {
@@ -41,19 +47,17 @@ public class LocationUtils implements LocationListener {
             }else {
                 provider = lm.NETWORK_PROVIDER;
             }
-            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager
-                    .PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission
-                    .ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
-                        Manifest.permission.ACCESS_COARSE_LOCATION }, Constants.REQUEST_LOCATION_PERMISSION_CODE);
-            }
-            lm.requestLocationUpdates(provider, 5000, 10, this);
         }else {
             //没有可用的定位服务，跳转设置界面
             Intent intent = new Intent();
             intent.setAction(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
             context.startActivity(intent);
         }
+        location = lm.getLastKnownLocation(provider);
+        if(location != null){
+
+        }
+        lm.requestLocationUpdates(provider, 5000, 10, this);
         Geocoder geocoder = new Geocoder(context, Locale.getDefault());
         List<Address> list = null;
         try {

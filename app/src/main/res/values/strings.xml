@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WeeklyWeather</string>
+    <string name="nav_header_tv">城市管理</string>
+    <string name="nav_header_desc_tv">点击打开城市管理获取更多城市天气</string>
+    <string name="nav_share_menu">分享</string>
+    <string name="nav_settings_menu">设置</string>
 </resources>
