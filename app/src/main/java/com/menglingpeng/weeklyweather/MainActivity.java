@@ -28,14 +28,15 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     private NavigationView navigationView;
     private ImageView navHeaderBackgroudIv;
     private RelativeLayout navHeaderRl;
-    private Context context = getApplicationContext();
+    private Context context;
 
     @Override
     protected void initLayoutId() {
-        RequestPermissionUtil.requestPermissions(context, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
+        context = getApplicationContext();
+        /*RequestPermissionUtil.requestPermissions(context, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
                 Constants.REQUEST_LOCATION_PERMISSION_CODE);
         RequestPermissionUtil.requestPermissions(context, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                Constants.REQUEST_LOCATION_PERMISSION_CODE);
+                Constants.REQUEST_LOCATION_PERMISSION_CODE);*/
         layoutId = R.layout.activity_main;
     }
 
@@ -45,7 +46,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         toolbar = (Toolbar)findViewById(R.id.main_tb);
         navigationView = (NavigationView)findViewById(R.id.nav_view);
-        toolbar.setTitle(LocationUtils.getBestLocation(context));
+        //toolbar.setTitle(LocationUtils.getBestLocation(context));
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -62,6 +63,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 }
             }
         });
+        initNavigationView();
     }
 
     @SuppressLint("RestrictedApi")
@@ -104,5 +106,14 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 break;
         }
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }else {
+            super.onBackPressed();
+        }
     }
 }

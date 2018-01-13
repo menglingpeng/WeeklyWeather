@@ -57,7 +57,7 @@ public class LocationUtils implements LocationListener {
         if(location != null){
 
         }
-        lm.requestLocationUpdates(provider, 5000, 10, this);
+        //lm.requestLocationUpdates(provider, 5000, 10, LocationUtils.this);
         Geocoder geocoder = new Geocoder(context, Locale.getDefault());
         List<Address> list = null;
         try {
