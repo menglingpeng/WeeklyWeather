@@ -16,7 +16,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.menglingpeng.weeklyweather.mvp.model.RetrofitFactory;
 import com.menglingpeng.weeklyweather.utils.Constants;
 import com.menglingpeng.weeklyweather.utils.LocationUtils;
 import com.menglingpeng.weeklyweather.utils.RequestPermissionUtil;
@@ -33,10 +35,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     @Override
     protected void initLayoutId() {
         context = getApplicationContext();
-        /*RequestPermissionUtil.requestPermissions(context, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
+        RequestPermissionUtil.requestPermissions(context, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
                 Constants.REQUEST_LOCATION_PERMISSION_CODE);
         RequestPermissionUtil.requestPermissions(context, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                Constants.REQUEST_LOCATION_PERMISSION_CODE);*/
+                Constants.REQUEST_LOCATION_PERMISSION_CODE);
         layoutId = R.layout.activity_main;
     }
 

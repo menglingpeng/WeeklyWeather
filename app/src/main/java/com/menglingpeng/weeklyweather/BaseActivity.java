@@ -1,5 +1,7 @@
 package com.menglingpeng.weeklyweather;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -18,5 +20,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected void initViews() {
         setContentView(layoutId);
+    }
+
+    public void replaceFragment(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.container, fragment);
+        transaction.commit();
     }
 }
