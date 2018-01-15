@@ -2,4 +2,13 @@
 <resources>
     <dimen name="bav_header_rl">150dp</dimen>
     <dimen name="nav_header_desc_tv">10dp</dimen>
+    <dimen name="main_weather_rl_layout_height">300dp</dimen>
+    <dimen name="current_temperature_tv_text_size">50dp</dimen>
+    <dimen name="current_weather_type_tv_layout_margin_top">20dp</dimen>
+    <dimen name="current_weather_type_tv_text_size">20dp</dimen>
+    <dimen name="high_low_temperture_tv_layout_margin_top">10dp</dimen>
+    <dimen name="current_wind_tv_layout_margin_left">10dp</dimen>
+    <dimen name="current_humidity_tv_layout_margin_left">10dp</dimen>
+    <dimen name="air_quality_rl_layout_margin_top">20dp</dimen>
+    <dimen name="air_quality_value_tv_layout_margin_top">10dp</dimen>
 </resources>

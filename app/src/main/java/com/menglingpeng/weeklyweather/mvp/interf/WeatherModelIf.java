@@ -7,5 +7,5 @@ import java.util.HashMap;
  */
 
 public interface WeatherModelIf {
-    void getJson(String type, HashMap<String, String> map, OnLoadJsonListener listener);
+    void getJson(String type, HashMap<String, String> map);
 }
