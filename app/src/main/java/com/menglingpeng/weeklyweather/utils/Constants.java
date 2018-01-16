@@ -9,6 +9,7 @@ import android.text.SpannableStringBuilder;
 public class Constants {
 
     public static final String IS_FIRST_STRAT_APP = "is_first_start_app";
+    public static final String TYPE = "type";
 
     public static final int REQUEST_LOCATION_PERMISSION_CODE = 1;
     //Http_Config
@@ -41,5 +42,7 @@ public class Constants {
     public static final String CURRENT_CITY_NAME = "current_city_name";
     public static final String CITIES_SIZE = "cities_size";
     public static final String CITIES_ = "cities_";
+
+    public static final String CURRENT_CITY_WEATHER = "current_city_weather";
 
 }

@@ -19,9 +19,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.menglingpeng.weeklyweather.mvp.model.RetrofitFactory;
+import com.menglingpeng.weeklyweather.mvp.view.WeatherFragment;
 import com.menglingpeng.weeklyweather.utils.Constants;
 import com.menglingpeng.weeklyweather.utils.LocationUtils;
 import com.menglingpeng.weeklyweather.utils.RequestPermissionUtil;
+import com.menglingpeng.weeklyweather.utils.SPUtils;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -66,6 +68,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             }
         });
         initNavigationView();
+        if (SPUtils.getState(context, Constants.IS_FIRST_STRAT_APP)){
+            replaceFragment(WeatherFragment.newInstance(Constants.CURRENT_CITY_WEATHER));
+        }
     }
 
     @SuppressLint("RestrictedApi")

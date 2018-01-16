@@ -1,11 +1,14 @@
 package com.menglingpeng.weeklyweather.mvp.view;
 
+import android.content.Context;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.menglingpeng.weeklyweather.BaseFragment;
 import com.menglingpeng.weeklyweather.R;
+import com.menglingpeng.weeklyweather.utils.Constants;
 
 /**
  * Created by mengdroid on 2018/1/15.
@@ -13,6 +16,8 @@ import com.menglingpeng.weeklyweather.R;
 
 public class WeatherFragment extends BaseFragment {
 
+    private String type;
+    private Context context;
     private TextView currentTemperatureTv;
     private TextView currentWeatherTypeTv;
     private TextView highWithLowTemperatureTv;
@@ -22,9 +27,19 @@ public class WeatherFragment extends BaseFragment {
     private TextView airQualityTv;
     private TextView airQualityValueTv;
 
+    public static WeatherFragment newInstance(String type){
+        Bundle bundle = new Bundle();
+        bundle.putString(Constants.TYPE, type);
+        WeatherFragment fragment = new WeatherFragment();
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
     @Override
     protected void initLayoutId() {
         layoutId = R.layout.fragment_weather;
+        context = getActivity().getApplicationContext();
+        type = getArguments().getString(Constants.TYPE).toString();
     }
 
     @Override
@@ -43,5 +58,14 @@ public class WeatherFragment extends BaseFragment {
     @Override
     protected void initData() {
 
+    }
+
+    private void initParameters(){
+        switch (type){
+            case Constants.CURRENT_CITY_WEATHER:
+                break;
+            default:
+                break;
+        }
     }
 }
