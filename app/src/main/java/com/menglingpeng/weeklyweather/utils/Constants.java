@@ -8,6 +8,8 @@ import android.text.SpannableStringBuilder;
 
 public class Constants {
 
+    public static final String IS_FIRST_STRAT_APP = "is_first_start_app";
+
     public static final int REQUEST_LOCATION_PERMISSION_CODE = 1;
     //Http_Config
     public static final long HTTP_CONFIG_HTTP_CONNECT_TIME = 15;
@@ -33,5 +35,11 @@ public class Constants {
     //回数据字段，多个字段之间使用“,”分隔，其中:Station_Id_C, Year,Mon,Day,Hour为默认字段，Station_Id_C为站号，
     // Year为资料时间的年，Mon为资料时间的月，Day为资料时间的日，Hour为资料时间的时
     public static final String ELEMENTS = "elements";
+
+
+    public static final String SP_DATA = "data";
+    public static final String CURRENT_CITY_NAME = "current_city_name";
+    public static final String CITIES_SIZE = "cities_size";
+    public static final String CITIES_ = "cities_";
 
 }
