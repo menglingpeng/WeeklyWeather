@@ -7,4 +7,5 @@
     <string name="nav_settings_menu">设置</string>
     <string name="nav_drawer_open">open drawer</string>
     <string name="nav_drawer_close">close drawer</string>
+    <string name="cities_manage_tb_title">城市管理</string>
 </resources>
