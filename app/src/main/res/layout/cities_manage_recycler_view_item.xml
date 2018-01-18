@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cm_recycler_view_item_rl"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/cm_recycler_view_item_rl_layout_height">
+
+    <ImageView
+        android:id="@+id/cm_recycler_view_item_iv"
+        android:layout_width="@dimen/cm_recycler_view_item_iv_layout_height_width"
+        android:layout_height="@dimen/cm_recycler_view_item_iv_layout_height_width"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/cm_recycler_view_item_iv_layout_marginLeft"/>
+
+    <TextView
+        android:id="@+id/cm_recycler_view_item_adress_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:textSize="@dimen/cm_recycler_view_item_adress_tv_text_size" />
+
+    <TextView
+        android:id="@+id/cm_recycler_view_item_high_low_temperature_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/cm_recycler_view_item_adress_tv"
+        android:layout_marginEnd="@dimen/cm_recycler_view_item_high_low_temperature_iv_marginEnd"
+        android:gravity="center"
+        android:textSize="@dimen/cm_recycler_view_item_high_low_temperature_iv_text_size"/>
+
+</RelativeLayout>

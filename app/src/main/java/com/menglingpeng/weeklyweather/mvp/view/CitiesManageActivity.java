@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.menglingpeng.weeklyweather.BaseActivity;
@@ -47,5 +48,16 @@ public class CitiesManageActivity extends BaseActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.cities_manage_editor:
+                break;
+            case R.id.cities_manage_add:
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
