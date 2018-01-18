@@ -17,4 +17,5 @@
     <dimen name="cm_recycler_view_item_adress_tv_text_size">20dp</dimen>
     <dimen name="cm_recycler_view_item_high_low_temperature_iv_text_size">20dp</dimen>
     <dimen name="cm_recycler_view_item_high_low_temperature_iv_marginEnd">10dp</dimen>
+    <dimen name="cm_recycler_view_location_item_city_tv_layout_marginTop">5dp</dimen>
 </resources>
