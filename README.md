@@ -9,4 +9,5 @@
   * RxAndroid + RxJava 响应式编程
   * retrofit + okhttp +RxJava 组合网络框架
   * Glide高效加载图片
+  * 整合多种数据
   
