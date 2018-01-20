@@ -13,4 +13,18 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="ThemeAddCityDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="AnimationAddCityDialog" parent="Animation.AppCompat.Dialog">
+        <item name="windowEnterAnimation">@anim/dialog_add_city_enter</item>
+        <item name="windowExitAnimation">@anim/dialog_add_city_exit</item>
+    </style>
+
 </resources>
