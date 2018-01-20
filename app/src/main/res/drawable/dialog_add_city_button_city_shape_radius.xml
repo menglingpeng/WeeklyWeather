@@ -3,4 +3,8 @@
 
     <corners
         android:radius="@dimen/dialog_add_city_shape_radius"/>
+
+    <stroke
+        android:width="@dimen/dialog_add_city_shape_radius_stroke_width"
+        android:color="@android:color/black"/>
 </shape>

@@ -19,6 +19,7 @@
     <dimen name="cm_recycler_view_item_high_low_temperature_iv_marginEnd">10dp</dimen>
     <dimen name="cm_recycler_view_location_item_city_tv_layout_marginTop">5dp</dimen>
     <dimen name="dialog_add_city_shape_radius">20dp</dimen>
+    <dimen name="dialog_add_city_shape_radius_stroke_width">1dp</dimen>
     <dimen name="add_city_dialog_close_iv_layout_margin_top_left">15dp</dimen>
     <dimen name="add_city_dialog_header_rl_layout_height">200dp</dimen>
     <dimen name="add_city_dialog_desc_tv_text_size">25dp</dimen>
@@ -29,5 +30,8 @@
     <dimen name="add_city_dialog_et_text_size">20dp</dimen>
     <dimen name="add_city_dialog_search_ib_layout_width"></dimen>
     <item name="add_city_dialog_search_ib_layout_weight" type="dimen" format="integer">4</item>
-
+    <dimen name="add_city_dialog_hot_cities_tv_layout_margin_top">20dp</dimen>
+    <dimen name="add_city_dialog_hot_cities_tv_layout_margin_bottom">10dp</dimen>
+    <dimen name="hot_city_bt_padding_left_right">20dp</dimen>
+    <dimen name="hot_city_bt_text_size">18dp</dimen>
 </resources>

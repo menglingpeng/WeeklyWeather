@@ -10,4 +10,5 @@
     <string name="cities_manage_tb_title">城市管理</string>
     <string name="add_city_dialog_desc_tv">选择一份远方的牵挂</string>
     <string name="add_city_dialog_et">搜索全国城市</string>
+    <string name="add_city_dialog_hot_cities">热门城市</string>
 </resources>
