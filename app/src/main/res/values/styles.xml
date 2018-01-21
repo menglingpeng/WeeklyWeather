@@ -22,9 +22,9 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
-    <style name="AnimationAddCityDialog" parent="Animation.AppCompat.Dialog">
-        <item name="windowEnterAnimation">@anim/dialog_add_city_enter</item>
-        <item name="windowExitAnimation">@anim/dialog_add_city_exit</item>
+    <style name="AnimationAddCityDialog" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_add_city_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_add_city_exit</item>
     </style>
 
 </resources>

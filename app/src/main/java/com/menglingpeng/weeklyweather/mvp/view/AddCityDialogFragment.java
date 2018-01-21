@@ -18,6 +18,11 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.menglingpeng.weeklyweather.R;
+import com.menglingpeng.weeklyweather.mvp.adapter.RecyclerAdapter;
+import com.menglingpeng.weeklyweather.utils.Constants;
+import com.menglingpeng.weeklyweather.utils.SPUtils;
+
+import java.util.ArrayList;
 
 /**
  * Created by mengdroid on 2018/1/20.
@@ -31,6 +36,8 @@ public class AddCityDialogFragment extends AppCompatDialogFragment {
     private EditText editText;
     private ImageButton searchIBt;
     private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private ArrayList<String> list;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -65,7 +72,10 @@ public class AddCityDialogFragment extends AppCompatDialogFragment {
         });
         //设置
         GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 3);
+        list = SPUtils.getArray(context, list);
+        adapter = new RecyclerAdapter(context, list, Constants.LIST_HOT_CITIES);
         recyclerView.setLayoutManager(gridLayoutManager);
+        recyclerView.setAdapter(adapter);
         return dialog;
     }
 }
