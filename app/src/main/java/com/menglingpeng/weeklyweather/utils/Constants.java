@@ -43,6 +43,7 @@ public class Constants {
     public static final String CITIES_SIZE = "cities_size";
     public static final String CITIES_ = "cities_";
 
+    public static final String LOCATION = "location";
     public static final String CURRENT_CITY_WEATHER = "current_city_weather";
     public static final String LIST_ADDED_CITIES = "list_added_cities";
     public static final String LIST_HOT_CITIES = "list_hot_cities";

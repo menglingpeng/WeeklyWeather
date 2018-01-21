@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.menglingpeng.weeklyweather.R;
+import com.menglingpeng.weeklyweather.mvp.interf.OnRecyclerItemListener;
 import com.menglingpeng.weeklyweather.utils.Constants;
 
 import java.util.ArrayList;
@@ -23,11 +24,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
     private Context context;
     private ArrayList<String> list;
     private String type;
+    private OnRecyclerItemListener listener;
 
-    public RecyclerAdapter(Context context, ArrayList<String> list, String type){
+    public RecyclerAdapter(Context context, ArrayList<String> list, String type, OnRecyclerItemListener listener){
         this.context = context;
         this.list = list;
         this.type = type;
+        this.listener = listener;
     }
 
     @Override
@@ -59,14 +62,23 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         if(holder instanceof HotCityViewHolder){
-            HotCityViewHolder viewHolder = (HotCityViewHolder)holder;
+            final HotCityViewHolder viewHolder = (HotCityViewHolder)holder;
             if(position == 0){
                 viewHolder.hotCityBt.setCompoundDrawables(context.getDrawable(R.drawable.ic_location_on_black_18dp),
                         null, null, null);
+                viewHolder.hotCityBt.setCompoundDrawablePadding(10);
             }
             viewHolder.hotCityBt.setText(list.get(position));
+            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener != null){
+                        listener.onRecyclerListListener(viewHolder, list.get(position));
+                    }
+                }
+            });
         }
 
     }

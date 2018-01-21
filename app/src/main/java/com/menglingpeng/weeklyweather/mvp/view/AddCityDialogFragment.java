@@ -2,6 +2,7 @@ package com.menglingpeng.weeklyweather.mvp.view;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
@@ -17,9 +18,12 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.menglingpeng.weeklyweather.MainActivity;
 import com.menglingpeng.weeklyweather.R;
 import com.menglingpeng.weeklyweather.mvp.adapter.RecyclerAdapter;
+import com.menglingpeng.weeklyweather.mvp.interf.OnRecyclerItemListener;
 import com.menglingpeng.weeklyweather.utils.Constants;
+import com.menglingpeng.weeklyweather.utils.HotCitiesUtils;
 import com.menglingpeng.weeklyweather.utils.SPUtils;
 
 import java.util.ArrayList;
@@ -28,7 +32,7 @@ import java.util.ArrayList;
  * Created by mengdroid on 2018/1/20.
  */
 
-public class AddCityDialogFragment extends AppCompatDialogFragment {
+public class AddCityDialogFragment extends AppCompatDialogFragment implements OnRecyclerItemListener{
 
     private Dialog dialog;
     private Context context;
@@ -72,10 +76,25 @@ public class AddCityDialogFragment extends AppCompatDialogFragment {
         });
         //设置
         GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 3);
-        list = SPUtils.getArray(context, list);
-        adapter = new RecyclerAdapter(context, list, Constants.LIST_HOT_CITIES);
+        list = HotCitiesUtils.getHotCities();
+        list.add(0, SPUtils.getData(context, Constants.LOCATION));
+        adapter = new RecyclerAdapter(context, list, Constants.LIST_HOT_CITIES, this);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(adapter);
         return dialog;
+    }
+
+    @Override
+    public <T> void onRecyclerListListener(RecyclerView.ViewHolder viewHolder, T t) {
+        ArrayList<String> list = new ArrayList<>();
+        String city = (String)t;
+        list = SPUtils.getArray(context, list);
+        list.add(city);
+        Boolean isSaved = SPUtils.putArray(context, list);
+        if(isSaved) {
+            Intent intent = new Intent(getActivity(), MainActivity.class);
+            intent.putStringArrayListExtra(Constants.LIST_ADDED_CITIES, list);
+            startActivity(intent);
+        }
     }
 }
