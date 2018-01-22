@@ -15,8 +15,8 @@
     <dimen name="cm_recycler_view_item_iv_layout_height_width">30dp</dimen>
     <dimen name="cm_recycler_view_item_iv_layout_marginLeft">20dp</dimen>
     <dimen name="cm_recycler_view_item_adress_tv_text_size">20dp</dimen>
-    <dimen name="cm_recycler_view_item_high_low_temperature_iv_text_size">20dp</dimen>
-    <dimen name="cm_recycler_view_item_high_low_temperature_iv_marginEnd">10dp</dimen>
+    <dimen name="cm_recycler_view_item_temperature_iv_text_size">20dp</dimen>
+    <dimen name="cm_recycler_view_item_temperature_iv_marginEnd">10dp</dimen>
     <dimen name="cm_recycler_view_location_item_city_tv_layout_marginTop">5dp</dimen>
     <dimen name="dialog_add_city_shape_radius">20dp</dimen>
     <dimen name="dialog_add_city_shape_radius_stroke_width">1dp</dimen>

@@ -7,9 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.menglingpeng.weeklyweather.R;
+import com.menglingpeng.weeklyweather.mvp.bean.DayWeather;
 import com.menglingpeng.weeklyweather.mvp.interf.OnRecyclerItemListener;
 import com.menglingpeng.weeklyweather.utils.Constants;
 
@@ -22,7 +25,7 @@ import java.util.ArrayList;
 public class RecyclerAdapter extends RecyclerView.Adapter {
 
     private Context context;
-    private ArrayList<String> list;
+    private ArrayList list;
     private String type;
     private OnRecyclerItemListener listener;
 
@@ -50,6 +53,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
         LayoutInflater inflater = LayoutInflater.from(context);
         switch (type){
             case Constants.LIST_ADDED_CITIES:
+                view = inflater.inflate(R.layout.cities_manage_recycler_view_item, null);
+                viewHolder = new AddedCitiesViewHolder(view);
                 break;
             case Constants.LIST_HOT_CITIES:
                 view = inflater.inflate(R.layout.dialog_add_city_hot_cities_recyclerview_item, null);
@@ -70,7 +75,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
                         null, null, null);
                 viewHolder.hotCityBt.setCompoundDrawablePadding(10);
             }
-            viewHolder.hotCityBt.setText(list.get(position));
+            viewHolder.hotCityBt.setText((String)list.get(position));
             viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -79,6 +84,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
                     }
                 }
             });
+        }else if(holder instanceof AddedCitiesViewHolder){
+            final  AddedCitiesViewHolder viewHolder = (AddedCitiesViewHolder)holder;
+            final DayWeather dayWeather = (DayWeather)list.get(position);
+            viewHolder.adressTv.setText(dayWeather.getData().getCity());
+            String temperature = new StringBuilder().append(dayWeather.getData().getForecast().get(0).getHigh()).
+                    append("/").append(dayWeather.getData().getForecast().get(0).getLow()).toString();
+            viewHolder.temperatureTv.setText(temperature);
         }
 
     }
@@ -94,5 +106,18 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
             hotCityBt = (Button) view.findViewById(R.id.hot_city_bt);
         }
     }
-    
+
+    private class AddedCitiesViewHolder extends RecyclerView.ViewHolder{
+
+        private ImageView imageView;
+        private TextView adressTv;
+        private TextView temperatureTv;
+
+        public AddedCitiesViewHolder(View view) {
+            super(view);
+            imageView = (ImageView)view.findViewById(R.id.cm_recycler_view_item_iv);
+            adressTv = (TextView)view.findViewById(R.id.cm_recycler_view_item_city_tv);
+            temperatureTv = (TextView)view.findViewById(R.id.cm_recycler_view_item_temperature_iv);
+        }
+    }
 }

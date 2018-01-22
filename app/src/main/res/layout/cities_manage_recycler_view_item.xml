@@ -13,7 +13,7 @@
         android:layout_marginLeft="@dimen/cm_recycler_view_item_iv_layout_marginLeft"/>
 
     <TextView
-        android:id="@+id/cm_recycler_view_item_adress_tv"
+        android:id="@+id/cm_recycler_view_item_city_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -21,13 +21,13 @@
         android:textSize="@dimen/cm_recycler_view_item_adress_tv_text_size" />
 
     <TextView
-        android:id="@+id/cm_recycler_view_item_high_low_temperature_iv"
+        android:id="@+id/cm_recycler_view_item_temperature_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/cm_recycler_view_item_adress_tv"
-        android:layout_marginEnd="@dimen/cm_recycler_view_item_high_low_temperature_iv_marginEnd"
+        android:layout_alignTop="@+id/cm_recycler_view_item_city_tv"
+        android:layout_marginEnd="@dimen/cm_recycler_view_item_temperature_iv_marginEnd"
         android:gravity="center"
-        android:textSize="@dimen/cm_recycler_view_item_high_low_temperature_iv_text_size"/>
+        android:textSize="@dimen/cm_recycler_view_item_temperature_iv_text_size"/>
 
 </RelativeLayout>
