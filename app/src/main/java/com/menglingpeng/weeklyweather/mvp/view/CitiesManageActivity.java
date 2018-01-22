@@ -1,6 +1,8 @@
 package com.menglingpeng.weeklyweather.mvp.view;
 
+import android.content.Context;
 import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -11,11 +13,14 @@ import android.view.View;
 
 import com.menglingpeng.weeklyweather.BaseActivity;
 import com.menglingpeng.weeklyweather.R;
+import com.menglingpeng.weeklyweather.mvp.adapter.RecyclerAdapter;
 
 public class CitiesManageActivity extends BaseActivity {
 
     private Toolbar toolbar;
     private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private Context context;
 
     @Override
     protected void initLayoutId() {

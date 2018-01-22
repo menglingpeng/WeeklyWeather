@@ -94,4 +94,5 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
             hotCityBt = (Button) view.findViewById(R.id.hot_city_bt);
         }
     }
+    
 }
