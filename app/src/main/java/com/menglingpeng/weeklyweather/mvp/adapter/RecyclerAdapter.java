@@ -15,6 +15,7 @@ import com.menglingpeng.weeklyweather.R;
 import com.menglingpeng.weeklyweather.mvp.bean.DayWeather;
 import com.menglingpeng.weeklyweather.mvp.interf.OnRecyclerItemListener;
 import com.menglingpeng.weeklyweather.utils.Constants;
+import com.menglingpeng.weeklyweather.utils.SPUtils;
 
 import java.util.ArrayList;
 
@@ -31,7 +32,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
     private static final int VIEW_TYPE_LOCATION = 1;
     private int viewType = 0;
 
-    public RecyclerAdapter(Context context, ArrayList<String> list, String type, OnRecyclerItemListener listener){
+    public RecyclerAdapter(Context context, ArrayList list, String type, OnRecyclerItemListener listener){
         this.context = context;
         this.list = list;
         this.type = type;
@@ -97,20 +98,42 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
         }else if(holder instanceof AddedCitiesViewHolder){
             final AddedCitiesViewHolder viewHolder = (AddedCitiesViewHolder)holder;
             final DayWeather dayWeather = (DayWeather)list.get(position);
+            if(position == Integer.valueOf(SPUtils.getData(context, Constants.CURRENT_CITY_POSITION))){
+                viewHolder.itemRl.setBackgroundColor(context.getResources().getColor(
+                        R.color.cm_recycler_view_item_rl_background));
+            }
             viewHolder.cityTv.setText(dayWeather.getData().getCity());
             String temperature = new StringBuilder().append(dayWeather.getData().getForecast().get(0).getHigh()).
                     append("/").append(dayWeather.getData().getForecast().get(0).getLow()).toString();
             viewHolder.temperatureTv.setText(temperature);
+            viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener != null){
+                        listener.onRecyclerListListener(viewHolder, String.valueOf(position));
+                    }
+                }
+            });
         }else if (holder instanceof AddedCitiesViewHolder){
             final LocationCityViewHolder viewHolder = (LocationCityViewHolder)holder;
-            final DayWeather dayWeather = (DayWeather)list.get(0);
+            final DayWeather dayWeather = (DayWeather)list.get(position);
+            if(position == Integer.valueOf(SPUtils.getData(context, Constants.CURRENT_CITY_POSITION))){
+                viewHolder.itemRl.setBackgroundColor(context.getResources().getColor(
+                        R.color.cm_recycler_view_item_rl_background));
+            }
             viewHolder.cityTv.setText(dayWeather.getData().getCity());
             String temperature = new StringBuilder().append(dayWeather.getData().getForecast().get(0).getHigh()).
                     append("/").append(dayWeather.getData().getForecast().get(0).getLow()).toString();
             viewHolder.temperatureTv.setText(temperature);
-
+            viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener != null){
+                        listener.onRecyclerListListener(viewHolder, String.valueOf(position));
+                    }
+                }
+            });
         }
-
     }
 
     private class HotCityViewHolder extends RecyclerView.ViewHolder{
@@ -127,12 +150,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
 
     private class AddedCitiesViewHolder extends RecyclerView.ViewHolder{
 
+        private RelativeLayout itemRl;
         private ImageView imageView;
         private TextView cityTv;
         private TextView temperatureTv;
 
         public AddedCitiesViewHolder(View view) {
             super(view);
+            itemRl = (RelativeLayout)view.findViewById(R.id.cm_recycler_view_item_rl);
             imageView = (ImageView)view.findViewById(R.id.cm_recycler_view_item_iv);
             cityTv = (TextView)view.findViewById(R.id.cm_recycler_view_item_city_tv);
             temperatureTv = (TextView)view.findViewById(R.id.cm_recycler_view_item_temperature_tv);
@@ -141,6 +166,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
 
     public class LocationCityViewHolder extends RecyclerView.ViewHolder{
 
+        private RelativeLayout itemRl;
         private ImageView imageView;
         private TextView adressTv;
         private TextView cityTv;
@@ -148,6 +174,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
 
         public LocationCityViewHolder(View view) {
             super(view);
+            itemRl = (RelativeLayout)view.findViewById(R.id.cm_recycler_view_location_item_rl);
             imageView = (ImageView)view.findViewById(R.id.cm_recycler_view_location_item_iv);
             adressTv = (TextView)view.findViewById(R.id.cm_recycler_view_location_item_adress_tv);
             cityTv = (TextView)view.findViewById(R.id.cm_recycler_view_location_item_city_tv);

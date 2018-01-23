@@ -10,6 +10,7 @@ public class Constants {
 
     public static final String IS_FIRST_STRAT_APP = "is_first_start_app";
     public static final String TYPE = "type";
+    public static final String CURRENT_CITY_POSITION = "current_city_position";
 
     public static final int REQUEST_LOCATION_PERMISSION_CODE = 1;
     //Http_Config
@@ -42,6 +43,7 @@ public class Constants {
     public static final String CURRENT_CITY_NAME = "current_city_name";
     public static final String CITIES_SIZE = "cities_size";
     public static final String CITIES_ = "cities_";
+    public static final String ADD_CITY_DIALOG_FRAGMENT_TAG = "add_city_dialog_fragment";
 
     public static final String LOCATION = "location";
     public static final String CURRENT_CITY_WEATHER = "current_city_weather";
