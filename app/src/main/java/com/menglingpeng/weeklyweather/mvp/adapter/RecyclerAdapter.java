@@ -28,6 +28,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
     private ArrayList list;
     private String type;
     private OnRecyclerItemListener listener;
+    private static final int VIEW_TYPE_LOCATION = 1;
+    private int viewType = 0;
 
     public RecyclerAdapter(Context context, ArrayList<String> list, String type, OnRecyclerItemListener listener){
         this.context = context;
@@ -43,7 +45,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemViewType(int position) {
-        return super.getItemViewType(position);
+        if(type.equals(Constants.LIST_ADDED_CITIES) && position == 0){
+            viewType = VIEW_TYPE_LOCATION;
+        }
+        return viewType;
     }
 
     @Override
@@ -51,17 +56,22 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
         RecyclerView.ViewHolder viewHolder = null;
         View view;
         LayoutInflater inflater = LayoutInflater.from(context);
-        switch (type){
-            case Constants.LIST_ADDED_CITIES:
-                view = inflater.inflate(R.layout.cities_manage_recycler_view_item, null);
-                viewHolder = new AddedCitiesViewHolder(view);
-                break;
-            case Constants.LIST_HOT_CITIES:
-                view = inflater.inflate(R.layout.dialog_add_city_hot_cities_recyclerview_item, null);
-                viewHolder = new HotCityViewHolder(view);
-                break;
-            default:
-                break;
+        if (viewType == VIEW_TYPE_LOCATION){
+            view = inflater.inflate(R.layout.cities_manage_recycler_view_location_item, null);
+            viewHolder = new LocationCityViewHolder(view);
+        }else {
+            switch (type) {
+                case Constants.LIST_ADDED_CITIES:
+                    view = inflater.inflate(R.layout.cities_manage_recycler_view_item, null);
+                    viewHolder = new AddedCitiesViewHolder(view);
+                    break;
+                case Constants.LIST_HOT_CITIES:
+                    view = inflater.inflate(R.layout.dialog_add_city_hot_cities_recyclerview_item, null);
+                    viewHolder = new HotCityViewHolder(view);
+                    break;
+                default:
+                    break;
+            }
         }
         return viewHolder;
     }
@@ -85,12 +95,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
                 }
             });
         }else if(holder instanceof AddedCitiesViewHolder){
-            final  AddedCitiesViewHolder viewHolder = (AddedCitiesViewHolder)holder;
+            final AddedCitiesViewHolder viewHolder = (AddedCitiesViewHolder)holder;
             final DayWeather dayWeather = (DayWeather)list.get(position);
-            viewHolder.adressTv.setText(dayWeather.getData().getCity());
+            viewHolder.cityTv.setText(dayWeather.getData().getCity());
             String temperature = new StringBuilder().append(dayWeather.getData().getForecast().get(0).getHigh()).
                     append("/").append(dayWeather.getData().getForecast().get(0).getLow()).toString();
             viewHolder.temperatureTv.setText(temperature);
+        }else if (holder instanceof AddedCitiesViewHolder){
+            final LocationCityViewHolder viewHolder = (LocationCityViewHolder)holder;
+            final DayWeather dayWeather = (DayWeather)list.get(0);
+            viewHolder.cityTv.setText(dayWeather.getData().getCity());
+            String temperature = new StringBuilder().append(dayWeather.getData().getForecast().get(0).getHigh()).
+                    append("/").append(dayWeather.getData().getForecast().get(0).getLow()).toString();
+            viewHolder.temperatureTv.setText(temperature);
+
         }
 
     }
@@ -110,14 +128,30 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
     private class AddedCitiesViewHolder extends RecyclerView.ViewHolder{
 
         private ImageView imageView;
-        private TextView adressTv;
+        private TextView cityTv;
         private TextView temperatureTv;
 
         public AddedCitiesViewHolder(View view) {
             super(view);
             imageView = (ImageView)view.findViewById(R.id.cm_recycler_view_item_iv);
-            adressTv = (TextView)view.findViewById(R.id.cm_recycler_view_item_city_tv);
-            temperatureTv = (TextView)view.findViewById(R.id.cm_recycler_view_item_temperature_iv);
+            cityTv = (TextView)view.findViewById(R.id.cm_recycler_view_item_city_tv);
+            temperatureTv = (TextView)view.findViewById(R.id.cm_recycler_view_item_temperature_tv);
+        }
+    }
+
+    public class LocationCityViewHolder extends RecyclerView.ViewHolder{
+
+        private ImageView imageView;
+        private TextView adressTv;
+        private TextView cityTv;
+        private TextView temperatureTv;
+
+        public LocationCityViewHolder(View view) {
+            super(view);
+            imageView = (ImageView)view.findViewById(R.id.cm_recycler_view_location_item_iv);
+            adressTv = (TextView)view.findViewById(R.id.cm_recycler_view_location_item_adress_tv);
+            cityTv = (TextView)view.findViewById(R.id.cm_recycler_view_location_item_city_tv);
+            temperatureTv = (TextView)view.findViewById(R.id.cm_recycler_view_location_item_temperature_tv);
         }
     }
 }

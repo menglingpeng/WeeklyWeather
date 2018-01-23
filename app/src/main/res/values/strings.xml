@@ -11,4 +11,5 @@
     <string name="add_city_dialog_desc_tv">选择一份远方的牵挂</string>
     <string name="add_city_dialog_et">搜索全国城市</string>
     <string name="add_city_dialog_hot_cities">热门城市</string>
+    <string name="cm_recycler_view_location_item_weather_reminder_tv">天气早晚提醒</string>
 </resources>
