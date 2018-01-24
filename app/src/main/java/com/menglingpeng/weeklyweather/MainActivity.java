@@ -8,7 +8,9 @@ import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -25,6 +27,8 @@ import com.menglingpeng.weeklyweather.utils.LocationUtils;
 import com.menglingpeng.weeklyweather.utils.RequestPermissionUtil;
 import com.menglingpeng.weeklyweather.utils.SPUtils;
 
+import java.util.ArrayList;
+
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private DrawerLayout drawerLayout;
@@ -32,7 +36,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     private NavigationView navigationView;
     private ImageView navHeaderBackgroudIv;
     private RelativeLayout navHeaderRl;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
     private Context context;
+    private ArrayList<String> cities;
+    private ArrayList<WeatherFragment> fragments;
 
     @Override
     protected void initLayoutId() {
@@ -50,6 +58,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         toolbar = (Toolbar)findViewById(R.id.main_tb);
         navigationView = (NavigationView)findViewById(R.id.nav_view);
+        tabLayout = (TabLayout)findViewById(R.id.main_tl);
+        viewPager = (ViewPager)findViewById(R.id.main_vp);
+        cities = new ArrayList<>();
         //toolbar.setTitle(LocationUtils.getBestLocation(context));
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
@@ -67,10 +78,39 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 }
             }
         });
+        cities = SPUtils.getArray(context, cities);
         initNavigationView();
-        if (SPUtils.getState(context, Constants.IS_FIRST_STRAT_APP)){
+        if (SPUtils.getState(context, Constants.IS_FIRST_STRAT_APP) || cities.size() == 1){
             replaceFragment(WeatherFragment.newInstance(Constants.CURRENT_CITY_WEATHER));
+        }else {
+            initTabAndViewPager();
         }
+    }
+
+    private void initTabAndViewPager(){
+        tabLayout.setVisibility(TabLayout.VISIBLE);
+        viewPager.setVisibility(ViewPager.VISIBLE);
+        fragments = new ArrayList<>();
+        for (int i = 0; i < cities.size(); i++){
+            fragments.add(WeatherFragment.newInstance(cities.get(i)));
+        }
+        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.getCurrentItem();
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
     @SuppressLint("RestrictedApi")
