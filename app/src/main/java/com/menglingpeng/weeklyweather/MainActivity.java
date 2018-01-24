@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.menglingpeng.weeklyweather.mvp.adapter.TabPagerFragmentAdapter;
 import com.menglingpeng.weeklyweather.mvp.model.RetrofitFactory;
 import com.menglingpeng.weeklyweather.mvp.view.WeatherFragment;
 import com.menglingpeng.weeklyweather.utils.Constants;
@@ -41,6 +42,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     private Context context;
     private ArrayList<String> cities;
     private ArrayList<WeatherFragment> fragments;
+    private TabPagerFragmentAdapter adapter;
 
     @Override
     protected void initLayoutId() {
@@ -94,6 +96,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         for (int i = 0; i < cities.size(); i++){
             fragments.add(WeatherFragment.newInstance(cities.get(i)));
         }
+        adapter = new TabPagerFragmentAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
