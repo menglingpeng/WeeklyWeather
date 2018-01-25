@@ -2,13 +2,18 @@ package com.menglingpeng.weeklyweather;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -24,6 +29,7 @@ import com.menglingpeng.weeklyweather.mvp.adapter.TabPagerFragmentAdapter;
 import com.menglingpeng.weeklyweather.mvp.model.RetrofitFactory;
 import com.menglingpeng.weeklyweather.mvp.view.WeatherFragment;
 import com.menglingpeng.weeklyweather.utils.Constants;
+import com.menglingpeng.weeklyweather.utils.LocationService;
 import com.menglingpeng.weeklyweather.utils.LocationUtils;
 import com.menglingpeng.weeklyweather.utils.RequestPermissionUtil;
 import com.menglingpeng.weeklyweather.utils.SPUtils;
@@ -46,12 +52,14 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     @Override
     protected void initLayoutId() {
-        context = getApplicationContext();
-        RequestPermissionUtil.requestPermissions(context, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
-                Constants.REQUEST_LOCATION_PERMISSION_CODE);
-        RequestPermissionUtil.requestPermissions(context, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                Constants.REQUEST_LOCATION_PERMISSION_CODE);
         layoutId = R.layout.activity_main;
+        context = getApplicationContext();
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions( new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.
+                        ACCESS_COARSE_LOCATION}, Constants.REQUEST_LOCATION_PERMISSION_CODE);
+            }
+        }
     }
 
     @Override
@@ -63,7 +71,14 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         tabLayout = (TabLayout)findViewById(R.id.main_tl);
         viewPager = (ViewPager)findViewById(R.id.main_vp);
         cities = new ArrayList<>();
-        //toolbar.setTitle(LocationUtils.getBestLocation(context));
+        //注册广播
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Constants.LOCATION_ACTION);
+        this.registerReceiver(new LocationBroadcastReceiver(), filter);
+        //启动服务
+        Intent intent = new Intent(this, LocationService.class);
+        startService(intent);
+        //toolbar.setTitle(new LocationUtils().getBestLocation(context));
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -165,6 +180,16 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             drawerLayout.closeDrawer(GravityCompat.START);
         }else {
             super.onBackPressed();
+        }
+    }
+
+    private class LocationBroadcastReceiver extends BroadcastReceiver{
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals(Constants.LOCATION_ACTION)){
+                String location = intent.getStringExtra(Constants.LOCATION);
+            }
         }
     }
 }
