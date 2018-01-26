@@ -34,4 +34,6 @@
     <dimen name="add_city_dialog_hot_cities_tv_layout_margin_bottom">10dp</dimen>
     <dimen name="hot_city_bt_padding_left_right">20dp</dimen>
     <dimen name="hot_city_bt_text_size">18dp</dimen>
+    <dimen name="dialog_get_location_pb_layout_margin_top_bottom">10dp</dimen>
+    <dimen name="dialog_get_location_tv_layout_margin_bottom">10dp</dimen>
 </resources>

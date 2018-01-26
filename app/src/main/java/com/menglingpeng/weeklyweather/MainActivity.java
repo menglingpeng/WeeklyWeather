@@ -18,20 +18,18 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.menglingpeng.weeklyweather.mvp.adapter.TabPagerFragmentAdapter;
-import com.menglingpeng.weeklyweather.mvp.model.RetrofitFactory;
 import com.menglingpeng.weeklyweather.mvp.view.WeatherFragment;
 import com.menglingpeng.weeklyweather.utils.Constants;
 import com.menglingpeng.weeklyweather.utils.LocationService;
-import com.menglingpeng.weeklyweather.utils.LocationUtils;
-import com.menglingpeng.weeklyweather.utils.RequestPermissionUtil;
 import com.menglingpeng.weeklyweather.utils.SPUtils;
 
 import java.util.ArrayList;
@@ -49,10 +47,17 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     private ArrayList<String> cities;
     private ArrayList<WeatherFragment> fragments;
     private TabPagerFragmentAdapter adapter;
+    private AlertDialog dialog;
+    private String location = null;
 
     @Override
     protected void initLayoutId() {
         layoutId = R.layout.activity_main;
+    }
+
+    @Override
+    protected void initViews() {
+        super.initViews();
         context = getApplicationContext();
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -60,25 +65,29 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                         ACCESS_COARSE_LOCATION}, Constants.REQUEST_LOCATION_PERMISSION_CODE);
             }
         }
+        if(SPUtils.getState(context, Constants.IS_FIRST_STRAT_APP)){
+            showGetLocationDialog();
+            //注册广播
+            IntentFilter filter = new IntentFilter();
+            filter.addAction(Constants.LOCATION_ACTION);
+            this.registerReceiver(new LocationBroadcastReceiver(), filter);
+            //启动服务
+            Intent intent = new Intent(this, LocationService.class);
+            startService(intent);
+            SPUtils.saveState(context, Constants.IS_FIRST_STRAT_APP, true);
+        }else {
+            initView();
+        }
     }
 
-    @Override
-    protected void initViews() {
-        super.initViews();
+    private void initView(){
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         toolbar = (Toolbar)findViewById(R.id.main_tb);
         navigationView = (NavigationView)findViewById(R.id.nav_view);
         tabLayout = (TabLayout)findViewById(R.id.main_tl);
         viewPager = (ViewPager)findViewById(R.id.main_vp);
         cities = new ArrayList<>();
-        //注册广播
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(Constants.LOCATION_ACTION);
-        this.registerReceiver(new LocationBroadcastReceiver(), filter);
-        //启动服务
-        Intent intent = new Intent(this, LocationService.class);
-        startService(intent);
-        //toolbar.setTitle(new LocationUtils().getBestLocation(context));
+        toolbar.setTitle(location);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -102,6 +111,14 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         }else {
             initTabAndViewPager();
         }
+    }
+
+    private void showGetLocationDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        View view = LayoutInflater.from(context).inflate(R.layout.dialog_get_location, null);
+        builder.setView(view);
+        dialog = builder.create();
+        dialog.show();
     }
 
     private void initTabAndViewPager(){
@@ -188,7 +205,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(Constants.LOCATION_ACTION)){
-                String location = intent.getStringExtra(Constants.LOCATION);
+                dialog.dismiss();
+                location = intent.getStringExtra(Constants.LOCATION);
+                initView();
             }
         }
     }

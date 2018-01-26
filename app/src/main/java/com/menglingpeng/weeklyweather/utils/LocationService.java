@@ -83,7 +83,7 @@ public class LocationService extends Service implements LocationListener{
     public void onLocationChanged(Location location) {
         Address address;
         String adminArea = null;
-        Geocoder geocoder = new Geocoder(context, Locale.getDefault());
+        Geocoder geocoder = new Geocoder(context , Locale.getDefault());
         List<Address> list = null;
         try {
             list = geocoder.getFromLocation(location.getAltitude(), location.getLongitude(), 1);
