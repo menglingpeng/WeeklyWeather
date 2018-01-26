@@ -5,9 +5,9 @@
 
 ## 使用的技术
   
-  * 采用的MVP构架，有效的解耦
+  * 采用的MVP构架，有效地解耦
   * RxAndroid + RxJava 响应式编程
-  * retrofit + okhttp +RxJava 组合网络框架
+  * retrofit + okhttp + RxJava 组合网络框架
   * Glide高效加载图片
-  * 整合多种数据
+  * 整合多种来源数据
   
