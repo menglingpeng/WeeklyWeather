@@ -36,4 +36,7 @@
     <dimen name="hot_city_bt_text_size">18dp</dimen>
     <dimen name="dialog_get_location_pb_layout_margin_top_bottom">10dp</dimen>
     <dimen name="dialog_get_location_tv_layout_margin_bottom">10dp</dimen>
+    <dimen name="today_tom_weather_rl_layout_height">60dp</dimen>
+    <dimen name="today_tom_weather_hori_view_layout_height">1dp</dimen>
+    <dimen name="today_tom_weather_vert_view_layout_width">1dp</dimen>
 </resources>

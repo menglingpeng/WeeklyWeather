@@ -92,6 +92,48 @@
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/today_tom_weather_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/today_tom_weather_rl_layout_height"
+            android:layout_alignParentBottom="true">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/today_tom_weather_hori_view_layout_height"
+                android:background="@color/today_tom_weather_view"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/today_weather_rl"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/tom_weather_rl"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="@dimen/today_tom_weather_vert_view_layout_width"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:background="@color/today_tom_weather_view"/>
+
+        </RelativeLayout>
+
     </RelativeLayout>
 
 </android.support.v4.widget.NestedScrollView>
