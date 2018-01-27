@@ -21,8 +21,10 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -31,6 +33,7 @@ import com.menglingpeng.weeklyweather.mvp.view.WeatherFragment;
 import com.menglingpeng.weeklyweather.utils.Constants;
 import com.menglingpeng.weeklyweather.utils.LocationService;
 import com.menglingpeng.weeklyweather.utils.SPUtils;
+import com.menglingpeng.weeklyweather.utils.ShareUtils;
 
 import java.util.ArrayList;
 
@@ -111,6 +114,21 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         }else {
             initTabAndViewPager();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_acitivity_toolbar_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.main_share){
+            String text = null;
+            ShareUtils.share(context, text);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void showGetLocationDialog(){
