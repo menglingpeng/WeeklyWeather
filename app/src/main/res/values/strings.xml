@@ -14,6 +14,12 @@
     <string name="cm_recycler_view_location_item_weather_reminder_tv">天气早晚提醒</string>
     <string name="dialog_get_location_tv">获取定位中</string>
     <string name="share_create_chooser_title">分享</string>
+    <string name="optimal_air_text">优</string>
+    <string name="good_air_text">良</string>
+    <string name="lightly_polluted_air_text">轻度</string>
+    <string name="moderately_polluted_air_text">中度</string>
+    <string name="severe_polluted_air_text">重度</string>
+    <string name="serious_polluted_air_text">严重</string>
     <string name="night">今夜</string>
-    <style name="tomorrow">明天</style>
+    <string name="tomorrow">明天</string>
 </resources>

@@ -169,6 +169,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/today_tv_layout_marginTop"
                         android:layout_marginLeft="@dimen/today_tv_layout_marginLeft"
+                        android:text="@string/tomorrow"
                         android:textAppearance="@style/TodayTomRlTextStyle" />
 
                     <Button

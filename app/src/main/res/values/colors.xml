@@ -12,4 +12,5 @@
     <color name="lightly_polluted_air_color">#FFA000</color>
     <color name="moderately_polluted_air_color">#EF5350</color>
     <color name="severe_polluted_air_color">#8E24AA</color>
+    <color name="serious_polluted_air_color">#BF360C</color>
 </resources>
