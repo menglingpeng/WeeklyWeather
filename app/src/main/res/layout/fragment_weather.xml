@@ -95,7 +95,7 @@
         <RelativeLayout
             android:id="@+id/today_tom_weather_rl"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/today_tom_weather_rl_layout_height"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true">
 
             <View
@@ -110,22 +110,103 @@
 
                 <RelativeLayout
                     android:id="@+id/today_weather_rl"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/today_tom_weather_rl_layout_width"
                     android:layout_height="match_parent"
-                    android:layout_weight="1">
+                    android:layout_weight="@dimen/today_tom_weather_rl_layout_weigth">
+
+                    <TextView
+                        android:id="@+id/today_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/today_tv_layout_marginTop"
+                        android:layout_marginLeft="@dimen/today_tv_layout_marginLeft"
+                        android:textAppearance="@style/TodayTomRlTextStyle" />
+
+                    <Button
+                        android:id="@+id/today_air_quality_bt"
+                        android:layout_width="@dimen/today_air_quality_bt_layout_width"
+                        android:layout_height="@dimen/today_air_quality_bt_layout_height"
+                        android:layout_marginLeft="@dimen/today_air_quality_bt_layout_marginLeft"
+                        android:gravity="center"
+                        android:textAppearance="@style/TodayTomRlTextStyle"/>
+
+                    <TextView
+                        android:id="@+id/today_high_low_temperture_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="@dimen/today_high_low_temperture_tv_layout_marginEnd"
+                        android:textAppearance="@style/TodayTomRlTextStyle"/>
+
+                    <TextView
+                        android:id="@+id/today_weather_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/today_tv"
+                        android:layout_alignLeft="@+id/today_tv"
+                        android:layout_marginTop="@dimen/today_weather_tv_layout_margin_top_bottom"
+                        android:layout_marginBottom="@dimen/today_weather_tv_layout_margin_top_bottom"
+                        android:textAppearance="@style/TodayTomRlTextStyle"/>
+
+                    <ImageView
+                        android:id="@+id/toady_weather_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/today_weather_tv"
+                        android:layout_alignEnd="@+id/today_high_low_temperture_tv"/>
 
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:id="@+id/tom_weather_rl"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/today_tom_weather_rl_layout_width"
                     android:layout_height="match_parent"
-                    android:layout_weight="1">
+                    android:layout_weight="@dimen/today_tom_weather_rl_layout_weigth">
+
+                    <TextView
+                        android:id="@+id/tom_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/today_tv_layout_marginTop"
+                        android:layout_marginLeft="@dimen/today_tv_layout_marginLeft"
+                        android:textAppearance="@style/TodayTomRlTextStyle" />
+
+                    <Button
+                        android:id="@+id/tom_air_quality_bt"
+                        android:layout_width="@dimen/today_air_quality_bt_layout_width"
+                        android:layout_height="@dimen/today_air_quality_bt_layout_height"
+                        android:layout_marginLeft="@dimen/today_air_quality_bt_layout_marginLeft"
+                        android:gravity="center"
+                        android:textAppearance="@style/TodayTomRlTextStyle"/>
+
+                    <TextView
+                        android:id="@+id/tom_high_low_temperture_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="@dimen/today_high_low_temperture_tv_layout_marginEnd"
+                        android:textAppearance="@style/TodayTomRlTextStyle"/>
+
+                    <TextView
+                        android:id="@+id/tom_weather_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tom_tv"
+                        android:layout_alignLeft="@+id/tom_tv"
+                        android:layout_marginTop="@dimen/today_weather_tv_layout_margin_top_bottom"
+                        android:layout_marginBottom="@dimen/today_weather_tv_layout_margin_top_bottom"
+                        android:textAppearance="@style/TodayTomRlTextStyle"/>
+
+                    <ImageView
+                        android:id="@+id/tom_weather_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/tom_weather_tv"
+                        android:layout_alignEnd="@+id/tom_high_low_temperture_tv"/>
 
                 </RelativeLayout>
 
             </LinearLayout>
-
             <View
                 android:layout_width="@dimen/today_tom_weather_vert_view_layout_width"
                 android:layout_height="match_parent"

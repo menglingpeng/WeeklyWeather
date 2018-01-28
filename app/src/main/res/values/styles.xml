@@ -27,4 +27,9 @@
         <item name="android:windowExitAnimation">@anim/dialog_add_city_exit</item>
     </style>
 
+    <style name="TodayTomRlTextStyle">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/TodayTomRlTextStyle_text_size</item>
+    </style>
+
 </resources>

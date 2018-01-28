@@ -36,7 +36,17 @@
     <dimen name="hot_city_bt_text_size">18dp</dimen>
     <dimen name="dialog_get_location_pb_layout_margin_top_bottom">10dp</dimen>
     <dimen name="dialog_get_location_tv_layout_margin_bottom">10dp</dimen>
-    <dimen name="today_tom_weather_rl_layout_height">60dp</dimen>
     <dimen name="today_tom_weather_hori_view_layout_height">1dp</dimen>
     <dimen name="today_tom_weather_vert_view_layout_width">1dp</dimen>
+    <dimen name="TodayTomRlTextStyle_text_size">20dp</dimen>
+    <dimen name="today_tom_weather_rl_layout_width">0dp</dimen>
+    <item name="today_tom_weather_rl_layout_weigth" type="dimen" format="integer">1</item>
+    <dimen name="today_tv_layout_marginTop">5dp</dimen>
+    <dimen name="today_tv_layout_marginLeft">15dp</dimen>
+    <dimen name="today_air_quality_bt_layout_width">20dp</dimen>
+    <dimen name="today_air_quality_bt_layout_height">10dp</dimen>
+    <dimen name="today_air_quality_bt_layout_marginLeft">5dp</dimen>
+    <dimen name="today_high_low_temperture_tv_layout_marginEnd">10dp</dimen>
+    <dimen name="today_weather_tv_layout_margin_top_bottom">10dp</dimen>
+
 </resources>
