@@ -7,4 +7,13 @@
     <color name="cm_recycler_view_location_item_tv">#757575</color>
     <color name="cm_recycler_view_item_rl_background">#757575</color>
     <color name="today_tom_weather_view">#757575</color>
+<<<<<<< HEAD
+=======
+    <color name="optimal_air_color">#00C853</color>
+    <color name="good_air_color">#FDD835</color>
+    <color name="lightly_polluted_air_color">#FFA000</color>
+    <color name="moderately_polluted_air_color">#EF5350</color>
+    <color name="severe_polluted_air_color">#8E24AA</color>
+    <color name="serious_polluted_air_color">#BF360C</color>
+>>>>>>> dev
 </resources>
