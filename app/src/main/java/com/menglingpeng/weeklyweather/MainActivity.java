@@ -53,6 +53,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     private AlertDialog dialog;
     private String location = null;
 
+
     @Override
     protected void initLayoutId() {
         layoutId = R.layout.activity_main;
