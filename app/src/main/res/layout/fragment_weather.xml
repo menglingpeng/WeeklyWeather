@@ -158,11 +158,6 @@
 
                 <RelativeLayout
                     android:id="@+id/tom_weather_rl"
-
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
                     android:layout_width="@dimen/today_tom_weather_rl_layout_width"
                     android:layout_height="match_parent"
                     android:layout_weight="@dimen/today_tom_weather_rl_layout_weigth">

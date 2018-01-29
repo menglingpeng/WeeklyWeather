@@ -13,6 +13,7 @@ public class Constants {
     public static final String LOCATION_ACTION = "location_action";
     public static final String LOCATION = "location";
     public static final String CURRENT_CITY_POSITION = "current_city_position";
+    public static final String CURRENT_DAY_POSITION = "current_day_position";
 
     public static final int REQUEST_LOCATION_PERMISSION_CODE = 1;
     //Http_Config
