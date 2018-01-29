@@ -1,8 +1,10 @@
 package com.menglingpeng.weeklyweather.mvp.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -28,11 +30,13 @@ public class WeatherFragment extends BaseFragment {
     private RelativeLayout airQualityRl;
     private TextView airQualityTv;
     private TextView airQualityValueTv;
+    private RelativeLayout todayWeatherRl;
     private TextView todayTv;
     private TextView todayTemperatureTv;
     private Button todayAirQualityBt;
     private TextView todayWeatherTv;
     private ImageView todayWeatherIv;
+    private RelativeLayout tomWeatherRl;
     private TextView tomTemperatureTv;
     private Button tomAirQualityBt;
     private TextView tomWeatherTv;
@@ -65,14 +69,30 @@ public class WeatherFragment extends BaseFragment {
         airQualityValueTv = (TextView)rootView.findViewById(R.id.air_quality_value_tv);
         todayTv = (TextView)rootView.findViewById(R.id.today_tv);
         //今天、明天天气
+        todayWeatherRl = (RelativeLayout)rootView.findViewById(R.id.today_weather_rl);
         todayAirQualityBt = (Button)rootView.findViewById(R.id.today_air_quality_bt);
         todayTemperatureTv = (TextView) rootView.findViewById(R.id.today_high_low_temperture_tv);
         todayWeatherTv = (TextView)rootView.findViewById(R.id.today_weather_tv);
         todayWeatherIv = (ImageView)rootView.findViewById(R.id.toady_weather_iv);
+        tomWeatherRl = (RelativeLayout)rootView.findViewById(R.id.tom_weather_rl);
         tomAirQualityBt = (Button)rootView.findViewById(R.id.tom_air_quality_bt);
         tomTemperatureTv = (TextView) rootView.findViewById(R.id.tom_high_low_temperture_tv);
         tomWeatherTv = (TextView)rootView.findViewById(R.id.tom_weather_tv);
         tomWeatherIv = (ImageView)rootView.findViewById(R.id.tom_weather_iv);
+
+        todayWeatherRl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startWeatherDetailActivity("1");
+            }
+        });
+
+        tomWeatherRl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startWeatherDetailActivity("2");
+            }
+        });
 
     }
 
@@ -90,5 +110,9 @@ public class WeatherFragment extends BaseFragment {
         }
     }
 
-
+    private void startWeatherDetailActivity(String itemId){
+        Intent intent = new Intent(getActivity(), WeatherDetailActivity.class);
+        intent.putExtra(Constants.CURRENT_DAY_POSITION, itemId);
+        startActivity(intent);
+    }
 }
