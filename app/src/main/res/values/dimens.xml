@@ -49,5 +49,14 @@
     <dimen name="today_air_quality_bt_layout_marginLeft">5dp</dimen>
     <dimen name="today_high_low_temperture_tv_layout_marginEnd">10dp</dimen>
     <dimen name="today_weather_tv_layout_margin_top_bottom">10dp</dimen>
-
+    <dimen name="fragment_weather_detail_rl_layout_height">300dp</dimen>
+    <dimen name="fragment_weather_detail_top_rl_layout_marginTop">30dp</dimen>
+    <dimen name="fragment_weather_detail_top_rl_layout_marginBottom">20dp</dimen>
+    <dimen name="fragment_weather_detail_weather_iv_layout_width_height">30dp</dimen>
+    <dimen name="fragment_weather_detail_weather_iv_layout_marginLeft">10dp</dimen>
+    <dimen name="fragment_weather_detail_weather_tv_layout_marginLeft">10dp</dimen>
+    <dimen name="fragment_weather_detail_temperature_tv_layout_margin_left_bottom">10dp</dimen>
+    <dimen name="fragment_weather_detail_temperature_value_tv_layout_marginEnd">10dp</dimen>
+    <dimen name="fragment_weather_detail_air_quality_bt_layout_width">20dp</dimen>
+    <dimen name="fragment_weather_detail_air_quality_bt_layout_height">10dp</dimen>
 </resources>

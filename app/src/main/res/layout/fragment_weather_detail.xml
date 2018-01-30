@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/fragment_weather_detail_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fragment_weather_detail_rl_layout_height">
+
+        <RelativeLayout
+            android:id="@+id/fragment_weather_detail_top_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fragment_weather_detail_top_rl_layout_marginTop"
+            android:layout_marginBottom="@dimen/fragment_weather_detail_top_rl_layout_marginBottom">
+
+            <ImageView
+                android:id="@+id/fragment_weather_detail_weather_iv"
+                android:layout_width="@dimen/fragment_weather_detail_weather_iv_layout_width_height"
+                android:layout_height="@dimen/fragment_weather_detail_weather_iv_layout_width_height"
+                android:layout_marginLeft="@dimen/fragment_weather_detail_weather_iv_layout_marginLeft"/>
+
+            <TextView
+                android:id="@+id/fragment_weather_detail_weather_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/fragment_weather_detail_weather_iv"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/fragment_weather_detail_weather_tv_layout_marginLeft"
+                android:textAppearance="@style/TodayTomRlTextStyle"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/fragment_weather_detail_temperature_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_weather_detail_top_rl"
+            android:layout_marginLeft="@dimen/fragment_weather_detail_temperature_tv_layout_margin_left_bottom"
+            android:layout_marginBottom="@dimen/fragment_weather_detail_temperature_tv_layout_margin_left_bottom"
+            android:text="@string/temprature"
+            android:textAppearance="@style/TodayTomRlTextStyle"/>
+
+        <TextView
+            android:id="@+id/fragment_weather_detail_temperature_value_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/fragment_weather_detail_temperature_tv"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/fragment_weather_detail_temperature_value_tv_layout_marginEnd"
+            android:textAppearance="@style/TodayTomRlTextStyle"/>
+
+        <TextView
+            android:id="@+id/fragment_weather_detail_wind_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_weather_detail_temperature_tv"
+            android:layout_alignLeft="@+id/fragment_weather_detail_temperature_tv"
+            android:layout_marginBottom="@dimen/fragment_weather_detail_temperature_tv_layout_margin_left_bottom"
+            android:text="@string/wind"
+            android:textAppearance="@style/TodayTomRlTextStyle"/>
+
+        <TextView
+            android:id="@+id/fragment_weather_detail_wind_value_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/fragment_weather_detail_wind_tv"
+            android:layout_alignRight="@+id/fragment_weather_detail_temperature_value_tv"
+            android:textAppearance="@style/TodayTomRlTextStyle"/>
+
+        <TextView
+            android:id="@+id/fragment_weather_detail_air_quality_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_weather_detail_wind_tv"
+            android:layout_alignLeft="@+id/fragment_weather_detail_temperature_tv"
+            android:layout_marginBottom="@dimen/fragment_weather_detail_temperature_tv_layout_margin_left_bottom"
+            android:text="@string/air_quality"
+            android:textAppearance="@style/TodayTomRlTextStyle"/>
+
+        <TextView
+            android:id="@+id/fragment_weather_detail_air_quality_value_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/fragment_weather_detail_air_quality_tv"
+            android:layout_toLeftOf="@+id/fragment_weather_detail_air_quality_bt"
+            android:layout_marginRight="@dimen/fragment_weather_detail_temperature_tv_layout_margin_left_bottom"
+            android:textAppearance="@style/TodayTomRlTextStyle"/>
+
+        <Button
+            android:id="@+id/fragment_weather_detail_air_quality_bt"
+            android:layout_width="@dimen/fragment_weather_detail_air_quality_bt_layout_width"
+            android:layout_height="@dimen/fragment_weather_detail_air_quality_bt_layout_height"
+            android:layout_alignRight="@+id/fragment_weather_detail_temperature_value_tv"
+            android:layout_alignTop="@+id/fragment_weather_detail_air_quality_tv"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
