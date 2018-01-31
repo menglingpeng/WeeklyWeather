@@ -216,6 +216,112 @@
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/hours_24_weather_rl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/today_tom_weather_rl"
+            android:layout_marginTop="@dimen/hours_24_weather_rl_layout_marginTop">
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/days_14_weather_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hours_24_weather_rl_layout_marginTop"
+            android:layout_below="@+id/hours_24_weather_rl">
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/life_index_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/days_14_weather_rl"
+            android:layout_marginTop="@dimen/hours_24_weather_rl_layout_marginTop">
+
+            <TextView
+                android:id="@+id/life_index_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/life_index_tv_layout_margng_top_bottom"
+                android:layout_marginLeft="@dimen/life_index_tv_layout_marginLeft"
+                android:layout_marginBottom="@dimen/life_index_tv_layout_margng_top_bottom"
+                android:text="@string/life_index"
+                android:textAppearance="@style/TodayTomRlTextStyle"/>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/life_index_tv">
+
+                <TableRow
+                    android:id="@+id/life_index_1_tr"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/life_index_1_tr_layout_height">
+
+                    <RelativeLayout
+                        android:id="@+id/car_tail_number_limit_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/car_tail_number_limit_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/car_tail_number_limit_tv_layout_marginTop"
+                            android:layout_marginBottom="@dimen/car_tail_number_limit_tv_layout_marginBottom"
+                            android:text="@string/car_tail_number_limit"/>
+
+                        <TextView
+                            android:id="@+id/car_tail_number_limit_value_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/car_tail_number_limit_tv"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/calendar_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/calendar_iv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom"
+                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"/>
+
+                        <TextView
+                            android:id="@+id/calendar_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/calendar_iv"
+                            android:layout_marginBottom="@dimen/calendar_tv_layout_marginBottom"
+                            android:text="@string/calendar"/>
+
+                        <TextView
+                            android:id="@+id/calendar_value_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/calendar_tv"/>
+
+                    </RelativeLayout>
+
+                </TableRow>
+
+
+            </TableLayout>
+
+        </RelativeLayout>
+
     </RelativeLayout>
 
 </android.support.v4.widget.NestedScrollView>

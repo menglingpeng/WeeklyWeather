@@ -37,4 +37,12 @@
     <string name="saturday">周六</string>
     <string name="sunday">周日</string>
 
+    <string name="life_index">生活指数</string>
+    <string name="UV_index">紫外线指数</string>
+    <string name="morning_exercise_index">晨练指数</string>
+    <string name="cold_index">感冒指数</string>
+    <string name="car_wash_index">洗车指数</string>
+    <string name="car_tail_number_limit">尾号限行</string>
+    <string name="calendar">万年历</string>
+
 </resources>

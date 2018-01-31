@@ -60,4 +60,13 @@
     <dimen name="fragment_weather_detail_air_quality_bt_layout_width">20dp</dimen>
     <dimen name="fragment_weather_detail_air_quality_bt_layout_height">10dp</dimen>
     <dimen name="weather_detail_tl_tab_top_tv_layout_marginBottom">5dp</dimen>
+
+    <dimen name="hours_24_weather_rl_layout_marginTop">10dp</dimen>
+    <dimen name="life_index_tv_layout_margng_top_bottom">10dp</dimen>
+    <dimen name="life_index_tv_layout_marginLeft">15dp</dimen>
+    <dimen name="life_index_1_tr_layout_height">60dp</dimen>
+    <dimen name="car_tail_number_limit_tv_layout_marginTop">20dp</dimen>
+    <dimen name="car_tail_number_limit_tv_layout_marginBottom">15dp</dimen>
+    <dimen name="calendar_iv_layout_margin_top_bottom">10dp</dimen>
+    <dimen name="calendar_tv_layout_marginBottom">10dp</dimen>
 </resources>
