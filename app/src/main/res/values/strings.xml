@@ -38,7 +38,7 @@
     <string name="sunday">周日</string>
 
     <string name="life_index">生活指数</string>
-    <string name="UV_index">紫外线指数</string>
+    <string name="uv_index">紫外线指数</string>
     <string name="morning_exercise_index">晨练指数</string>
     <string name="cold_index">感冒指数</string>
     <string name="car_wash_index">洗车指数</string>
