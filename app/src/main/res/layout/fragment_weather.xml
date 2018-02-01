@@ -2,7 +2,7 @@
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <RelativeLayout
@@ -380,6 +380,75 @@
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
                             android:layout_below="@+id/morning_exercise_index_tv"/>
+
+                    </RelativeLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/life_index_2_tr"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/life_index_1_tr_layout_height">
+
+                    <RelativeLayout
+                        android:id="@+id/cold_index_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/cold_index_iv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom"
+                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"/>
+
+                        <TextView
+                            android:id="@+id/cold_index_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/cold_index_iv"
+                            android:layout_marginBottom="@dimen/calendar_tv_layout_marginBottom"
+                            android:text="@string/cold_index"/>
+
+                        <TextView
+                            android:id="@+id/cold_index_value_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/cold_index_tv"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/car_wash_index_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/car_wash_index_iv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom"
+                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"/>
+
+                        <TextView
+                            android:id="@+id/car_wash_index_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/car_wash_index_iv"
+                            android:layout_marginBottom="@dimen/calendar_tv_layout_marginBottom"
+                            android:text="@string/car_wash_index"/>
+
+                        <TextView
+                            android:id="@+id/car_wash_index_value_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/car_wash_index_tv"/>
 
                     </RelativeLayout>
 

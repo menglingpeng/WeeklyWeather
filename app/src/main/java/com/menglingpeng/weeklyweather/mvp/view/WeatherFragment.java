@@ -42,6 +42,21 @@ public class WeatherFragment extends BaseFragment {
     private TextView tomWeatherTv;
     private ImageView tomWeatherIv;
 
+    private RelativeLayout carTailNumberLimitRl;
+    private TextView carTailNumberLimitValueTv;
+    private RelativeLayout calendarRl;
+    private TextView calendarValueTv;
+    private RelativeLayout uvIndexRl;
+    private TextView uvIndexValueTv;
+    private RelativeLayout morningExerciseIndexRl;
+    private TextView morningExerciseIndexValueTv;
+    private RelativeLayout coldIndexRl;
+    private TextView coldIndexValueTv;
+    private RelativeLayout carWashIndexRl;
+    private TextView carWashIndexValueTv;
+
+
+
     public static WeatherFragment newInstance(String type){
         Bundle bundle = new Bundle();
         bundle.putString(Constants.TYPE, type);
@@ -93,6 +108,20 @@ public class WeatherFragment extends BaseFragment {
                 startWeatherDetailActivity("2");
             }
         });
+
+        //生活指数
+        carTailNumberLimitRl = (RelativeLayout)rootView.findViewById(R.id.car_tail_number_limit_rl);
+        carTailNumberLimitValueTv = (TextView)rootView.findViewById(R.id.car_tail_number_limit_value_tv);
+        calendarRl = (RelativeLayout)rootView.findViewById(R.id.calendar_rl);
+        calendarValueTv = (TextView)rootView.findViewById(R.id.calendar_value_tv);
+        uvIndexRl = (RelativeLayout)rootView.findViewById(R.id.uv_index_rl);
+        uvIndexValueTv = (TextView) rootView.findViewById(R.id.uv_index_value_tv);
+        morningExerciseIndexRl = (RelativeLayout)rootView.findViewById(R.id.morning_exercise_index_rl);
+        morningExerciseIndexValueTv = (TextView)rootView.findViewById(R.id.morning_exercise_index_value_tv);
+        coldIndexRl = (RelativeLayout) rootView.findViewById(R.id.cold_index_rl);
+        coldIndexValueTv = (TextView)rootView.findViewById(R.id.cold_index_value_tv);
+        carWashIndexRl = (RelativeLayout)rootView.findViewById(R.id.car_wash_index_rl);
+        carWashIndexValueTv = (TextView)rootView.findViewById(R.id.car_wash_index_value_tv);
 
     }
 
