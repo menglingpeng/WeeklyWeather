@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.menglingpeng.weeklyweather.BaseFragment;
@@ -42,6 +43,7 @@ public class WeatherFragment extends BaseFragment {
     private TextView tomWeatherTv;
     private ImageView tomWeatherIv;
 
+    private TableRow thirdTr;
     private RelativeLayout carTailNumberLimitRl;
     private TextView carTailNumberLimitValueTv;
     private RelativeLayout calendarRl;
@@ -130,7 +132,9 @@ public class WeatherFragment extends BaseFragment {
         clothingIndexValueTv = (TextView)rootView.findViewById(R.id.clothing_index_value_tv);
         fishingIndexRl = (RelativeLayout)rootView.findViewById(R.id.fishing_index_rl);
         fishingIndexValueTv = (TextView)rootView.findViewById(R.id.fishing_index_value_tv);
+        thirdTr = (TableRow)rootView.findViewById(R.id.life_index_third_tr);
 
+        initParameters();
     }
 
     @Override
@@ -141,6 +145,7 @@ public class WeatherFragment extends BaseFragment {
     private void initParameters(){
         switch (type){
             case Constants.CURRENT_CITY_WEATHER:
+                thirdTr.setVisibility(TableRow.VISIBLE);
                 break;
             default:
                 break;

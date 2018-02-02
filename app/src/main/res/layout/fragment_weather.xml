@@ -244,18 +244,20 @@
             android:id="@+id/life_index_rl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/days_14_weather_rl"
-            android:layout_marginTop="@dimen/hours_24_weather_rl_layout_marginTop">
+            android:layout_above="@+id/today_tom_weather_rl"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="81dp"
+            android:layout_marginStart="23dp">
 
             <TextView
                 android:id="@+id/life_index_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/life_index_tv_layout_margng_top_bottom"
-                android:layout_marginLeft="@dimen/life_index_tv_layout_marginLeft"
                 android:layout_marginBottom="@dimen/life_index_tv_layout_margng_top_bottom"
+                android:layout_marginLeft="@dimen/life_index_tv_layout_marginLeft"
+                android:layout_marginTop="@dimen/life_index_tv_layout_margng_top_bottom"
                 android:text="@string/life_index"
-                android:textAppearance="@style/TodayTomRlTextStyle"/>
+                android:textAppearance="@style/TodayTomRlTextStyle" />
 
             <TableLayout
                 android:layout_width="match_parent"
@@ -263,130 +265,7 @@
                 android:layout_below="@+id/life_index_tv">
 
                 <TableRow
-                    android:id="@+id/life_index_1_tr"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/life_index_1_tr_layout_height">
-
-                    <RelativeLayout
-                        android:id="@+id/car_tail_number_limit_rl"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/car_tail_number_limit_tv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/car_tail_number_limit_tv_layout_marginTop"
-                            android:layout_marginBottom="@dimen/car_tail_number_limit_tv_layout_marginBottom"
-                            android:text="@string/car_tail_number_limit"/>
-
-                        <TextView
-                            android:id="@+id/car_tail_number_limit_value_tv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_below="@+id/car_tail_number_limit_tv"/>
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/calendar_rl"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:id="@+id/calendar_iv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom"
-                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"/>
-
-                        <TextView
-                            android:id="@+id/calendar_tv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_below="@+id/calendar_iv"
-                            android:layout_marginBottom="@dimen/calendar_tv_layout_marginBottom"
-                            android:text="@string/calendar"/>
-
-                        <TextView
-                            android:id="@+id/calendar_value_tv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_below="@+id/calendar_tv"/>
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/uv_index_rl"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:id="@+id/uv_index_iv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom"
-                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"/>
-
-                        <TextView
-                            android:id="@+id/uv_index_tv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_below="@+id/uv_index_iv"
-                            android:layout_marginBottom="@dimen/calendar_tv_layout_marginBottom"
-                            android:text="@string/uv_index"/>
-
-                        <TextView
-                            android:id="@+id/uv_index_value_tv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_below="@+id/uv_index_tv"/>
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/morning_exercise_index_rl"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:id="@+id/morning_exercise_index_iv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom"
-                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"/>
-
-                        <TextView
-                            android:id="@+id/morning_exercise_index_tv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_below="@+id/morning_exercise_index_iv"
-                            android:layout_marginBottom="@dimen/calendar_tv_layout_marginBottom"
-                            android:text="@string/morning_exercise_index"/>
-
-                        <TextView
-                            android:id="@+id/morning_exercise_index_value_tv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_below="@+id/morning_exercise_index_tv"/>
-
-                    </RelativeLayout>
-
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/life_index_2_tr"
+                    android:id="@+id/life_index_first_tr"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/life_index_1_tr_layout_height">
 
@@ -400,26 +279,126 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom"
-                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"/>
+                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"
+                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom" />
 
                         <TextView
                             android:id="@+id/cold_index_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
                             android:layout_below="@+id/cold_index_iv"
+                            android:layout_centerHorizontal="true"
                             android:layout_marginBottom="@dimen/calendar_tv_layout_marginBottom"
-                            android:text="@string/cold_index"/>
+                            android:text="@string/cold_index" />
 
                         <TextView
                             android:id="@+id/cold_index_value_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_below="@+id/cold_index_tv"/>
+                            android:layout_below="@+id/cold_index_tv"
+                            android:layout_centerHorizontal="true" />
 
                     </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/calendar_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/calendar_iv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"
+                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom" />
+
+                        <TextView
+                            android:id="@+id/calendar_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/calendar_iv"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/calendar_tv_layout_marginBottom"
+                            android:text="@string/calendar" />
+
+                        <TextView
+                            android:id="@+id/calendar_value_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/calendar_tv"
+                            android:layout_centerHorizontal="true" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/uv_index_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/uv_index_iv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"
+                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom" />
+
+                        <TextView
+                            android:id="@+id/uv_index_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/uv_index_iv"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/calendar_tv_layout_marginBottom"
+                            android:text="@string/uv_index" />
+
+                        <TextView
+                            android:id="@+id/uv_index_value_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/uv_index_tv"
+                            android:layout_centerHorizontal="true" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/morning_exercise_index_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/morning_exercise_index_iv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"
+                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom" />
+
+                        <TextView
+                            android:id="@+id/morning_exercise_index_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/morning_exercise_index_iv"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/calendar_tv_layout_marginBottom"
+                            android:text="@string/morning_exercise_index" />
+
+                        <TextView
+                            android:id="@+id/morning_exercise_index_value_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/morning_exercise_index_tv"
+                            android:layout_centerHorizontal="true" />
+
+                    </RelativeLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/life_index_second_tr"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/life_index_1_tr_layout_height">
 
                     <RelativeLayout
                         android:id="@+id/car_wash_index_rl"
@@ -431,24 +410,24 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom"
-                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"/>
+                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"
+                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom" />
 
                         <TextView
                             android:id="@+id/car_wash_index_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
                             android:layout_below="@+id/car_wash_index_iv"
+                            android:layout_centerHorizontal="true"
                             android:layout_marginBottom="@dimen/calendar_tv_layout_marginBottom"
-                            android:text="@string/car_wash_index"/>
+                            android:text="@string/car_wash_index" />
 
                         <TextView
                             android:id="@+id/car_wash_index_value_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_below="@+id/car_wash_index_tv"/>
+                            android:layout_below="@+id/car_wash_index_tv"
+                            android:layout_centerHorizontal="true" />
 
                     </RelativeLayout>
 
@@ -462,24 +441,24 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom"
-                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"/>
+                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"
+                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom" />
 
                         <TextView
                             android:id="@+id/clothing_index_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
                             android:layout_below="@+id/clothing_index_iv"
+                            android:layout_centerHorizontal="true"
                             android:layout_marginBottom="@dimen/calendar_tv_layout_marginBottom"
-                            android:text="@string/clothing_index"/>
+                            android:text="@string/clothing_index" />
 
                         <TextView
                             android:id="@+id/clothing_index_value_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_below="@+id/clothing_index_tv"/>
+                            android:layout_below="@+id/clothing_index_tv"
+                            android:layout_centerHorizontal="true" />
 
                     </RelativeLayout>
 
@@ -493,24 +472,55 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom"
-                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"/>
+                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"
+                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom" />
 
                         <TextView
                             android:id="@+id/fishing_index_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
                             android:layout_below="@+id/fishing_index_iv"
+                            android:layout_centerHorizontal="true"
                             android:layout_marginBottom="@dimen/calendar_tv_layout_marginBottom"
-                            android:text="@string/fishing_index"/>
+                            android:text="@string/fishing_index" />
 
                         <TextView
                             android:id="@+id/fishing_index_value_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_below="@+id/fishing_index_tv"
+                            android:layout_centerHorizontal="true" />
+
+                    </RelativeLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/life_index_third_tr"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/life_index_1_tr_layout_height"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:id="@+id/car_tail_number_limit_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/car_tail_number_limit_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
-                            android:layout_below="@+id/fishing_index_tv"/>
+                            android:layout_marginBottom="@dimen/car_tail_number_limit_tv_layout_marginBottom"
+                            android:layout_marginTop="@dimen/car_tail_number_limit_tv_layout_marginTop"
+                            android:text="@string/car_tail_number_limit" />
+
+                        <TextView
+                            android:id="@+id/car_tail_number_limit_value_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/car_tail_number_limit_tv"
+                            android:layout_centerHorizontal="true" />
 
                     </RelativeLayout>
 
