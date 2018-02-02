@@ -452,6 +452,68 @@
 
                     </RelativeLayout>
 
+                    <RelativeLayout
+                        android:id="@+id/clothing_index_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/clothing_index_iv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom"
+                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"/>
+
+                        <TextView
+                            android:id="@+id/clothing_index_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/clothing_index_iv"
+                            android:layout_marginBottom="@dimen/calendar_tv_layout_marginBottom"
+                            android:text="@string/clothing_index"/>
+
+                        <TextView
+                            android:id="@+id/clothing_index_value_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/clothing_index_tv"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/fishing_index_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/fishing_index_iv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom"
+                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"/>
+
+                        <TextView
+                            android:id="@+id/fishing_index_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/fishing_index_iv"
+                            android:layout_marginBottom="@dimen/calendar_tv_layout_marginBottom"
+                            android:text="@string/fishing_index"/>
+
+                        <TextView
+                            android:id="@+id/fishing_index_value_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/fishing_index_tv"/>
+
+                    </RelativeLayout>
+
                 </TableRow>
 
 

@@ -44,5 +44,7 @@
     <string name="car_wash_index">洗车指数</string>
     <string name="car_tail_number_limit">尾号限行</string>
     <string name="calendar">万年历</string>
+    <string name="fishing_index">钓鱼指数</string>
+    <string name="clothing_index">穿衣指数</string>
 
 </resources>

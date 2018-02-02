@@ -54,6 +54,10 @@ public class WeatherFragment extends BaseFragment {
     private TextView coldIndexValueTv;
     private RelativeLayout carWashIndexRl;
     private TextView carWashIndexValueTv;
+    private RelativeLayout clothingIndexRl;
+    private TextView clothingIndexValueTv;
+    private RelativeLayout fishingIndexRl;
+    private TextView fishingIndexValueTv;
 
 
 
@@ -122,6 +126,10 @@ public class WeatherFragment extends BaseFragment {
         coldIndexValueTv = (TextView)rootView.findViewById(R.id.cold_index_value_tv);
         carWashIndexRl = (RelativeLayout)rootView.findViewById(R.id.car_wash_index_rl);
         carWashIndexValueTv = (TextView)rootView.findViewById(R.id.car_wash_index_value_tv);
+        clothingIndexRl = (RelativeLayout)rootView.findViewById(R.id.clothing_index_rl);
+        clothingIndexValueTv = (TextView)rootView.findViewById(R.id.clothing_index_value_tv);
+        fishingIndexRl = (RelativeLayout)rootView.findViewById(R.id.fishing_index_rl);
+        fishingIndexValueTv = (TextView)rootView.findViewById(R.id.fishing_index_value_tv);
 
     }
 
