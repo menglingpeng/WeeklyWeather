@@ -52,4 +52,26 @@ public class Constants {
     public static final String LIST_ADDED_CITIES = "list_added_cities";
     public static final String LIST_HOT_CITIES = "list_hot_cities";
 
+    //和风天气API
+    //3天预报天气
+    public static final String FORECAST_WEATHER_URL = "https://free-api.heweather.com/s6/weather/forecast";
+    public static final String USERNAME = "username";
+    public static final String USERNAME_VALUE = "";
+    public static final String T = "t";
+    public static final String SIGN = "sign";
+    public static final String SIGN_VALUE = "";
+    public static final String LANG = "lang";//默认简体中文
+    public static final String UNIT = "unit";
+    //实况天气
+    public static final String NOW_WEATHER_URL = "https://free-api.heweather.com/s6/weather/now";
+    //小时预报
+    public static final String HOURLY_WEATHER_URL = "https://free-api.heweather.com/s6/weather/hourly";
+    //生活指数
+    public static final String LIFTSTYLE_WEATHER_URL = "https://free-api.heweather.com/s6/weather/lifestyle";
+    //空气质量7天预报
+    public static final String AIR_FORECAST_URL = "https://free-api.heweather.com/s6/air/forecast?parameters";
+    //空气质量小时预报
+    public static final String HOURLY_AIR_URL = "https://free-api.heweather.com/s6/air/hourly?parameters";
+    //空气质量实时
+    public static final String NOW_AIR_URL = "https://free-api.heweather.com/s6/air/now?parameters";
 }

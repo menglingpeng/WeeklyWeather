@@ -14,6 +14,12 @@ import android.widget.TextView;
 import com.menglingpeng.weeklyweather.BaseFragment;
 import com.menglingpeng.weeklyweather.R;
 import com.menglingpeng.weeklyweather.utils.Constants;
+import com.menglingpeng.weeklyweather.utils.TimeUtils;
+
+import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
+
+import io.reactivex.CompletableOnSubscribe;
 
 /**
  * Created by mengdroid on 2018/1/15.
@@ -23,6 +29,7 @@ public class WeatherFragment extends BaseFragment {
 
     private String type;
     private Context context;
+    private HashMap<String, String> map;
     private TextView currentTemperatureTv;
     private TextView currentWeatherTypeTv;
     private TextView highWithLowTemperatureTv;
@@ -80,6 +87,7 @@ public class WeatherFragment extends BaseFragment {
 
     @Override
     protected void initView() {
+        map = new HashMap<>();
         currentTemperatureTv = (TextView)rootView.findViewById(R.id.current_temperature_tv);
         currentWeatherTypeTv = (TextView)rootView.findViewById(R.id.current_weather_type_tv);
         highWithLowTemperatureTv = (TextView)rootView.findViewById(R.id.high_low_temperture_tv);
@@ -150,6 +158,10 @@ public class WeatherFragment extends BaseFragment {
             default:
                 break;
         }
+        map.put(Constants.LOCATION, type);
+        map.put(Constants.USERNAME, Constants.USERNAME_VALUE);
+        map.put(Constants.T, TimeUtils.getCurrentTimeStamp());
+        map.put(Constants.SIGN, Constants.SIGN_VALUE);
     }
 
     private void startWeatherDetailActivity(String itemId){

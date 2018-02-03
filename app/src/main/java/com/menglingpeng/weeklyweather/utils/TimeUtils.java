@@ -66,4 +66,12 @@ public class TimeUtils {
         }
         return currentTime;
     }
+
+    public static String getCurrentTimeStamp(){
+        String timeStamp;
+        Calendar calendar = Calendar.getInstance();
+        int stamp = calendar.get(Calendar.MILLISECOND);
+        timeStamp = String.valueOf(stamp);
+        return timeStamp;
+    }
 }

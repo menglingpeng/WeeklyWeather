@@ -114,7 +114,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
                     }
                 }
             });
-        }else if (holder instanceof AddedCitiesViewHolder){
+        }else if (holder instanceof LocationCityViewHolder){
             final LocationCityViewHolder viewHolder = (LocationCityViewHolder)holder;
             final DayWeather dayWeather = (DayWeather)list.get(position);
             if(position == Integer.valueOf(SPUtils.getData(context, Constants.CURRENT_CITY_POSITION))){
