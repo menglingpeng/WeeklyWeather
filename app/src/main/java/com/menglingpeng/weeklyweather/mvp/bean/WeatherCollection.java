@@ -85,20 +85,6 @@ public class WeatherCollection {
         }
 
         public static class NowBean {
-            /**
-             * cond_code : 501
-             * cond_txt : 雾
-             * fl : 8
-             * hum : 94
-             * pcpn : 0
-             * pres : 1018
-             * tmp : 9
-             * vis : 2
-             * wind_deg : 48
-             * wind_dir : 东北风
-             * wind_sc : 微风
-             * wind_spd : 7
-             */
 
             private String cond_code;
             private String cond_txt;
