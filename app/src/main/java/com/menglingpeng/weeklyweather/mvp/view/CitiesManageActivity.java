@@ -3,9 +3,6 @@ package com.menglingpeng.weeklyweather.mvp.view;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -16,7 +13,7 @@ import com.menglingpeng.weeklyweather.BaseActivity;
 import com.menglingpeng.weeklyweather.MainActivity;
 import com.menglingpeng.weeklyweather.R;
 import com.menglingpeng.weeklyweather.mvp.adapter.RecyclerAdapter;
-import com.menglingpeng.weeklyweather.mvp.bean.DayWeather;
+import com.menglingpeng.weeklyweather.mvp.bean.DailyWeather;
 import com.menglingpeng.weeklyweather.mvp.interf.OnRecyclerItemListener;
 import com.menglingpeng.weeklyweather.utils.Constants;
 import com.menglingpeng.weeklyweather.utils.SPUtils;
@@ -30,7 +27,7 @@ public class CitiesManageActivity extends BaseActivity implements OnRecyclerItem
     private RecyclerView.Adapter adapter;
     private Context context;
     private ArrayList<String> cities;
-    private ArrayList<DayWeather> dayWeathers;
+    private ArrayList<DailyWeather> dailyWeathers;
 
     @Override
     protected void initLayoutId() {
@@ -43,7 +40,7 @@ public class CitiesManageActivity extends BaseActivity implements OnRecyclerItem
         toolbar = (Toolbar)findViewById(R.id.cities_manage_tb);
         recyclerView = (RecyclerView)findViewById(R.id.cities_manage_rv);
         cities = new ArrayList<>();
-        dayWeathers = new ArrayList<>();
+        dailyWeathers = new ArrayList<>();
         toolbar.setTitle(R.string.cities_manage_tb_title);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
@@ -58,7 +55,7 @@ public class CitiesManageActivity extends BaseActivity implements OnRecyclerItem
             }
         });
         cities = SPUtils.getArray(context, cities);
-        adapter = new RecyclerAdapter(context, dayWeathers, Constants.LIST_ADDED_CITIES, this);
+        adapter = new RecyclerAdapter(context, dailyWeathers, Constants.LIST_ADDED_CITIES, this);
         recyclerView.setAdapter(adapter);
     }
 

@@ -1,7 +1,6 @@
 package com.menglingpeng.weeklyweather.mvp.adapter;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.menglingpeng.weeklyweather.R;
-import com.menglingpeng.weeklyweather.mvp.bean.DayWeather;
+import com.menglingpeng.weeklyweather.mvp.bean.DailyWeather;
 import com.menglingpeng.weeklyweather.mvp.interf.OnRecyclerItemListener;
 import com.menglingpeng.weeklyweather.utils.Constants;
 import com.menglingpeng.weeklyweather.utils.SPUtils;
@@ -97,14 +96,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
             });
         }else if(holder instanceof AddedCitiesViewHolder){
             final AddedCitiesViewHolder viewHolder = (AddedCitiesViewHolder)holder;
-            final DayWeather dayWeather = (DayWeather)list.get(position);
+            final DailyWeather dailyWeatherr = (DailyWeather)list.get(position);
             if(position == Integer.valueOf(SPUtils.getData(context, Constants.CURRENT_CITY_POSITION))){
                 viewHolder.itemRl.setBackgroundColor(context.getResources().getColor(
                         R.color.cm_recycler_view_item_rl_background));
             }
-            viewHolder.cityTv.setText(dayWeather.getData().getCity());
-            String temperature = new StringBuilder().append(dayWeather.getData().getForecast().get(0).getHigh()).
-                    append("/").append(dayWeather.getData().getForecast().get(0).getLow()).toString();
+            String temperature = new StringBuilder().append(dailyWeatherr.getHeWeather6().get(position).
+                    getDaily_forecast().get(position).getTmp_max()).append("/").append(dailyWeatherr.getHeWeather6().
+                    get(position).getDaily_forecast().get(position).getTmp_min()).toString();
             viewHolder.temperatureTv.setText(temperature);
             viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -116,14 +115,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
             });
         }else if (holder instanceof LocationCityViewHolder){
             final LocationCityViewHolder viewHolder = (LocationCityViewHolder)holder;
-            final DayWeather dayWeather = (DayWeather)list.get(position);
+            final DailyWeather dailyWeatherr = (DailyWeather)list.get(position);
             if(position == Integer.valueOf(SPUtils.getData(context, Constants.CURRENT_CITY_POSITION))){
                 viewHolder.itemRl.setBackgroundColor(context.getResources().getColor(
                         R.color.cm_recycler_view_item_rl_background));
             }
-            viewHolder.cityTv.setText(dayWeather.getData().getCity());
-            String temperature = new StringBuilder().append(dayWeather.getData().getForecast().get(0).getHigh()).
-                    append("/").append(dayWeather.getData().getForecast().get(0).getLow()).toString();
+            String temperature = new StringBuilder().append(dailyWeatherr.getHeWeather6().get(position).
+                    getDaily_forecast().get(position).getTmp_max()).append("/").append(dailyWeatherr.getHeWeather6().
+                    get(position).getDaily_forecast().get(position).getTmp_min()).toString();
             viewHolder.temperatureTv.setText(temperature);
             viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
