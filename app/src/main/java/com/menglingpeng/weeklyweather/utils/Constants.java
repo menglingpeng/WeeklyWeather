@@ -74,4 +74,57 @@ public class Constants {
     public static final String HOURLY_AIR_URL = "https://free-api.heweather.com/s6/air/hourly?parameters";
     //空气质量实时
     public static final String NOW_AIR_URL = "https://free-api.heweather.com/s6/air/now?parameters";
+
+    //天气代码
+    public static final String COND_CODE_100 = "100";
+    public static final String COND_CODE_101 = "101";
+    public static final String COND_CODE_102 = "102";
+    public static final String COND_CODE_103 = "103";
+    public static final String COND_CODE_200 = "200";
+    public static final String COND_CODE_201 = "201";
+    public static final String COND_CODE_202 = "202";
+    public static final String COND_CODE_203 = "203";
+    public static final String COND_CODE_204 = "204";
+    public static final String COND_CODE_205 = "205";
+    public static final String COND_CODE_206 = "206";
+    public static final String COND_CODE_207 = "207";
+    public static final String COND_CODE_208 = "208";
+    public static final String COND_CODE_209 = "209";
+    public static final String COND_CODE_210 = "210";
+    public static final String COND_CODE_211 = "211";
+    public static final String COND_CODE_212 = "212";
+    public static final String COND_CODE_213 = "213";
+    public static final String COND_CODE_300 = "300";
+    public static final String COND_CODE_301 = "301";
+    public static final String COND_CODE_302 = "302";
+    public static final String COND_CODE_303 = "303";
+    public static final String COND_CODE_304 = "304";
+    public static final String COND_CODE_305 = "305";
+    public static final String COND_CODE_306 = "306";
+    public static final String COND_CODE_307 = "307";
+    public static final String COND_CODE_308 = "308";
+    public static final String COND_CODE_309 = "309";
+    public static final String COND_CODE_310 = "310";
+    public static final String COND_CODE_311 = "311";
+    public static final String COND_CODE_312 = "312";
+    public static final String COND_CODE_313 = "313";
+    public static final String COND_CODE_400 = "400";
+    public static final String COND_CODE_401 = "401";
+    public static final String COND_CODE_402 = "402";
+    public static final String COND_CODE_403 = "403";
+    public static final String COND_CODE_404 = "404";
+    public static final String COND_CODE_405 = "405";
+    public static final String COND_CODE_406 = "406";
+    public static final String COND_CODE_407 = "407";
+    public static final String COND_CODE_500 = "500";
+    public static final String COND_CODE_501 = "501";
+    public static final String COND_CODE_502 = "502";
+    public static final String COND_CODE_503 = "503";
+    public static final String COND_CODE_504 = "504";
+    public static final String COND_CODE_507 = "507";
+    public static final String COND_CODE_508 = "508";
+    public static final String COND_CODE_900 = "900";
+    public static final String COND_CODE_901 = "901";
+    public static final String COND_CODE_999 = "999";
+
 }
