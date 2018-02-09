@@ -3,18 +3,18 @@ package com.menglingpeng.weeklyweather.mvp.bean;
 import java.util.List;
 
 /**
- * Created by mengdroid on 2018/2/8.
+ * Created by mengdroid on 2018/2/9.
  */
 
-public class HourlyAirQuality {
+public class DailyAirQuality {
 
-    private List<HourlyAirQuality.HeWeather6Bean> HeWeather6;
+    private List<DailyAirQuality.HeWeather6Bean> HeWeather6;
 
-    public void setHeWeather6(List<HourlyAirQuality.HeWeather6Bean> HeWeather6) {
+    public void setHeWeather6(List<DailyAirQuality.HeWeather6Bean> HeWeather6) {
         this.HeWeather6 = HeWeather6;
     }
 
-    public List<HourlyAirQuality.HeWeather6Bean> getHeWeather6() {
+    public List<DailyAirQuality.HeWeather6Bean> getHeWeather6() {
         return HeWeather6;
     }
 
@@ -23,7 +23,7 @@ public class HourlyAirQuality {
         private BasicBean basic;
         private String status;
         private UpdateBean update;
-        private List<AirHourlyBean> airHourlyBeans;
+        private List<DailyAirQuality.HeWeather6Bean.AirForecastBean> airForecastBeans;
 
         public void setBasic(BasicBean basic) {
             this.basic = basic;
@@ -49,15 +49,15 @@ public class HourlyAirQuality {
             return update;
         }
 
-        public List<AirHourlyBean> getAirHourlyBeans() {
-            return airHourlyBeans;
+        public List<DailyAirQuality.HeWeather6Bean.AirForecastBean> getAirForecastBean() {
+            return airForecastBeans;
         }
 
-        public void setAirHourlyBeans(List<AirHourlyBean> airHourlyBeans) {
-            this.airHourlyBeans = airHourlyBeans;
+        public void setAirForecastBean(List<DailyAirQuality.HeWeather6Bean.AirForecastBean> airForecastBeans) {
+            this.airForecastBeans = airForecastBeans;
         }
 
-        public static class AirHourlyBean{
+        public static class AirForecastBean{
 
             private String aqi;
             private String co;
