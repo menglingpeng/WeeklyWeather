@@ -80,6 +80,7 @@ public class Constants {
     public static final String COND_CODE_101 = "101";
     public static final String COND_CODE_102 = "102";
     public static final String COND_CODE_103 = "103";
+    public static final String COND_CODE_104 = "104";
     public static final String COND_CODE_200 = "200";
     public static final String COND_CODE_201 = "201";
     public static final String COND_CODE_202 = "202";
