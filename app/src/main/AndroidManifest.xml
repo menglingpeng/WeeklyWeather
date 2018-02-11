@@ -21,7 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".mvp.view.CitiesManageActivity" />
-        <activity android:name=".mvp.view.WeatherDetailActivity"></activity>
+        <activity android:name=".mvp.view.WeatherDetailActivity" />
+        <activity android:name=".mvp.view.UVIndexActivity"></activity>
     </application>
 
 </manifest>

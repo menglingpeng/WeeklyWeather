@@ -143,6 +143,14 @@ public class WeatherFragment extends BaseFragment {
         thirdTr = (TableRow)rootView.findViewById(R.id.life_index_third_tr);
 
         initParameters();
+
+        uvIndexRl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), UVIndexActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

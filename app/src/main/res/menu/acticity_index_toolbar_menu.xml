@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/detail_more"
+        android:id="@+id/index_more"
         android:icon="@drawable/ic_more_vert_white_24dp"
         android:title=""
         app:showAsAction="always">
 
         <menu>
             <item
-                android:id="@+id/detail_share"
+                android:id="@+id/index_share"
                 android:icon="@drawable/ic_share_white_24dp"
                 android:title="@string/nav_share_menu"
                 app:showAsAction="never" />
