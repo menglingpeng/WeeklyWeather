@@ -14,6 +14,9 @@ public class Constants {
     public static final String LOCATION = "location";
     public static final String CURRENT_CITY_POSITION = "current_city_position";
     public static final String CURRENT_DAY_POSITION = "current_day_position";
+    public static final String TAB_VIEW_TYPE_WEATHER = "type_weather";
+    public static final String TAB_VIEW_TYPE_INDEX = "type_index";
+
 
     public static final int REQUEST_LOCATION_PERMISSION_CODE = 1;
     //Http_Config

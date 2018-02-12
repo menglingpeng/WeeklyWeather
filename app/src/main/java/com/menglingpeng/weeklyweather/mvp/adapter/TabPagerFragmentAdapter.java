@@ -4,7 +4,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.view.ViewGroup;
+
+import com.menglingpeng.weeklyweather.mvp.view.IndexFragment;
 import com.menglingpeng.weeklyweather.mvp.view.WeatherFragment;
+import com.menglingpeng.weeklyweather.utils.Constants;
 
 import java.util.List;
 
@@ -14,7 +17,9 @@ import java.util.List;
 
 public class TabPagerFragmentAdapter extends FragmentStatePagerAdapter {
 
-    private List<WeatherFragment> fragments;
+    private List<WeatherFragment> weatherFragments;
+    private List<IndexFragment> indexFragments;
+    private List<Fragment> fragments;
     private List<String> titles;
     private static WeatherFragment fragment;
 
@@ -22,19 +27,21 @@ public class TabPagerFragmentAdapter extends FragmentStatePagerAdapter {
         super(fm);
     }
 
-    public void setFragments(List<WeatherFragment> fragments, List<String> titles) {
+    public void setFragments(List fragments, List<String> titles, String type) {
+        switch (type) {
+            case Constants.TAB_VIEW_TYPE_WEATHER:
+                this.fragments = fragments;
+                break;
+            case Constants.TAB_VIEW_TYPE_INDEX:
+                this.fragments = fragments;
+                break;
+            default:
+                break;
+        }
         this.fragments = fragments;
         this.titles = titles;
     }
 
-    public void clearFragments() {
-        for (Fragment fragment : fragments) {
-            if (fragment != null && fragment.isAdded()) {
-                fragment.onDestroy();
-            }
-        }
-        fragments.clear();
-    }
 
     @Override
     public Fragment getItem(int position) {
