@@ -131,4 +131,12 @@ public class Constants {
     public static final String COND_CODE_901 = "901";
     public static final String COND_CODE_999 = "999";
 
+    public static final String INDEX_UV = "index_uv";
+    public static final String INDEX_CODE = "index_code";
+    public static final String INDEX_MORNING_EXERCISE = "index_morning_exercise";
+    public static final String INDEX_CLOTHING = "index_clothing";
+    public static final String INDEX_FISHING = "index_fishing";
+    public static final String INDEX_CAR_WASH = "index_car_wash";
+    public static final String WEATHER_COLLECTION = "weather_collection";
+
 }

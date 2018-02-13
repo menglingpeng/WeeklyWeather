@@ -73,7 +73,7 @@
     <dimen name="first_parameter_value_tv_layout_marginLeft">10dp</dimen>
     <dimen name="fragment_index_parameters_view_layout_width">1dp</dimen>
     <dimen name="fragment_index_parameters_view_layout_marginBottom">5dp</dimen>
-    <dimen name="fragment_index_parameters_rl_layout_marginTop">10dp1</dimen>
+    <dimen name="fragment_index_parameters_rl_layout_marginTop">10dp</dimen>
     <dimen name="fragment_index_city_tv_textSize">20dp</dimen>
     <dimen name="fragment_index_tv_textSize">40dp</dimen>
     <dimen name="fragment_index_tv_layout_margingTop">20dp</dimen>

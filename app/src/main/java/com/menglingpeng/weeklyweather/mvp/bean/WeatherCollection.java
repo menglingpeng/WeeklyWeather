@@ -1,12 +1,13 @@
 package com.menglingpeng.weeklyweather.mvp.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by mengdroid on 2018/2/7.
  */
 
-public class WeatherCollection {
+public class WeatherCollection implements Serializable {
 
     private List<HeWeather6Bean> HeWeather6;
 
