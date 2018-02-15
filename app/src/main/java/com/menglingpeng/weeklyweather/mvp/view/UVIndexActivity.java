@@ -47,6 +47,7 @@ public class UVIndexActivity extends BaseActivity {
                 finish();
             }
         });
+        initTabView();
     }
 
     @Override
