@@ -23,7 +23,8 @@
         <activity android:name=".mvp.view.CitiesManageActivity" />
         <activity android:name=".mvp.view.WeatherDetailActivity" />
         <activity android:name=".mvp.view.UVIndexActivity" />
-        <activity android:name=".mvp.view.ColdIndexActivity"></activity>
+        <activity android:name=".mvp.view.ColdIndexActivity" />
+        <activity android:name=".mvp.view.ExerciseIndexActivity"></activity>
     </application>
 
 </manifest>
