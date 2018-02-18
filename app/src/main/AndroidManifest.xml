@@ -24,7 +24,8 @@
         <activity android:name=".mvp.view.WeatherDetailActivity" />
         <activity android:name=".mvp.view.UVIndexActivity" />
         <activity android:name=".mvp.view.ColdIndexActivity" />
-        <activity android:name=".mvp.view.ExerciseIndexActivity"></activity>
+        <activity android:name=".mvp.view.ExerciseIndexActivity" />
+        <activity android:name=".mvp.view.ClothingIndexActivity"></activity>
     </application>
 
 </manifest>
