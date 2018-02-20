@@ -34,9 +34,9 @@ public class ClothingIndexActivity extends BaseActivity {
     @Override
     protected void initViews() {
         super.initViews();
-        toolbar = (Toolbar)findViewById(R.id.cold_index_tb);
-        tabLayout = (TabLayout)findViewById(R.id.cold_index_tl);
-        viewPager = (ViewPager)findViewById(R.id.cold_index_vp);
+        toolbar = (Toolbar) findViewById(R.id.cold_index_tb);
+        tabLayout = (TabLayout) findViewById(R.id.cold_index_tl);
+        viewPager = (ViewPager) findViewById(R.id.cold_index_vp);
         titles = new ArrayList<>();
         fragments = new ArrayList<>();
         toolbar.setTitle(R.string.clothing_index);
@@ -62,7 +62,7 @@ public class ClothingIndexActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void initTabView(){
+    private void initTabView() {
         titles = new ArrayList<>();
         fragments = new ArrayList<>();
         titles.add(getString(R.string.today));
@@ -88,4 +88,5 @@ public class ClothingIndexActivity extends BaseActivity {
 
             }
         });
+    }
 }
