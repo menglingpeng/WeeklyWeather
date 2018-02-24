@@ -12,6 +12,7 @@ import android.view.View;
 import com.menglingpeng.weeklyweather.BaseActivity;
 import com.menglingpeng.weeklyweather.R;
 import com.menglingpeng.weeklyweather.mvp.adapter.TabPagerFragmentAdapter;
+import com.menglingpeng.weeklyweather.mvp.bean.WeatherCollection;
 import com.menglingpeng.weeklyweather.utils.Constants;
 
 import java.util.ArrayList;
@@ -21,9 +22,7 @@ public class FishingIndexActivity extends BaseActivity {
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private ArrayList<String> titles;
-    private ArrayList<IndexFragment> fragments;
-    private TabPagerFragmentAdapter adapter;
+    private WeatherCollection weatherCollection;
 
 
     @Override
@@ -34,11 +33,10 @@ public class FishingIndexActivity extends BaseActivity {
     @Override
     protected void initViews() {
         super.initViews();
+        weatherCollection = (WeatherCollection) getIntent().getSerializableExtra(Constants.WEATHER_COLLECTION);
         toolbar = (Toolbar)findViewById(R.id.cold_index_tb);
         tabLayout = (TabLayout)findViewById(R.id.cold_index_tl);
         viewPager = (ViewPager)findViewById(R.id.cold_index_vp);
-        titles = new ArrayList<>();
-        fragments = new ArrayList<>();
         toolbar.setTitle(R.string.fishing_index);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
@@ -48,7 +46,7 @@ public class FishingIndexActivity extends BaseActivity {
                 finish();
             }
         });
-        initTabView();
+        replaceFragment(IndexFragment.newInstants(Constants.INDEX_FISHING, weatherCollection));
     }
 
     @Override
@@ -62,31 +60,4 @@ public class FishingIndexActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void initTabView(){
-        titles = new ArrayList<>();
-        fragments = new ArrayList<>();
-        titles.add(getString(R.string.today));
-        titles.add(getString(R.string.tomorrow));
-        titles.add(getString(R.string.day_after_tomorrow));
-        adapter = new TabPagerFragmentAdapter(getSupportFragmentManager());
-        adapter.setFragments(fragments, titles, Constants.TAB_VIEW_TYPE_INDEX);
-        viewPager.setAdapter(adapter);
-        tabLayout.setupWithViewPager(viewPager);
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.getCurrentItem();
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-    }
 }
