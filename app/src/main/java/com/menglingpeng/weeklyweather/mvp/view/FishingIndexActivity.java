@@ -20,8 +20,6 @@ import java.util.ArrayList;
 public class FishingIndexActivity extends BaseActivity {
 
     private Toolbar toolbar;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
     private WeatherCollection weatherCollection;
 
 
@@ -34,9 +32,7 @@ public class FishingIndexActivity extends BaseActivity {
     protected void initViews() {
         super.initViews();
         weatherCollection = (WeatherCollection) getIntent().getSerializableExtra(Constants.WEATHER_COLLECTION);
-        toolbar = (Toolbar)findViewById(R.id.cold_index_tb);
-        tabLayout = (TabLayout)findViewById(R.id.cold_index_tl);
-        viewPager = (ViewPager)findViewById(R.id.cold_index_vp);
+        toolbar = (Toolbar)findViewById(R.id.fishing_index_tb);
         toolbar.setTitle(R.string.fishing_index);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);

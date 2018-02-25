@@ -40,9 +40,9 @@ public class CarWashIndexActivity extends BaseActivity {
         super.initViews();
         context = getApplicationContext();
         weatherCollection = (WeatherCollection) getIntent().getSerializableExtra(Constants.WEATHER_COLLECTION);
-        toolbar = (Toolbar)findViewById(R.id.cold_index_tb);
-        tabLayout = (TabLayout)findViewById(R.id.cold_index_tl);
-        viewPager = (ViewPager)findViewById(R.id.cold_index_vp);
+        toolbar = (Toolbar)findViewById(R.id.car_wash_index_tb);
+        tabLayout = (TabLayout)findViewById(R.id.car_wash_index_tl);
+        viewPager = (ViewPager)findViewById(R.id.car_wash_index_vp);
         titles = new ArrayList<>();
         fragments = new ArrayList<>();
         toolbar.setTitle(R.string.car_wash_index);

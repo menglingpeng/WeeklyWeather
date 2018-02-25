@@ -40,9 +40,9 @@ public class ClothingIndexActivity extends BaseActivity {
         super.initViews();
         context = getApplicationContext();
         weatherCollection = (WeatherCollection) getIntent().getSerializableExtra(Constants.WEATHER_COLLECTION);
-        toolbar = (Toolbar) findViewById(R.id.cold_index_tb);
-        tabLayout = (TabLayout) findViewById(R.id.cold_index_tl);
-        viewPager = (ViewPager) findViewById(R.id.cold_index_vp);
+        toolbar = (Toolbar) findViewById(R.id.clothing_index_tb);
+        tabLayout = (TabLayout) findViewById(R.id.clothing_index_tl);
+        viewPager = (ViewPager) findViewById(R.id.clothing_index_vp);
         titles = new ArrayList<>();
         fragments = new ArrayList<>();
         toolbar.setTitle(R.string.clothing_index);

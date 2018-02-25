@@ -15,6 +15,9 @@ import com.menglingpeng.weeklyweather.R;
 import com.menglingpeng.weeklyweather.mvp.adapter.TabPagerFragmentAdapter;
 import com.menglingpeng.weeklyweather.mvp.bean.WeatherCollection;
 import com.menglingpeng.weeklyweather.utils.Constants;
+import com.menglingpeng.weeklyweather.utils.IndexActivityUtils;
+
+import java.util.ArrayList;
 
 public class MountaineeringIndexActivity extends BaseActivity {
 
@@ -23,6 +26,9 @@ public class MountaineeringIndexActivity extends BaseActivity {
     private ViewPager viewPager;
     private Context context;
     private WeatherCollection weatherCollection;
+    private ArrayList<String> titles;
+    private ArrayList<IndexFragment> fragments;
+    private TabPagerFragmentAdapter adapter;
 
     @Override
     protected void initLayoutId() {
@@ -34,9 +40,9 @@ public class MountaineeringIndexActivity extends BaseActivity {
         super.initViews();
         context = getApplicationContext();
         weatherCollection = (WeatherCollection) getIntent().getSerializableExtra(Constants.WEATHER_COLLECTION);
-        toolbar = (Toolbar)findViewById(R.id.uv_index_tb);
-        tabLayout = (TabLayout)findViewById(R.id.uv_index_tl);
-        viewPager = (ViewPager)findViewById(R.id.uv_index_vp);
+        toolbar = (Toolbar)findViewById(R.id.mountaineering_index_tb);
+        tabLayout = (TabLayout)findViewById(R.id.mountaineering_index_tl);
+        viewPager = (ViewPager)findViewById(R.id.mountaineering_index_vp);
         toolbar.setTitle(R.string.mountaineering_index);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
@@ -46,6 +52,8 @@ public class MountaineeringIndexActivity extends BaseActivity {
                 finish();
             }
         });
+        adapter = new TabPagerFragmentAdapter(getSupportFragmentManager());
+        IndexActivityUtils.initTablayout(context, tabLayout, viewPager, titles, fragments, adapter);
     }
 
     @Override
