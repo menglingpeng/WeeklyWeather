@@ -47,6 +47,7 @@
     <string name="calendar">万年历</string>
     <string name="fishing_index">钓鱼指数</string>
     <string name="clothing_index">穿衣指数</string>
+    <string name="mountaineering_index">登山指数</string>
 
     <string name="temprature_range">温度范围</string>
     <string name="weather">天气状况</string>
