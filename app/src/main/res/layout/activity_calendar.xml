@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.menglingpeng.weeklyweather.mvp.view.CalendarActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/activity_calendar_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_calendar_rl_layout_height">
+
+            <TextView
+                android:id="@+id/activity_calendar_holiday_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_calendar_holiday_tv_layout_marginLeft"
+                android:layout_centerHorizontal="true"
+                android:textColor="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/activity_calendar_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/activity_calendar_title_tv_textSize"
+                android:textColor="@android:color/white"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+
+        </RelativeLayout>
+
+        <CalendarView
+            android:id="@+id/activity_calendar_cv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_calendar_cv_layout_height"
+            android:layout_below="@+id/activity_calendar_rl">
+        </CalendarView>
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

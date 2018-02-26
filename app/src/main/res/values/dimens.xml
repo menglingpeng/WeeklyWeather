@@ -79,4 +79,9 @@
     <dimen name="fragment_index_tv_layout_margingTop">20dp</dimen>
     <dimen name="fragment_index_tv_layout_margingLeft">15dp</dimen>
     <dimen name="fragment_index_rl_layout_height">300dp</dimen>
+
+    <dimen name="activity_calendar_rl_layout_height">40dp</dimen>
+    <dimen name="activity_calendar_holiday_tv_layout_marginLeft">15dp</dimen>
+    <dimen name="activity_calendar_title_tv_textSize">20dp</dimen>
+    <dimen name="activity_calendar_cv_layout_height">400dp</dimen>
 </resources>

@@ -28,7 +28,8 @@
         <activity android:name=".mvp.view.ClothingIndexActivity" />
         <activity android:name=".mvp.view.FishingIndexActivity" />
         <activity android:name=".mvp.view.CarWashIndexActivity" />
-        <activity android:name=".mvp.view.MountaineeringIndexActivity"></activity>
+        <activity android:name=".mvp.view.MountaineeringIndexActivity" />
+        <activity android:name=".mvp.view.CalendarActivity"></activity>
     </application>
 
 </manifest>
