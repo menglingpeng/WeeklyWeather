@@ -1,5 +1,6 @@
 package com.menglingpeng.weeklyweather.mvp.view;
 
+import android.graphics.Paint;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
 public class CalendarActivity extends BaseActivity {
 
@@ -27,7 +29,15 @@ public class CalendarActivity extends BaseActivity {
     private Date month;
     private Boolean isCurrentMonth;
     private int selectDay;
-
+    /** 字体上下间距*/
+    private float mTextSpac;
+    private Paint mPaint;
+    private Paint bgPaint;
+    private float titleHeight;
+    private float weekHeight;
+    private float dayHeight;
+    private float preHeight;
+    private float oneHeight;
     @Override
     protected void initLayoutId() {
         layoutId = R.layout.activity_calendar;
@@ -127,4 +137,5 @@ public class CalendarActivity extends BaseActivity {
             return null;
         }
     }
+
 }
