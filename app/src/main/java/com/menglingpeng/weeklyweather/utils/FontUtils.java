@@ -6,7 +6,7 @@ import android.graphics.Paint;
  * Created by mengdroid on 2018/2/27.
  */
 
-public class fontUtils {
+public class FontUtils {
 
     /**
      * @param paint
