@@ -1,10 +1,14 @@
 package com.menglingpeng.weeklyweather.utils;
 
 import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.menglingpeng.weeklyweather.R;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -17,6 +21,11 @@ import java.util.Date;
 
 public class CustomCalendar extends View {
 
+    /** 各部分背景*/
+    private int mBgMonth;
+    private int mBgWeek;
+    private int mBgDay;
+    private int mBgPre;
     private Date month;
     private Boolean isCurrentMonth;
     private int selectDay;
@@ -29,6 +38,13 @@ public class CustomCalendar extends View {
     private float dayHeight;
     private float preHeight;
     private float oneHeight;
+    private int  currentDay;
+    private int todayWeekIndex;
+    private int firstIndex;
+    private int lineNum;
+    private int firstLineNum;
+    private int lastLineNum;
+    private int dayOfMonth;
 
     public CustomCalendar(Context context, AttributeSet attrs, int i) {
         super(context);
@@ -41,6 +57,13 @@ public class CustomCalendar extends View {
     public CustomCalendar(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int
             defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        //获取自定义属性的值
+        TypedArray array = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CustomCalendar, defStyleAttr,
+                0);
+        mBgMonth = array.getColor(R.styleable.CustomCalendar_mBgMonth, Color.TRANSPARENT);
+        mBgWeek = array.getColor(R.styleable.CustomCalendar_mBgWeek, Color.TRANSPARENT);
+        mBgDay = array.getColor(R.styleable.CustomCalendar_mBgDay, Color.TRANSPARENT);
+        mBgPre = array.getColor(R.styleable.CustomCalendar_mBgPre, Color.TRANSPARENT);
     }
 
     //设置月份
