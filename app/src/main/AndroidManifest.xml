@@ -29,7 +29,8 @@
         <activity android:name=".mvp.view.FishingIndexActivity" />
         <activity android:name=".mvp.view.CarWashIndexActivity" />
         <activity android:name=".mvp.view.MountaineeringIndexActivity" />
-        <activity android:name=".mvp.view.CalendarActivity"></activity>
+        <activity android:name=".mvp.view.CalendarActivity" />
+        <activity android:name=".mvp.view.CarTailNumberLimitActivity"></activity>
     </application>
 
 </manifest>

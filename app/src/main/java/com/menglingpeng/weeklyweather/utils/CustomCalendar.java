@@ -40,6 +40,7 @@ public class CustomCalendar extends View {
     private Date month;
     private Boolean isCurrentMonth;
     private int selectDay;
+
     /** 字体上下间距*/
     private float mTextSpac;
     private Paint paint;
@@ -184,6 +185,11 @@ public class CustomCalendar extends View {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
 
