@@ -2,6 +2,7 @@ package com.menglingpeng.weeklyweather.utils;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
@@ -14,6 +15,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
 /**
  * Created by mengdroid on 2018/2/28.
@@ -26,18 +28,49 @@ public class CustomCalendar extends View {
     private int mBgWeek;
     private int mBgDay;
     private int mBgPre;
+
+    /** 标题的颜色、大小*/
+    private int textColorMonth;
+    private float textSizeMonth;
+    private int monthRowL;
+    private int mMonthRowR;
+    private float monthRowSpac;
+    private float monthSpac;
+
     private Date month;
     private Boolean isCurrentMonth;
     private int selectDay;
     /** 字体上下间距*/
     private float mTextSpac;
-    private Paint mPaint;
+    private Paint paint;
     private Paint bgPaint;
     private float titleHeight;
     private float weekHeight;
     private float dayHeight;
     private float preHeight;
     private float oneHeight;
+    private float mMonthSpac;
+
+    /** 行间距*/
+    private float lineSpac;
+    /** 字体上下间距*/
+    private float textSpac;
+
+    /** 标题的颜色、大小*/
+    private int textColorMonth;
+    private float textSizeMonth;
+    private int monthRowL, monthRowR;
+    private float monthRowSpac;
+    private float monthSpac;
+
+    /** 星期的颜色、大小*/
+    private int textColorWeek;
+    private int selectWeekTextColor;
+    private float textSizeWeek;
+    /** 日期文本的颜色、大小*/
+    private int textColorDay;
+    private float textSizeDay;
+
     private int  currentDay;
     private int todayWeekIndex;
     private int firstIndex;
@@ -45,6 +78,8 @@ public class CustomCalendar extends View {
     private int firstLineNum;
     private int lastLineNum;
     private int dayOfMonth;
+
+    private HashMap map;
 
     public CustomCalendar(Context context, AttributeSet attrs, int i) {
         super(context);
@@ -64,6 +99,33 @@ public class CustomCalendar extends View {
         mBgWeek = array.getColor(R.styleable.CustomCalendar_mBgWeek, Color.TRANSPARENT);
         mBgDay = array.getColor(R.styleable.CustomCalendar_mBgDay, Color.TRANSPARENT);
         mBgPre = array.getColor(R.styleable.CustomCalendar_mBgPre, Color.TRANSPARENT);
+        initData();
+    }
+
+    /**计算相关常量，构造方法中调用*/
+    private void initData(){
+        paint = new Paint();
+        bgPaint = new Paint();
+        paint.setAntiAlias(true); //抗锯齿
+        bgPaint.setAntiAlias(true); //抗锯齿
+
+        map = new HashMap<>();
+
+        //标题高度
+        paint.setTextSize(textSizeMonth);
+        titleHeight = FontUtils.getFontHeight(paint) + 2 * mMonthSpac;
+        //星期高度
+        paint.setTextSize(textSizeWeek);
+        weekHeight = FontUtils.getFontHeight(paint);
+        //日期高度
+        paint.setTextSize(textSizeDay);
+        dayHeight = FontUtils.getFontHeight(paint);
+        //每行高度 = 行间距 + 日期字体高度 + 字间距 + 次数字体高度
+        oneHeight = lineSpac + dayHeight + mTextSpac + preHeight;
+
+        //默认当前月份
+        String cDateStr = getMonthStr(new Date());
+        setMonth(cDateStr);
     }
 
     //设置月份
