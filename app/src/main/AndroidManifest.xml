@@ -30,7 +30,8 @@
         <activity android:name=".mvp.view.CarWashIndexActivity" />
         <activity android:name=".mvp.view.MountaineeringIndexActivity" />
         <activity android:name=".mvp.view.CalendarActivity" />
-        <activity android:name=".mvp.view.CarTailNumberLimitActivity"></activity>
+        <activity android:name=".mvp.view.CarTailNumberLimitActivity" />
+        <activity android:name=".mvp.view.ComfortIndexActivity"></activity>
     </application>
 
 </manifest>
