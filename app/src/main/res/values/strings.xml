@@ -49,6 +49,7 @@
     <string name="clothing_index">穿衣指数</string>
     <string name="mountaineering_index">登山指数</string>
     <string name="comfort_index">舒适度指数</string>
+    <string name="travel_index">旅游指数</string>
 
     <string name="temprature_range">温度范围</string>
     <string name="weather">天气状况</string>
