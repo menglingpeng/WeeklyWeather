@@ -32,7 +32,8 @@
         <activity android:name=".mvp.view.CalendarActivity" />
         <activity android:name=".mvp.view.CarTailNumberLimitActivity" />
         <activity android:name=".mvp.view.ComfortIndexActivity" />
-        <activity android:name=".mvp.view.TravelActivity"></activity>
+        <activity android:name=".mvp.view.TravelActivity" />
+        <activity android:name=".mvp.view.AirPollutionDiffusionIndexActivity"></activity>
     </application>
 
 </manifest>
