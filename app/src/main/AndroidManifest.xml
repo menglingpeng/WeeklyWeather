@@ -33,7 +33,8 @@
         <activity android:name=".mvp.view.CarTailNumberLimitActivity" />
         <activity android:name=".mvp.view.ComfortIndexActivity" />
         <activity android:name=".mvp.view.TravelActivity" />
-        <activity android:name=".mvp.view.AirPollutionDiffusionIndexActivity"></activity>
+        <activity android:name=".mvp.view.AirPollutionDiffusionIndexActivity" />
+        <activity android:name=".mvp.view.FluIndexActivity"></activity>
     </application>
 
 </manifest>
