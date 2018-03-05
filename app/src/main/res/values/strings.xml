@@ -51,6 +51,7 @@
     <string name="comfort_index">舒适度指数</string>
     <string name="travel_index">旅游指数</string>
     <string name="air_pollution_diffusion_index">空气污染扩散指数</string>
+    <string name="flu_index">感冒指数</string>
 
     <string name="temprature_range">温度范围</string>
     <string name="weather">天气状况</string>
