@@ -40,18 +40,15 @@
 
     <string name="life_index">生活指数</string>
     <string name="uv_index">紫外线指数</string>
-    <string name="morning_exercise_index">晨练指数</string>
-    <string name="cold_index">感冒指数</string>
     <string name="car_wash_index">洗车指数</string>
     <string name="car_tail_number_limit">尾号限行</string>
     <string name="calendar">万年历</string>
-    <string name="fishing_index">钓鱼指数</string>
     <string name="clothing_index">穿衣指数</string>
-    <string name="mountaineering_index">登山指数</string>
     <string name="comfort_index">舒适度指数</string>
     <string name="travel_index">旅游指数</string>
     <string name="air_pollution_diffusion_index">空气污染扩散指数</string>
     <string name="flu_index">感冒指数</string>
+    <string name="sport_index">运动指数</string>
 
     <string name="temprature_range">温度范围</string>
     <string name="weather">天气状况</string>

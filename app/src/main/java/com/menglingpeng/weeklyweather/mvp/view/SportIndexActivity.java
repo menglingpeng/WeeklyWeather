@@ -3,8 +3,6 @@ package com.menglingpeng.weeklyweather.mvp.view;
 import android.content.Context;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,7 +17,7 @@ import com.menglingpeng.weeklyweather.utils.IndexActivityUtils;
 
 import java.util.ArrayList;
 
-public class ExerciseIndexActivity extends BaseActivity {
+public class SportIndexActivity extends BaseActivity {
 
     private Toolbar toolbar;
     private TabLayout tabLayout;
@@ -32,7 +30,7 @@ public class ExerciseIndexActivity extends BaseActivity {
 
     @Override
     protected void initLayoutId() {
-        layoutId = R.layout.activity_exercise_index;
+        layoutId = R.layout.activity_sport_index;
     }
 
     @Override
@@ -45,7 +43,7 @@ public class ExerciseIndexActivity extends BaseActivity {
         viewPager = (ViewPager)findViewById(R.id.exercise_index_vp);
         titles = new ArrayList<>();
         fragments = new ArrayList<>();
-        toolbar.setTitle(R.string.morning_exercise_index);
+        toolbar.setTitle(R.string.sport_index);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {

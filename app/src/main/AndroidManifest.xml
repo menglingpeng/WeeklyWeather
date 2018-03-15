@@ -23,11 +23,9 @@
         <activity android:name=".mvp.view.CitiesManageActivity" />
         <activity android:name=".mvp.view.WeatherDetailActivity" />
         <activity android:name=".mvp.view.UVIndexActivity" />
-        <activity android:name=".mvp.view.ExerciseIndexActivity" />
+        <activity android:name=".mvp.view.SportIndexActivity" />
         <activity android:name=".mvp.view.ClothingIndexActivity" />
-        <activity android:name=".mvp.view.FishingIndexActivity" />
         <activity android:name=".mvp.view.CarWashIndexActivity" />
-        <activity android:name=".mvp.view.MountaineeringIndexActivity" />
         <activity android:name=".mvp.view.CalendarActivity" />
         <activity android:name=".mvp.view.CarTailNumberLimitActivity" />
         <activity android:name=".mvp.view.ComfortIndexActivity" />
