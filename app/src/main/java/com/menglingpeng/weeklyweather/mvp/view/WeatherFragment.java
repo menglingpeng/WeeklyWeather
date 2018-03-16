@@ -57,16 +57,16 @@ public class WeatherFragment extends BaseFragment {
     private TextView calendarValueTv;
     private RelativeLayout uvIndexRl;
     private TextView uvIndexValueTv;
-    private RelativeLayout morningExerciseIndexRl;
-    private TextView morningExerciseIndexValueTv;
-    private RelativeLayout coldIndexRl;
-    private TextView coldIndexValueTv;
+    private RelativeLayout sportIndexRl;
+    private TextView sportIndexValueTv;
+    private RelativeLayout fluIndexRl;
+    private TextView fluIndexValueTv;
     private RelativeLayout carWashIndexRl;
     private TextView carWashIndexValueTv;
     private RelativeLayout clothingIndexRl;
     private TextView clothingIndexValueTv;
-    private RelativeLayout fishingIndexRl;
-    private TextView fishingIndexValueTv;
+    private RelativeLayout comfortIndexRl;
+    private TextView comfortIndexValueTv;
 
 
 
@@ -130,16 +130,16 @@ public class WeatherFragment extends BaseFragment {
         calendarValueTv = (TextView)rootView.findViewById(R.id.calendar_value_tv);
         uvIndexRl = (RelativeLayout)rootView.findViewById(R.id.uv_index_rl);
         uvIndexValueTv = (TextView) rootView.findViewById(R.id.uv_index_value_tv);
-        morningExerciseIndexRl = (RelativeLayout)rootView.findViewById(R.id.morning_exercise_index_rl);
-        morningExerciseIndexValueTv = (TextView)rootView.findViewById(R.id.morning_exercise_index_value_tv);
-        coldIndexRl = (RelativeLayout) rootView.findViewById(R.id.cold_index_rl);
-        coldIndexValueTv = (TextView)rootView.findViewById(R.id.cold_index_value_tv);
+        sportIndexRl = (RelativeLayout)rootView.findViewById(R.id.sport_index_rl);
+        sportIndexValueTv = (TextView)rootView.findViewById(R.id.sport_index_value_tv);
+        fluIndexRl = (RelativeLayout) rootView.findViewById(R.id.flu_index_rl);
+        fluIndexValueTv = (TextView)rootView.findViewById(R.id.flu_index_value_tv);
         carWashIndexRl = (RelativeLayout)rootView.findViewById(R.id.car_wash_index_rl);
         carWashIndexValueTv = (TextView)rootView.findViewById(R.id.car_wash_index_value_tv);
         clothingIndexRl = (RelativeLayout)rootView.findViewById(R.id.clothing_index_rl);
         clothingIndexValueTv = (TextView)rootView.findViewById(R.id.clothing_index_value_tv);
-        fishingIndexRl = (RelativeLayout)rootView.findViewById(R.id.fishing_index_rl);
-        fishingIndexValueTv = (TextView)rootView.findViewById(R.id.fishing_index_value_tv);
+        comfortIndexRl = (RelativeLayout)rootView.findViewById(R.id.comfort_index_rl);
+        comfortIndexValueTv = (TextView)rootView.findViewById(R.id.comfort_index_value_tv);
         thirdTr = (TableRow)rootView.findViewById(R.id.life_index_third_tr);
 
         initParameters();
