@@ -301,6 +301,37 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/comfort_index_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/comfort_index_iv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"
+                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom" />
+
+                        <TextView
+                            android:id="@+id/comfort_index_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/comfort_index_iv"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/calendar_tv_layout_marginBottom"
+                            android:text="@string/comfort_index" />
+
+                        <TextView
+                            android:id="@+id/comfort_index_value_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/comfort_index_tv"
+                            android:layout_centerHorizontal="true" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
                         android:id="@+id/flu_index_rl"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent">
@@ -401,37 +432,6 @@
                     android:layout_height="@dimen/life_index_1_tr_layout_height">
 
                     <RelativeLayout
-                        android:id="@+id/comfort_index_rl"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:id="@+id/comfort_index_iv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"
-                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom" />
-
-                        <TextView
-                            android:id="@+id/comfort_index_tv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/comfort_index_iv"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginBottom="@dimen/calendar_tv_layout_marginBottom"
-                            android:text="@string/comfort_index" />
-
-                        <TextView
-                            android:id="@+id/comfort_index_value_tv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/comfort_index_tv"
-                            android:layout_centerHorizontal="true" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
                         android:id="@+id/clothing_index_rl"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent">
@@ -458,6 +458,68 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/clothing_index_tv"
+                            android:layout_centerHorizontal="true" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/travel_index_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/travel_index_iv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"
+                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom" />
+
+                        <TextView
+                            android:id="@+id/travel_index_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/travel_index_iv"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/calendar_tv_layout_marginBottom"
+                            android:text="@string/travel_index" />
+
+                        <TextView
+                            android:id="@+id/travel_index_value_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/travel_index_tv"
+                            android:layout_centerHorizontal="true" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/air_pollution_diffusion_index_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/air_pollution_diffusion_index_iv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/calendar_iv_layout_margin_top_bottom"
+                            android:layout_marginTop="@dimen/calendar_iv_layout_margin_top_bottom" />
+
+                        <TextView
+                            android:id="@+id/air_pollution_diffusion_index_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/air_pollution_diffusion_index_iv"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/calendar_tv_layout_marginBottom"
+                            android:text="@string/comfort_index" />
+
+                        <TextView
+                            android:id="@+id/air_pollution_diffusion_index_value_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/air_pollution_diffusion_index_tv"
                             android:layout_centerHorizontal="true" />
 
                     </RelativeLayout>

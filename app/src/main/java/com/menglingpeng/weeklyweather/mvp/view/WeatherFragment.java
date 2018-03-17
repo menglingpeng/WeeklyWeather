@@ -67,6 +67,10 @@ public class WeatherFragment extends BaseFragment {
     private TextView clothingIndexValueTv;
     private RelativeLayout comfortIndexRl;
     private TextView comfortIndexValueTv;
+    private RelativeLayout travelIndexTl;
+    private TextView travelIndexValueTv;
+    private RelativeLayout airPollutionDiffusionIndexRl;
+    private TextView airPollutionDiffusionValueIndexTv;
 
 
 
@@ -140,6 +144,10 @@ public class WeatherFragment extends BaseFragment {
         clothingIndexValueTv = (TextView)rootView.findViewById(R.id.clothing_index_value_tv);
         comfortIndexRl = (RelativeLayout)rootView.findViewById(R.id.comfort_index_rl);
         comfortIndexValueTv = (TextView)rootView.findViewById(R.id.comfort_index_value_tv);
+        travelIndexTl = (RelativeLayout)rootView.findViewById(R.id.travel_index_rl);
+        travelIndexValueTv = (TextView)rootView.findViewById(R.id.travel_index_value_tv);
+        airPollutionDiffusionIndexRl = (RelativeLayout)rootView.findViewById(R.id.air_pollution_diffusion_index_rl);
+        airPollutionDiffusionValueIndexTv = (TextView) rootView.findViewById(R.id.air_pollution_diffusion_index_value_tv);
         thirdTr = (TableRow)rootView.findViewById(R.id.life_index_third_tr);
 
         initParameters();
