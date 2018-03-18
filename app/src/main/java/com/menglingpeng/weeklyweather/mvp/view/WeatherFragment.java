@@ -3,7 +3,6 @@ package com.menglingpeng.weeklyweather.mvp.view;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -13,22 +12,26 @@ import android.widget.TextView;
 
 import com.menglingpeng.weeklyweather.BaseFragment;
 import com.menglingpeng.weeklyweather.R;
+import com.menglingpeng.weeklyweather.mvp.bean.WeatherCollection;
 import com.menglingpeng.weeklyweather.utils.Constants;
 import com.menglingpeng.weeklyweather.utils.TimeUtils;
 
 import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
-
-import io.reactivex.CompletableOnSubscribe;
+import java.util.List;
 
 /**
  * Created by mengdroid on 2018/1/15.
  */
 
-public class WeatherFragment extends BaseFragment {
+public class WeatherFragment extends BaseFragment implements View.OnClickListener{
 
     private String type;
     private Context context;
+    private WeatherCollection weatherCollection;
+    private List<WeatherCollection.HeWeather6Bean.DailyForecastBean> dailyForecastList;
+    private List<WeatherCollection.HeWeather6Bean.HourlyBean> hourlyList;
+    private WeatherCollection.HeWeather6Bean.NowBean nowBean;
+    private List<WeatherCollection.HeWeather6Bean.LifestyleBean> lifestyleList;
     private HashMap<String, String> map;
     private TextView currentTemperatureTv;
     private TextView currentWeatherTypeTv;
@@ -92,6 +95,7 @@ public class WeatherFragment extends BaseFragment {
     @Override
     protected void initView() {
         map = new HashMap<>();
+        weatherCollection = (WeatherCollection) getArguments().getSerializable(Constants.TYPE);
         currentTemperatureTv = (TextView)rootView.findViewById(R.id.current_temperature_tv);
         currentWeatherTypeTv = (TextView)rootView.findViewById(R.id.current_weather_type_tv);
         highWithLowTemperatureTv = (TextView)rootView.findViewById(R.id.high_low_temperture_tv);
@@ -149,9 +153,7 @@ public class WeatherFragment extends BaseFragment {
         airPollutionDiffusionIndexRl = (RelativeLayout)rootView.findViewById(R.id.air_pollution_diffusion_index_rl);
         airPollutionDiffusionValueIndexTv = (TextView) rootView.findViewById(R.id.air_pollution_diffusion_index_value_tv);
         thirdTr = (TableRow)rootView.findViewById(R.id.life_index_third_tr);
-
         initParameters();
-
         uvIndexRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -163,6 +165,37 @@ public class WeatherFragment extends BaseFragment {
 
     @Override
     protected void initData() {
+        dailyForecastList = weatherCollection.getHeWeather6().get(0).getDaily_forecast();
+        hourlyList = weatherCollection.getHeWeather6().get(0).getHourly();
+        nowBean = weatherCollection.getHeWeather6().get(0).getNow();
+        lifestyleList = weatherCollection.getHeWeather6().get(0).getLifestyle();
+        comfortIndexValueTv.setText(lifestyleList.get(0).getBrf());
+        clothingIndexValueTv.setText(lifestyleList.get(1).getBrf());
+        fluIndexValueTv.setText(lifestyleList.get(2).getBrf());
+        sportIndexValueTv.setText(lifestyleList.get(3).getBrf());
+        travelIndexValueTv.setText(lifestyleList.get(4).getBrf());
+        uvIndexValueTv.setText(lifestyleList.get(5).getBrf());
+        carWashIndexValueTv.setText(lifestyleList.get(6).getBrf());
+        airPollutionDiffusionValueIndexTv.setText(lifestyleList.get(7).getBrf());
+        comfortIndexRl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        clothingIndexRl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        fluIndexRl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
 
     }
 
@@ -184,5 +217,54 @@ public class WeatherFragment extends BaseFragment {
         Intent intent = new Intent(getActivity(), WeatherDetailActivity.class);
         intent.putExtra(Constants.CURRENT_DAY_POSITION, itemId);
         startActivity(intent);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent;
+        switch (v.getId()){
+            case R.id.calendar_rl:
+                intent = new Intent(getActivity(), CalendarActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.comfort_index_rl:
+                intent = new Intent(getActivity(), ComfortIndexActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.clothing_index_rl:
+                intent = new Intent(getActivity(), ClothingIndexActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.flu_index_rl:
+                intent = new Intent(getActivity(), FluIndexActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.sport_index_rl:
+                intent = new Intent(getActivity(), SportIndexActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.travel_index_rl:
+                intent = new Intent(getActivity(), TravelIndexActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.uv_index_rl:
+                intent = new Intent(getActivity(), UVIndexActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.car_wash_index_rl:
+                intent = new Intent(getActivity(), CarWashIndexActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.air_pollution_diffusion_index_rl:
+                intent = new Intent(getActivity(), AirPollutionDiffusionIndexActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.car_tail_number_limit_rl:
+                intent = new Intent(getActivity(), CarTailNumberLimitActivity.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
     }
 }
