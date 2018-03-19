@@ -12,9 +12,11 @@ import android.widget.TextView;
 
 import com.menglingpeng.weeklyweather.BaseFragment;
 import com.menglingpeng.weeklyweather.R;
+import com.menglingpeng.weeklyweather.mvp.bean.NowAirQuality;
 import com.menglingpeng.weeklyweather.mvp.bean.WeatherCollection;
 import com.menglingpeng.weeklyweather.utils.Constants;
 import com.menglingpeng.weeklyweather.utils.TimeUtils;
+import com.menglingpeng.weeklyweather.utils.WeatherIconUtils;
 
 import java.util.HashMap;
 import java.util.List;
@@ -28,6 +30,7 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
     private String type;
     private Context context;
     private WeatherCollection weatherCollection;
+    private NowAirQuality nowAirQuality;
     private List<WeatherCollection.HeWeather6Bean.DailyForecastBean> dailyForecastList;
     private List<WeatherCollection.HeWeather6Bean.HourlyBean> hourlyList;
     private WeatherCollection.HeWeather6Bean.NowBean nowBean;
@@ -95,7 +98,8 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
     @Override
     protected void initView() {
         map = new HashMap<>();
-        weatherCollection = (WeatherCollection) getArguments().getSerializable(Constants.TYPE);
+        weatherCollection = (WeatherCollection) getArguments().getSerializable(Constants.TYPE_WEATHER);
+        nowAirQuality = (NowAirQuality)getArguments().getSerializable(Constants.TYPE_AIR_QUALITY);
         nowTmpTv = (TextView)rootView.findViewById(R.id.now_tmp_tv);
         nowWeatherTypeTv = (TextView)rootView.findViewById(R.id.now_weather_type_tv);
         tmpMaxMinTv = (TextView)rootView.findViewById(R.id.tmp_max_min_tv);
@@ -156,8 +160,9 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
         String tmpMaxMinText = new StringBuffer().append(dailyForecastList.get(0).getTmp_max()).append("°C").append("/").
                 append(dailyForecastList.get(0).getTmp_min()).append("°C").toString();
         tmpMaxMinTv.setText(tmpMaxMinText);
-        
-
+        airQualityTv.setText(nowAirQuality.getHeWeather6().get(0).getAir_now_city().getQlty());
+        airQualityValueTv.setText(nowAirQuality.getHeWeather6().get(0).getAir_now_city().getAqi());
+        //今天，明天天气综述
         //生活指数
         comfortIndexValueTv.setText(lifestyleList.get(0).getBrf());
         clothingIndexValueTv.setText(lifestyleList.get(1).getBrf());

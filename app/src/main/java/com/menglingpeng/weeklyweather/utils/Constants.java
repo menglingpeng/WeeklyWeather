@@ -139,4 +139,7 @@ public class Constants {
     public static final String INDEX_CAR_WASH = "index_car_wash";
     public static final String WEATHER_COLLECTION = "weather_collection";
 
+    public static final String TYPE_WEATHER = "type_weather";
+    public static final String TYPE_AIR_QUALITY = "type_air_quality";
+
 }
