@@ -33,22 +33,22 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
     private WeatherCollection.HeWeather6Bean.NowBean nowBean;
     private List<WeatherCollection.HeWeather6Bean.LifestyleBean> lifestyleList;
     private HashMap<String, String> map;
-    private TextView currentTemperatureTv;
-    private TextView currentWeatherTypeTv;
-    private TextView highWithLowTemperatureTv;
-    private TextView currentWindTv;
-    private TextView currentHumidityTv;
+    private TextView nowTmpTv;
+    private TextView nowWeatherTypeTv;
+    private TextView tmpMaxMinTv;
+    private TextView nowWindTv;
+    private TextView nowHumidityTv;
     private RelativeLayout airQualityRl;
     private TextView airQualityTv;
     private TextView airQualityValueTv;
     private RelativeLayout todayWeatherRl;
     private TextView todayTv;
-    private TextView todayTemperatureTv;
+    private TextView todayTmpTv;
     private Button todayAirQualityBt;
     private TextView todayWeatherTv;
     private ImageView todayWeatherIv;
     private RelativeLayout tomWeatherRl;
-    private TextView tomTemperatureTv;
+    private TextView tomTmpTv;
     private Button tomAirQualityBt;
     private TextView tomWeatherTv;
     private ImageView tomWeatherIv;
@@ -96,11 +96,11 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
     protected void initView() {
         map = new HashMap<>();
         weatherCollection = (WeatherCollection) getArguments().getSerializable(Constants.TYPE);
-        currentTemperatureTv = (TextView)rootView.findViewById(R.id.current_temperature_tv);
-        currentWeatherTypeTv = (TextView)rootView.findViewById(R.id.current_weather_type_tv);
-        highWithLowTemperatureTv = (TextView)rootView.findViewById(R.id.high_low_temperture_tv);
-        currentWindTv = (TextView)rootView.findViewById(R.id.current_wind_tv);
-        currentHumidityTv = (TextView)rootView.findViewById(R.id.current_humidity_tv);
+        nowTmpTv = (TextView)rootView.findViewById(R.id.now_tmp_tv);
+        nowWeatherTypeTv = (TextView)rootView.findViewById(R.id.now_weather_type_tv);
+        tmpMaxMinTv = (TextView)rootView.findViewById(R.id.tmp_max_min_tv);
+        nowWindTv = (TextView)rootView.findViewById(R.id.now_wind_tv);
+        nowHumidityTv = (TextView)rootView.findViewById(R.id.now_humidity_tv);
         airQualityRl = (RelativeLayout)rootView.findViewById(R.id.air_quality_rl);
         airQualityTv = (TextView)rootView.findViewById(R.id.air_quality_tv);
         airQualityValueTv = (TextView)rootView.findViewById(R.id.air_quality_value_tv);
@@ -108,28 +108,14 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
         //今天、明天天气
         todayWeatherRl = (RelativeLayout)rootView.findViewById(R.id.today_weather_rl);
         todayAirQualityBt = (Button)rootView.findViewById(R.id.today_air_quality_bt);
-        todayTemperatureTv = (TextView) rootView.findViewById(R.id.today_high_low_temperture_tv);
+        todayTmpTv = (TextView) rootView.findViewById(R.id.today_tmp_max_min_tv);
         todayWeatherTv = (TextView)rootView.findViewById(R.id.today_weather_tv);
         todayWeatherIv = (ImageView)rootView.findViewById(R.id.toady_weather_iv);
         tomWeatherRl = (RelativeLayout)rootView.findViewById(R.id.tom_weather_rl);
         tomAirQualityBt = (Button)rootView.findViewById(R.id.tom_air_quality_bt);
-        tomTemperatureTv = (TextView) rootView.findViewById(R.id.tom_high_low_temperture_tv);
+        tomTmpTv = (TextView) rootView.findViewById(R.id.tom_tmp_max_min_tv);
         tomWeatherTv = (TextView)rootView.findViewById(R.id.tom_weather_tv);
         tomWeatherIv = (ImageView)rootView.findViewById(R.id.tom_weather_iv);
-
-        todayWeatherRl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startWeatherDetailActivity("1");
-            }
-        });
-
-        tomWeatherRl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startWeatherDetailActivity("2");
-            }
-        });
 
         //生活指数
         carTailNumberLimitRl = (RelativeLayout)rootView.findViewById(R.id.car_tail_number_limit_rl);
@@ -154,13 +140,6 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
         airPollutionDiffusionValueIndexTv = (TextView) rootView.findViewById(R.id.air_pollution_diffusion_index_value_tv);
         thirdTr = (TableRow)rootView.findViewById(R.id.life_index_third_tr);
         initParameters();
-        uvIndexRl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), UVIndexActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
@@ -169,6 +148,17 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
         hourlyList = weatherCollection.getHeWeather6().get(0).getHourly();
         nowBean = weatherCollection.getHeWeather6().get(0).getNow();
         lifestyleList = weatherCollection.getHeWeather6().get(0).getLifestyle();
+        //实时天气
+        nowWeatherTypeTv.setText(nowBean.getCond_txt());
+        nowWindTv.setText(nowBean.getWind_sc());
+        nowTmpTv.setText(nowBean.getTmp());
+        nowHumidityTv.setText(nowBean.getHum());
+        String tmpMaxMinText = new StringBuffer().append(dailyForecastList.get(0).getTmp_max()).append("°C").append("/").
+                append(dailyForecastList.get(0).getTmp_min()).append("°C").toString();
+        tmpMaxMinTv.setText(tmpMaxMinText);
+        
+
+        //生活指数
         comfortIndexValueTv.setText(lifestyleList.get(0).getBrf());
         clothingIndexValueTv.setText(lifestyleList.get(1).getBrf());
         fluIndexValueTv.setText(lifestyleList.get(2).getBrf());
@@ -177,25 +167,6 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
         uvIndexValueTv.setText(lifestyleList.get(5).getBrf());
         carWashIndexValueTv.setText(lifestyleList.get(6).getBrf());
         airPollutionDiffusionValueIndexTv.setText(lifestyleList.get(7).getBrf());
-        comfortIndexRl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        clothingIndexRl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        fluIndexRl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
 
     }
 
@@ -223,6 +194,12 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
     public void onClick(View v) {
         Intent intent;
         switch (v.getId()){
+            case R.id.today_weather_rl:
+                startWeatherDetailActivity("0");
+                break;
+            case R.id.tom_weather_rl:
+                startWeatherDetailActivity("1");
+                break;
             case R.id.calendar_rl:
                 intent = new Intent(getActivity(), CalendarActivity.class);
                 startActivity(intent);
