@@ -9,14 +9,24 @@ import java.util.List;
 
 public class AirQualityCollection implements Serializable {
 
+    private List<AirQualityCollection.HeWeather6Bean> HeWeather6;
 
+    public void setHeWeather6(List<AirQualityCollection.HeWeather6Bean> HeWeather6) {
+        this.HeWeather6 = HeWeather6;
+    }
+
+    public List<AirQualityCollection.HeWeather6Bean> getHeWeather6() {
+        return HeWeather6;
+    }
 
     public static class HeWeather6Bean {
 
         private BasicBean basic;
         private String status;
         private UpdateBean update;
-        private List<HourlyAirQuality.HeWeather6Bean.AirHourlyBean> airHourlyBeans;
+        private List<AirQualityCollection.HeWeather6Bean.AirHourlyBean> airHourlyBeans;
+        private List<AirQualityCollection.HeWeather6Bean.AirForecastBean> airForecastBeans;
+        private List<AirQualityCollection.HeWeather6Bean.AirNowCityBean> airNowCityBeans;
 
         public void setBasic(BasicBean basic) {
             this.basic = basic;
@@ -42,12 +52,28 @@ public class AirQualityCollection implements Serializable {
             return update;
         }
 
-        public List<HourlyAirQuality.HeWeather6Bean.AirHourlyBean> getAirHourlyBeans() {
+        public List<AirQualityCollection.HeWeather6Bean.AirHourlyBean> getAirHourlyBeans() {
             return airHourlyBeans;
         }
 
-        public void setAirHourlyBeans(List<HourlyAirQuality.HeWeather6Bean.AirHourlyBean> airHourlyBeans) {
+        public void setAirHourlyBeans(List<AirQualityCollection.HeWeather6Bean.AirHourlyBean> airHourlyBeans) {
             this.airHourlyBeans = airHourlyBeans;
+        }
+
+        public List<AirForecastBean> getAirForecastBeans() {
+            return airForecastBeans;
+        }
+
+        public void setAirForecastBeans(List<AirForecastBean> airForecastBeans) {
+            this.airForecastBeans = airForecastBeans;
+        }
+
+        public List<AirNowCityBean> getAirNowCityBeans() {
+            return airNowCityBeans;
+        }
+
+        public void setAirNowCityBeans(List<AirNowCityBean> airNowCityBeans) {
+            this.airNowCityBeans = airNowCityBeans;
         }
 
         public static class AirHourlyBean{
