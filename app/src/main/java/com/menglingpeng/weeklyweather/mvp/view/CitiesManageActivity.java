@@ -13,7 +13,7 @@ import com.menglingpeng.weeklyweather.BaseActivity;
 import com.menglingpeng.weeklyweather.MainActivity;
 import com.menglingpeng.weeklyweather.R;
 import com.menglingpeng.weeklyweather.mvp.adapter.RecyclerAdapter;
-import com.menglingpeng.weeklyweather.mvp.bean.DailyWeather;
+import com.menglingpeng.weeklyweather.mvp.bean.WeatherCollection;
 import com.menglingpeng.weeklyweather.mvp.interf.OnRecyclerItemListener;
 import com.menglingpeng.weeklyweather.utils.Constants;
 import com.menglingpeng.weeklyweather.utils.SPUtils;
@@ -27,7 +27,7 @@ public class CitiesManageActivity extends BaseActivity implements OnRecyclerItem
     private RecyclerView.Adapter adapter;
     private Context context;
     private ArrayList<String> cities;
-    private ArrayList<DailyWeather> dailyWeathers;
+    private ArrayList<WeatherCollection.HeWeather6Bean.DailyForecastBean> dailyWeathers;
 
     @Override
     protected void initLayoutId() {

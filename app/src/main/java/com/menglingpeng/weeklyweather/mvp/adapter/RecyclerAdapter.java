@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.menglingpeng.weeklyweather.R;
-import com.menglingpeng.weeklyweather.mvp.bean.DailyWeather;
+import com.menglingpeng.weeklyweather.mvp.bean.WeatherCollection;
 import com.menglingpeng.weeklyweather.mvp.interf.OnRecyclerItemListener;
 import com.menglingpeng.weeklyweather.utils.Constants;
 import com.menglingpeng.weeklyweather.utils.SPUtils;
@@ -96,14 +96,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
             });
         }else if(holder instanceof AddedCitiesViewHolder){
             final AddedCitiesViewHolder viewHolder = (AddedCitiesViewHolder)holder;
-            final DailyWeather dailyWeatherr = (DailyWeather)list.get(position);
+            final WeatherCollection.HeWeather6Bean.DailyForecastBean  dailyWeatherr = (WeatherCollection.
+                    HeWeather6Bean.DailyForecastBean)list.get(position);
             if(position == Integer.valueOf(SPUtils.getData(context, Constants.CURRENT_CITY_POSITION))){
                 viewHolder.itemRl.setBackgroundColor(context.getResources().getColor(
                         R.color.cm_recycler_view_item_rl_background));
             }
-            String temperature = new StringBuilder().append(dailyWeatherr.getHeWeather6().get(position).
-                    getDaily_forecast().get(position).getTmp_max()).append("/").append(dailyWeatherr.getHeWeather6().
-                    get(position).getDaily_forecast().get(position).getTmp_min()).toString();
+            String temperature = new StringBuilder().append(dailyWeatherr.getTmp_max()).append("/").append(
+                    dailyWeatherr.getTmp_min()).toString();
             viewHolder.temperatureTv.setText(temperature);
             viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -115,14 +115,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
             });
         }else if (holder instanceof LocationCityViewHolder){
             final LocationCityViewHolder viewHolder = (LocationCityViewHolder)holder;
-            final DailyWeather dailyWeatherr = (DailyWeather)list.get(position);
+            final WeatherCollection.HeWeather6Bean.DailyForecastBean  dailyWeatherr = (WeatherCollection.
+                    HeWeather6Bean.DailyForecastBean)list.get(position);
             if(position == Integer.valueOf(SPUtils.getData(context, Constants.CURRENT_CITY_POSITION))){
                 viewHolder.itemRl.setBackgroundColor(context.getResources().getColor(
                         R.color.cm_recycler_view_item_rl_background));
             }
-            String temperature = new StringBuilder().append(dailyWeatherr.getHeWeather6().get(position).
-                    getDaily_forecast().get(position).getTmp_max()).append("/").append(dailyWeatherr.getHeWeather6().
-                    get(position).getDaily_forecast().get(position).getTmp_min()).toString();
+            String temperature = new StringBuilder().append(dailyWeatherr.getTmp_max()).append("/").append(
+                    dailyWeatherr.getTmp_min()).toString();
             viewHolder.temperatureTv.setText(temperature);
             viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
