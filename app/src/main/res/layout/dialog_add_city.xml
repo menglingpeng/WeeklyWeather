@@ -36,7 +36,7 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <EditText
+            <AutoCompleteTextView
                 android:id="@+id/add_city_dialog_et"
                 android:layout_width="@dimen/add_city_dialog_et_layout_width"
                 android:layout_height="wrap_content"

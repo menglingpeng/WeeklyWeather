@@ -14,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -37,7 +39,7 @@ public class AddCityDialogFragment extends AppCompatDialogFragment implements On
     private Dialog dialog;
     private Context context;
     private ImageView closeIv;
-    private EditText editText;
+    private AutoCompleteTextView editText;
     private ImageButton searchIBt;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
@@ -58,7 +60,7 @@ public class AddCityDialogFragment extends AppCompatDialogFragment implements On
         window.setAttributes(lp);
         dialog.setContentView(view);
         closeIv = (ImageView)view.findViewById(R.id.add_city_dialog_close_iv);
-        editText = (EditText)view.findViewById(R.id.add_city_dialog_et);
+        editText = (AutoCompleteTextView) view.findViewById(R.id.add_city_dialog_et);
         searchIBt = (ImageButton) view.findViewById(R.id.add_city_dialog_search_ib);
         recyclerView = (RecyclerView)view.findViewById(R.id.add_city_dialog_hot_cities_rv);
         dialog.show();
@@ -74,6 +76,11 @@ public class AddCityDialogFragment extends AppCompatDialogFragment implements On
                 String text = editText.getText().toString();
             }
         });
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_dropdown_item_1line,
+                HotCitiesUtils.cities);
+        editText.setAdapter(arrayAdapter);
+        //设置输入多少字符后提示，默认值为2，在此设为１
+        editText.setThreshold(1);
         //设置
         GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 3);
         list = HotCitiesUtils.getHotCities();
