@@ -75,7 +75,8 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/add_city_dialog_hot_cities_rv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add_city_dialog_hot_cities_tv"></android.support.v7.widget.RecyclerView>
 
     </RelativeLayout>
 
