@@ -14,4 +14,6 @@
     <color name="severe_polluted_air_color">#8E24AA</color>
     <color name="serious_polluted_air_color">#BF360C</color>
     <color name="fragment_index_parameters_view">#F5F5F5</color>
+    <color name="gray1">#cccccc</color>
+    <color name="gray2">#efefef</color>
 </resources>
