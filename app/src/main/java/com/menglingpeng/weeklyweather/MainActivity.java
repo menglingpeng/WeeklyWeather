@@ -9,6 +9,7 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.media.ImageWriter;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -26,7 +27,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.menglingpeng.weeklyweather.mvp.adapter.TabPagerFragmentAdapter;
 import com.menglingpeng.weeklyweather.mvp.view.WeatherFragment;
@@ -41,6 +44,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
+    private RelativeLayout updateRl;
+    private ProgressBar updatePb;
+    private TextView updateTv;
     private NavigationView navigationView;
     private ImageView navHeaderBackgroudIv;
     private RelativeLayout navHeaderRl;
@@ -87,9 +93,13 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     private void initView(){
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         toolbar = (Toolbar)findViewById(R.id.main_tb);
+        updateRl = (RelativeLayout)findViewById(R.id.main_update_rl);
+        updatePb = (ProgressBar)findViewById(R.id.main_update_pb);
+        updatetv = (TextView)findViewById(R.id.main_update_tv);
         navigationView = (NavigationView)findViewById(R.id.nav_view);
         tabLayout = (TabLayout)findViewById(R.id.main_tl);
         viewPager = (ViewPager)findViewById(R.id.main_vp);
+
         cities = new ArrayList<>();
         toolbar.setTitle(location);
         setSupportActionBar(toolbar);
@@ -115,6 +125,16 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         }else {
             initTabAndViewPager();
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        update();
+    }
+
+    private void update(){
+
     }
 
     @Override

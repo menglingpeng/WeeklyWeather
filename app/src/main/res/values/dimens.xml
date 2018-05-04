@@ -84,4 +84,7 @@
     <dimen name="activity_calendar_holiday_tv_layout_marginLeft">15dp</dimen>
     <dimen name="activity_calendar_title_tv_textSize">20dp</dimen>
     <dimen name="activity_calendar_cv_layout_height">400dp</dimen>
+
+    <dimen name="main_update_rl_layout_width">10dp</dimen>
+    <dimen name="main_update_tv_layout_marginLeft">10dp</dimen>
 </resources>

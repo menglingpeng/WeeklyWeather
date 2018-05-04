@@ -21,6 +21,28 @@
                 android:layout_height="?attr/actionBarSize"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"></android.support.v7.widget.Toolbar>
 
+            <RelativeLayout
+                android:id="@+id/main_update_rl"
+                android:layout_width="@dimen/main_update_rl_layout_width"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <ProgressBar
+                    android:id="@+id/main_update_pb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/main_update_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/main_update_pb"
+                    android:layout_alignTop="@+id/main_update_pb"
+                    android:layout_marginLeft="@dimen/main_update_tv_layout_marginLeft"
+                    android:textColor="@android:color/white"/>
+
+            </RelativeLayout>
+
             <android.support.design.widget.TabLayout
                 android:id="@+id/main_tl"
                 android:layout_width="wrap_content"
