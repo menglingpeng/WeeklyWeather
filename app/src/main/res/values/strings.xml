@@ -54,4 +54,7 @@
     <string name="weather">天气状况</string>
     <string name="sunrise_sunset">日出日落</string>
 
+    <string name="notification_today_weather_title">今日天气提醒</string>
+    <string name="notification_tom_weather_title">明日天气提醒</string>
+
 </resources>

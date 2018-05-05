@@ -1,8 +1,12 @@
 package com.menglingpeng.weeklyweather.mvp.view;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -11,6 +15,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.menglingpeng.weeklyweather.BaseFragment;
+import com.menglingpeng.weeklyweather.MainActivity;
 import com.menglingpeng.weeklyweather.R;
 import com.menglingpeng.weeklyweather.mvp.bean.AirQualityCollection;
 import com.menglingpeng.weeklyweather.mvp.bean.WeatherCollection;
@@ -178,6 +183,23 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
         switch (type){
             case Constants.CURRENT_CITY_WEATHER:
                 thirdTr.setVisibility(TableRow.VISIBLE);
+                String text = null;
+                WeatherCollection.HeWeather6Bean.DailyForecastBean todayForecastBean = weatherCollection.getHeWeather6()
+                        .get(0).getDaily_forecast().get(0);
+                WeatherCollection.HeWeather6Bean.DailyForecastBean tomForecastBean = weatherCollection.getHeWeather6()
+                        .get(0).getDaily_forecast().get(1);
+                if() {
+                    text = new StringBuilder().append(todayForecastBean.getCond_txt_n()).append("，").
+                            append(todayForecastBean.getTmp_min()).append("/").append(todayForecastBean.getTmp_max()).
+                            toString();
+                    sendNotification(context, getResources().getString(R.string.notification_today_weather_title),
+                            text);
+                }else {
+                    text = new StringBuilder().append(tomForecastBean.getCond_txt_n()).append("，").
+                            append(tomForecastBean.getTmp_min()).append("/").append(todayForecastBean.getTmp_max()).
+                            toString();
+                    sendNotification(context, getResources().getString(R.string.notification_tom_weather_title), text);
+                }
                 break;
             default:
                 break;
@@ -247,5 +269,25 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
             default:
                 break;
         }
+    }
+
+    private void sendNotification(Context context, String notifyTitle, String notifyText){
+        //实例化通知管理器
+        NotificationManager notificationManager= (NotificationManager)context. getSystemService(
+                Context.NOTIFICATION_SERVICE);
+        //实例化通知
+        NotificationCompat.Builder builder=new NotificationCompat.Builder(context);
+        builder.setContentTitle(getString(R.string.notification_title));//设置通知标题
+        builder.setContentText("不要放孔明灯，容易起火");//设置通知内容
+        builder.setDefaults(NotificationCompat.DEFAULT_ALL);//设置通知的方式，震动、LED灯、音乐等
+        builder.setAutoCancel(true);//点击通知后，状态栏自动删除通知
+        builder.setSmallIcon(android.R.drawable.ic_media_play);//设置小图标
+        builder.setContentIntent(PendingIntent.getActivity(this,0x102,new Intent(
+                getActivity(),MainActivity.class),0));//设置点击通知后将要启动的程序组件对应的PendingIntent
+        Notification notification=builder.build();
+
+        //发送通知
+        notificationManager.notify(0x101,notification);
+
     }
 }
