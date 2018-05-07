@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
         android:id="@+id/add_city_dialog_close_iv"
@@ -77,6 +78,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/add_city_dialog_hot_cities_tv"></android.support.v7.widget.RecyclerView>
+
+        <me.yokeyword.indexablerv.IndexableLayout
+            android:id="@+id/add_city_dialog_il"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:indexBar_background="@color/add_city_dialog_il_indexBar_background"
+            app:indexBar_layout_width="@dimen/add_city_dialog_il_indexBar_layout_width"
+            app:indexBar_textColor="@android:color/white"
+            app:indexBar_textSpace="@dimen/add_city_dialog_il_indexBar_textSpace"/>
+
 
     </RelativeLayout>
 

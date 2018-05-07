@@ -16,4 +16,5 @@
     <color name="fragment_index_parameters_view">#F5F5F5</color>
     <color name="gray1">#cccccc</color>
     <color name="gray2">#efefef</color>
+    <color name="add_city_dialog_il_indexBar_background">#08000000</color>
 </resources>

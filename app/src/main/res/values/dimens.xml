@@ -87,4 +87,7 @@
 
     <dimen name="main_update_rl_layout_width">10dp</dimen>
     <dimen name="main_update_tv_layout_marginLeft">10dp</dimen>
+
+    <dimen name="add_city_dialog_il_indexBar_layout_width">24dp</dimen>
+    <dimen name="add_city_dialog_il_indexBar_textSpace">8dp</dimen>
 </resources>
