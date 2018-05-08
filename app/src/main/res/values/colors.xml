@@ -17,4 +17,5 @@
     <color name="gray1">#cccccc</color>
     <color name="gray2">#efefef</color>
     <color name="add_city_dialog_il_indexBar_background">#08000000</color>
+    <color name="index_tv_background">#F1F1F1</color>
 </resources>

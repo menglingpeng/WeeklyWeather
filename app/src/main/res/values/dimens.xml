@@ -90,4 +90,8 @@
 
     <dimen name="add_city_dialog_il_indexBar_layout_width">24dp</dimen>
     <dimen name="add_city_dialog_il_indexBar_textSpace">8dp</dimen>
+    <dimen name="index_tv_paddingBottom">8dp</dimen>
+    <dimen name="index_tv_paddingLeft">16dp</dimen>
+    <dimen name="index_tv_paddingTop">8dp</dimen>
+    <dimen name="index_tv_textSize">16dp</dimen>
 </resources>
