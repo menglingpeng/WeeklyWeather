@@ -36,6 +36,7 @@ public class CityAdapter extends IndexableAdapter<CityEntity> {
         return new ContentVH(view);
     }
 
+
     @Override
     public void onBindTitleViewHolder(RecyclerView.ViewHolder holder, String indexTitle) {
         IndexVH vh = (IndexVH) holder;
