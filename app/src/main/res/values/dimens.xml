@@ -94,4 +94,9 @@
     <dimen name="index_tv_paddingLeft">16dp</dimen>
     <dimen name="index_tv_paddingTop">8dp</dimen>
     <dimen name="index_tv_textSize">16dp</dimen>
+
+    <dimen name="item_city_ll_paddingLeft">16dp</dimen>
+    <dimen name="name_tv_paddingBottom">12dp</dimen>
+    <dimen name="name_tv_paddingTop">12dp</dimen>
+    <dimen name="name_tv_textSize">16dp</dimen>
 </resources>

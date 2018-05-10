@@ -23,12 +23,15 @@ import android.widget.ImageView;
 import com.menglingpeng.weeklyweather.MainActivity;
 import com.menglingpeng.weeklyweather.R;
 import com.menglingpeng.weeklyweather.mvp.adapter.RecyclerAdapter;
+import com.menglingpeng.weeklyweather.mvp.bean.CityEntity;
 import com.menglingpeng.weeklyweather.mvp.interf.OnRecyclerItemListener;
 import com.menglingpeng.weeklyweather.utils.Constants;
 import com.menglingpeng.weeklyweather.utils.HotCitiesUtils;
 import com.menglingpeng.weeklyweather.utils.SPUtils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by mengdroid on 2018/1/20.
@@ -90,6 +93,24 @@ public class AddCityDialogFragment extends AppCompatDialogFragment implements On
         recyclerView.setAdapter(adapter);
         return dialog;
     }
+
+    private List<CityEntity> initDatas() {
+        List<CityEntity> list = new ArrayList<>();
+        List<String> cityStrings = Arrays.asList(getResources().getStringArray(R.array.city_array));
+        for (String item : cityStrings) {
+            CityEntity cityEntity = new CityEntity();
+            cityEntity.setName(item);
+            list.add(cityEntity);
+        }
+        return list;
+    }
+
+    private List<CityEntity> iniyGPSCityDatas() {
+        List<CityEntity> list = new ArrayList<>();
+        list.add(new CityEntity("定位中..."));
+        return list;
+    }
+
 
     @Override
     public <T> void onRecyclerListListener(RecyclerView.ViewHolder viewHolder, T t) {
