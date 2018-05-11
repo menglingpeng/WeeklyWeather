@@ -17,6 +17,9 @@ public class Constants {
     public static final String TAB_VIEW_TYPE_WEATHER = "type_weather";
     public static final String TAB_VIEW_TYPE_INDEX = "type_index";
 
+    public static final String TYPE_NORMAL = "normal";
+    public static final String TYPE_EDITOR = "editor";
+
 
     public static final int REQUEST_LOCATION_PERMISSION_CODE = 1;
     //Http_Config
