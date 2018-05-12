@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -64,6 +65,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
                 case Constants.LIST_ADDED_CITIES:
                     view = inflater.inflate(R.layout.cities_manage_recycler_view_item, null);
                     viewHolder = new AddedCitiesViewHolder(view);
+                    break;
+                case Constants.LIST_ADDED_CITIES_EDITOR:
+                    view = inflater.inflate(R.layout.cities_manage_editor_recycler_view_item, null);
+                    viewHolder = new AddedCitiesEditorViewHolder(view)
                     break;
                 case Constants.LIST_HOT_CITIES:
                     view = inflater.inflate(R.layout.dialog_add_city_hot_cities_recyclerview_item, null);
@@ -132,6 +137,22 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
                     }
                 }
             });
+        }else if (holder instanceof AddedCitiesEditorViewHolder){
+           final AddedCitiesEditorViewHolder viewHolder = (AddedCitiesEditorViewHolder)holder;
+            final WeatherCollection.HeWeather6Bean.DailyForecastBean  dailyWeatherr = (WeatherCollection.
+                    HeWeather6Bean.DailyForecastBean)list.get(position);
+           viewHolder.deletebt.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+
+               }
+           });
+           viewHolder.settingBt.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+
+               }
+           });
         }
     }
 
@@ -160,6 +181,23 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
             imageView = (ImageView)view.findViewById(R.id.cm_recycler_view_item_iv);
             cityTv = (TextView)view.findViewById(R.id.cm_recycler_view_item_city_tv);
             temperatureTv = (TextView)view.findViewById(R.id.cm_recycler_view_item_temperature_tv);
+        }
+    }
+
+    private class AddedCitiesEditorViewHolder extends RecyclerView.ViewHolder{
+
+        private RelativeLayout itemRl;
+        private ImageButton deletebt;
+        private ImageView imageView;
+        private TextView cityTv;
+        private Button settingBt;
+
+        public AddedCitiesEditorViewHolder(View view) {
+            super(view);
+            itemRl = (RelativeLayout)view.findViewById(R.id.cm_editor_recycler_view_item_rl);
+            deletebt = (ImageButton)view.findViewById(R.id.cm_editor_recycler_view_item_delete_ib)
+            cityTv = (TextView)view.findViewById(R.id.cm_editor_recycler_view_item_city_tv);
+            settingBt = (Button)view.findViewById(R.id.cm_editor_recycler_view_item_setting_bt);
         }
     }
 

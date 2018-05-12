@@ -56,6 +56,7 @@ public class Constants {
 
     public static final String CURRENT_CITY_WEATHER = "current_city_weather";
     public static final String LIST_ADDED_CITIES = "list_added_cities";
+    public static final String LIST_ADDED_CITIES_EDITOR = "list_added_cities_editor";
     public static final String LIST_HOT_CITIES = "list_hot_cities";
 
     //和风天气API
