@@ -84,6 +84,8 @@ public class CitiesManageActivity extends BaseActivity implements OnRecyclerItem
                 AddCityDialogFragment dialogFragment = new AddCityDialogFragment();
                 dialogFragment.show(getSupportFragmentManager(), Constants.ADD_CITY_DIALOG_FRAGMENT_TAG);
                 break;
+            case R.id.cities_manage_editor_check:
+            break;
             default:
                 break;
         }

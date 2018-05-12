@@ -57,4 +57,7 @@
     <string name="notification_today_weather_title">今日天气提醒</string>
     <string name="notification_tom_weather_title">明日天气提醒</string>
 
+    <string name="cm_editor_recycler_view_item_setting_bt_setted_text">已为提醒城市</string>
+    <string name="cm_editor_recycler_view_item_setting_bt_unsetted_text">设为提醒城市</string>
+
 </resources>
