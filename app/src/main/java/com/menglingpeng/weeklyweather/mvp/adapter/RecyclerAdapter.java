@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -141,10 +143,32 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
            final AddedCitiesEditorViewHolder viewHolder = (AddedCitiesEditorViewHolder)holder;
             final WeatherCollection.HeWeather6Bean.DailyForecastBean  dailyWeatherr = (WeatherCollection.
                     HeWeather6Bean.DailyForecastBean)list.get(position);
-           viewHolder.deletebt.setOnClickListener(new View.OnClickListener() {
+           viewHolder.deleteIb.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
-
+                   Animation animation = AnimationUtils.loadAnimation(context,
+                           R.anim.acitivity_cities_manage_editor_delete_button_rotate);
+                   Animation resetAnimation = AnimationUtils.loadAnimation(context,
+                           R.anim.acitivity_cities_manage_editor_delete_button_rotate_reset);
+                   int count = 0;
+                   if(count == 0){
+                       count++;
+                       viewHolder.deleteIb.setAnimation(animation);
+                       viewHolder.deleteIb.setVisibility(ImageButton.GONE);
+                       viewHolder.deleteBt.setVisibility(Button.VISIBLE);
+                   }else if(count == 1){
+                       count--;
+                       viewHolder.deleteIb.setAnimation(resetAnimation);
+                       viewHolder.deleteIb.setVisibility(ImageButton.VISIBLE);
+                       viewHolder.deleteBt.setVisibility(Button.GONE);
+                   }
+               }
+           });
+           viewHolder.deleteBt.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                   list.remove(position);
+                   notifyDataSetChanged();
                }
            });
            viewHolder.settingBt.setOnClickListener(new View.OnClickListener() {
@@ -187,17 +211,19 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
     private class AddedCitiesEditorViewHolder extends RecyclerView.ViewHolder{
 
         private RelativeLayout itemRl;
-        private ImageButton deletebt;
+        private ImageButton deleteIb;
         private ImageView imageView;
         private TextView cityTv;
         private Button settingBt;
+        private Button deleteBt;
 
         public AddedCitiesEditorViewHolder(View view) {
             super(view);
             itemRl = (RelativeLayout)view.findViewById(R.id.cm_editor_recycler_view_item_rl);
-            deletebt = (ImageButton)view.findViewById(R.id.cm_editor_recycler_view_item_delete_ib)
+            deleteIb = (ImageButton)view.findViewById(R.id.cm_editor_recycler_view_item_delete_ib);
             cityTv = (TextView)view.findViewById(R.id.cm_editor_recycler_view_item_city_tv);
             settingBt = (Button)view.findViewById(R.id.cm_editor_recycler_view_item_setting_bt);
+            deleteBt = (Button)view.findViewById(R.id.cm_editor_recycler_view_item_delete_bt);
         }
     }
 

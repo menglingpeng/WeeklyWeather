@@ -39,5 +39,13 @@
         android:layout_marginEnd="@dimen/cm_recycler_view_item_temperature_tv_marginEnd"
         android:gravity="center"
         android:textSize="@dimen/cm_recycler_view_item_temperature_tv_text_size"/>
+    <Button
+        android:id="@+id/cm_editor_recycler_view_item_delete_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:gravity="center"
+        android:text="@string/cm_editor_recycler_view_item_delete_bt_text"
+        android:background="@color/colorAccent"/>
 
 </RelativeLayout>

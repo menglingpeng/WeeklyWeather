@@ -59,5 +59,6 @@
 
     <string name="cm_editor_recycler_view_item_setting_bt_setted_text">已为提醒城市</string>
     <string name="cm_editor_recycler_view_item_setting_bt_unsetted_text">设为提醒城市</string>
+    <string name="cm_editor_recycler_view_item_delete_bt_text">删除</string>
 
 </resources>
