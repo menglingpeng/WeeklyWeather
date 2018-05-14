@@ -174,6 +174,19 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
            viewHolder.settingBt.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
+                   int count = 0;
+                   if(count == 0){
+                       count++;
+                       viewHolder.settingBt.setText(context.getString(
+                               R.string.cm_editor_recycler_view_item_setting_bt_unsetted_text));
+
+                   }else if(count == 1){
+                       count--;
+                       viewHolder.settingBt.setText(context.getString(
+                               R.string.cm_editor_recycler_view_item_setting_bt_setted_text
+                       ));
+
+                   }
 
                }
            });

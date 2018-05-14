@@ -61,4 +61,6 @@
     <string name="cm_editor_recycler_view_item_setting_bt_unsetted_text">设为提醒城市</string>
     <string name="cm_editor_recycler_view_item_delete_bt_text">删除</string>
 
+    <string name="days_3_weather_tv_text">3天预报</string>
+
 </resources>

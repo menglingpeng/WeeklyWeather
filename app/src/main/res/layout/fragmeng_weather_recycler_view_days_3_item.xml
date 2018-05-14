@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/days_3_weather_week_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/days_3_weather_week_tv_layout_marginTop"
+        android:textAppearance="@style/TodayTomRlTextStyle"/>
+
+    <TextView
+        android:id="@+id/days_3_weather_day_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/days_3_weather_week_tv"
+        android:textColor="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/days_3_weather_weather_moring_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/days_3_weather_day_tv"
+        android:layout_marginTop="@dimen/days_3_weather_weather_moring_tv_layout_marginTop"
+        android:textAppearance="@style/TodayTomRlTextStyle"/>
+
+    <ImageView
+        android:id="@+id/days_3_weather_weather_moring_icon_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/days_3_weather_weather_moring_tv"
+        android:layout_marginTop="@dimen/days_3_weather_weather_moring_icon_tv_layout_marginTop"/>
+
+    <ImageView
+        android:id="@+id/days_3_weather_weather_night_icon_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/days_3_weather_weather_moring_icon_iv"
+        android:layout_marginBottom="@dimen/days_3_weather_weather_moring_icon_tv_layout_marginTop"/>
+
+    <TextView
+        android:id="@+id/days_3_weather_weather_night_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/days_3_weather_weather_night_icon_iv"
+        android:layout_marginBottom="@dimen/days_3_weather_weather_moring_tv_layout_marginTop"
+        android:textAppearance="@style/TodayTomRlTextStyle"/>
+
+    <TextView
+        android:id="@+id/days_3_weather_wind_text_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/days_3_weather_weather_night_tv"/>
+
+    <TextView
+        android:id="@+id/days_3_weather_wind_value_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/days_3_weather_wind_text_tv"
+        android:layout_marginBottom="@dimen/days_3_weather_wind_value_tv_layout_marginTop"/>
+
+    <Button
+        android:id="@+id/days_3_weather_air_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/days_3_weather_wind_value_tv"
+        android:layout_marginBottom="@dimen/days_3_weather_air_bt_layout_marginBottmo"/>
+
+</RelativeLayout>

@@ -99,4 +99,12 @@
     <dimen name="name_tv_paddingBottom">12dp</dimen>
     <dimen name="name_tv_paddingTop">12dp</dimen>
     <dimen name="name_tv_textSize">16dp</dimen>
+
+    <dimen name="days_3_weather_week_tv_layout_marginTop">10dp</dimen>
+    <dimen name="days_3_weather_tv_layout_width">30dp</dimen>
+    <dimen name="days_3_weather_tv_layout_marginLeft">15dp</dimen>
+    <dimen name="days_3_weather_weather_moring_tv_layout_marginTop">10dp</dimen>
+    <dimen name="days_3_weather_weather_moring_icon_tv_layout_marginTop">5dp</dimen>
+    <dimen name="days_3_weather_wind_value_tv_layout_marginTop">10dp</dimen>
+    <dimen name="days_3_weather_air_bt_layout_marginBottmo">15dp</dimen>
 </resources>

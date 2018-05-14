@@ -232,11 +232,26 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/days_14_weather_rl"
+            android:id="@+id/days_3_weather_rl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/hours_24_weather_rl_layout_marginTop"
             android:layout_below="@+id/hours_24_weather_rl">
+
+            <TextView
+                android:id="@+id/days_3_weather_tv"
+                android:layout_width="@dimen/days_3_weather_tv_layout_width"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/days_3_weather_tv_layout_marginLeft"
+                android:textAppearance="@style/TodayTomRlTextStyle"
+                android:text="@string/days_3_weather_tv_text"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/days_3_weather_rv"
+                android:layout_below="@+id/days_3_weather_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 
         </RelativeLayout>
 
