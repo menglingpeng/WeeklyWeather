@@ -229,6 +229,53 @@
             android:layout_below="@+id/today_tom_weather_rl"
             android:layout_marginTop="@dimen/hours_24_weather_rl_layout_marginTop">
 
+            <TextView
+                android:id="@+id/hours_24_weather_tv"
+                android:layout_width="@dimen/days_3_weather_tv_layout_width"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/days_3_weather_tv_layout_marginLeft"
+                android:layout_marginBottom="@dimen/hours_24_weather_tv_layout_marginBottmo"
+                android:textAppearance="@style/TodayTomRlTextStyle"
+                android:text="@string/hours_24_weather_tv_text"/>
+
+            <TextView
+                android:id="@+id/hours_24_weather_sunrise_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/hours_24_weather_tv"
+                android:layout_marginEnd="@dimen/hours_24_weather_sunrise_time_tv_layout_marginRight"/>
+
+            <ImageView
+                android:id="@+id/hours_24_weather_sunrise_time_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/hours_24_weather_tv"
+                android:layout_toLeftOf="@+id/hours_24_weather_sunrise_time_tv"
+                android:layout_marginRight="@dimen/hours_24_weather_sunrise_time_tv_layout_marginRight"/>
+
+            <TextView
+                android:id="@+id/hours_24_weather_sundown_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/hours_24_weather_tv"
+                android:layout_toLeftOf="@+id/hours_24_weather_sunrise_time_iv"
+                android:layout_marginRight="@dimen/hours_24_weather_sunrise_time_tv_layout_marginRight"/>
+
+            <ImageView
+                android:id="@+id/hours_24_weather_sundown_time_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/hours_24_weather_tv"
+                android:layout_toLeftOf="@+id/hours_24_weather_sundown_time_tv"
+                android:layout_marginRight="@dimen/hours_24_weather_sunrise_time_tv_layout_marginRight"/>
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/hours_24_weather_tv"/>
+
         </RelativeLayout>
 
         <RelativeLayout
