@@ -3,13 +3,16 @@ package com.menglingpeng.weeklyweather.utils;
 import android.graphics.Color;
 
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -17,6 +20,10 @@ import java.util.List;
  */
 
 public class ChartUtils {
+
+    public static int dayValue = 0;
+    public static int weekValue = 1;
+    public static int monthValue = 2;
 
     /**
      * 初始化图表
@@ -108,5 +115,70 @@ public class ChartUtils {
             chart.setData(data);
             chart.invalidate();
         }
+    }
+
+    /**
+     * 更新图表
+     *
+     * @param chart     图表
+     * @param values    数据
+     * @param valueType 数据类型
+     */
+    public static void notifyDataSetChanged(LineChart chart, List<Entry> values,
+                                            final int valueType) {
+        chart.getXAxis().setValueFormatter(new IAxisValueFormatter() {
+            @Override
+            public String getFormattedValue(float value, AxisBase axis) {
+                return xValuesProcess(valueType)[(int) value];
+            }
+        });
+
+        chart.invalidate();
+        setChartData(chart, values);
+    }
+
+    /**
+     * x轴数据处理
+     *
+     * @param valueType 数据类型
+     * @return x轴数据
+     */
+    private static String[] xValuesProcess(int valueType) {
+        String[] week = {"周日", "周一", "周二", "周三", "周四", "周五", "周六"};
+
+        if (valueType == dayValue) { // 今日
+            String[] dayValues = new String[7];
+            long currentTime = System.currentTimeMillis();
+            for (int i = 6; i >= 0; i--) {
+                dayValues[i] = TimeUtils.dateToString(currentTime, TimeUtils.dateFormat_day);
+                currentTime -= (3 * 60 * 60 * 1000);
+            }
+            return dayValues;
+
+        } else if (valueType == weekValue) { // 本周
+            String[] weekValues = new String[7];
+            Calendar calendar = Calendar.getInstance();
+            int currentWeek = calendar.get(Calendar.DAY_OF_WEEK);
+
+            for (int i = 6; i >= 0; i--) {
+                weekValues[i] = week[currentWeek - 1];
+                if (currentWeek == 1) {
+                    currentWeek = 7;
+                } else {
+                    currentWeek -= 1;
+                }
+            }
+            return weekValues;
+
+        } else if (valueType == monthValue) { // 本月
+            String[] monthValues = new String[7];
+            long currentTime = System.currentTimeMillis();
+            for (int i = 6; i >= 0; i--) {
+                monthValues[i] = TimeUtils.dateToString(currentTime, TimeUtils.dateFormat_month);
+                currentTime -= (4 * 24 * 60 * 60 * 1000);
+            }
+            return monthValues;
+        }
+        return new String[]{};
     }
 }
