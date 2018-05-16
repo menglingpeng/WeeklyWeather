@@ -14,6 +14,8 @@ import android.widget.RelativeLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.data.Entry;
 import com.menglingpeng.weeklyweather.BaseFragment;
 import com.menglingpeng.weeklyweather.MainActivity;
 import com.menglingpeng.weeklyweather.R;
@@ -22,6 +24,7 @@ import com.menglingpeng.weeklyweather.mvp.bean.WeatherCollection;
 import com.menglingpeng.weeklyweather.utils.Constants;
 import com.menglingpeng.weeklyweather.utils.TimeUtils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -82,6 +85,19 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
     private RelativeLayout airPollutionDiffusionIndexRl;
     private TextView airPollutionDiffusionValueIndexTv;
 
+    private LineChart hoursLineChart;
+    List<String> xDataListHours;// x轴数据源
+    List<Entry> yDataListHours ;// y轴数据数据源
+    private TextView hoursSundonwTimeTv;
+    private ImageView hoursSundonwTimeIv;
+    private TextView hoursSunriseTimeTv;
+    private ImageView hoursSunriseTimeIv;
+
+
+    private LineChart daysLineChart;
+    List<String> xDataListDays;// x轴数据源
+    List<Entry> yDataListDays;// y轴数据数据源
+
 
 
     public static WeatherFragment newInstance(String type){
@@ -125,6 +141,16 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
         tomWeatherTv = (TextView)rootView.findViewById(R.id.tom_weather_tv);
         tomWeatherIv = (ImageView)rootView.findViewById(R.id.tom_weather_iv);
 
+        //24小时天气预报
+        hoursLineChart = (LineChart)rootView.findViewById(R.id.hours_24_chart);
+        hoursSundonwTimeIv = (ImageView)rootView.findViewById(R.id.hours_24_weather_sundown_time_iv);
+        hoursSundonwTimeTv = (TextView)rootView.findViewById(R.id.hours_24_weather_sundown_time_tv);
+        hoursSunriseTimeIv = (ImageView)rootView.findViewById(R.id.hours_24_weather_sunrise_time_iv);
+        hoursSunriseTimeTv = (TextView)rootView.findViewById(R.id.hours_24_weather_sunrise_time_tv);
+
+        //3天天气预报
+
+
         //生活指数
         carTailNumberLimitRl = (RelativeLayout)rootView.findViewById(R.id.car_tail_number_limit_rl);
         carTailNumberLimitValueTv = (TextView)rootView.findViewById(R.id.car_tail_number_limit_value_tv);
@@ -167,6 +193,19 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
         airQualityTv.setText(airQualityCollection.getHeWeather6().get(0).getAirNowCityBeans().get(0).getQlty());
         airQualityValueTv.setText(airQualityCollection.getHeWeather6().get(0).getAirNowCityBeans().get(0).getAqi());
         //今天，明天天气综述
+
+        //24小时天气预报
+        xDataListHours = new ArrayList<>();
+        yDataListHours = new ArrayList<>();
+        hoursSundonwTimeTv.setText();
+        hoursSundonwTimeIv.setImageResource();
+        hoursSunriseTimeIv.setImageResource();
+        hoursSunriseTimeTv.setText();
+
+        //3天天气预报
+        xDataListDays = new ArrayList<>();
+        yDataListDays = new ArrayList<>();
+
         //生活指数
         comfortIndexValueTv.setText(lifestyleList.get(0).getBrf());
         clothingIndexValueTv.setText(lifestyleList.get(1).getBrf());
