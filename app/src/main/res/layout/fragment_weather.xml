@@ -276,6 +276,12 @@
                 android:layout_height="match_parent"
                 android:layout_below="@+id/hours_24_weather_tv"/>
 
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/hours_24_pie_chart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/hours_24_weather_tv"/>
+
         </RelativeLayout>
 
         <RelativeLayout
