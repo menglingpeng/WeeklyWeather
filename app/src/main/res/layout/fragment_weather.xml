@@ -271,13 +271,13 @@
                 android:layout_marginRight="@dimen/hours_24_weather_sunrise_time_tv_layout_marginRight"/>
 
             <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/hours_24_chart"
+                android:id="@+id/hours_24_line_chart"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/hours_24_weather_tv"/>
 
-            <com.github.mikephil.charting.charts.PieChart
-                android:id="@+id/hours_24_pie_chart"
+            <com.github.mikephil.charting.charts.barChart
+                android:id="@+id/hours_24_bar_chart"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/hours_24_weather_tv"/>

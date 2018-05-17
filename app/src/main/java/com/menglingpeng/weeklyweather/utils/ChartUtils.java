@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
@@ -19,6 +20,7 @@ import com.github.mikephil.charting.data.ChartData;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
@@ -344,22 +346,51 @@ class CustomMarkerView extends MarkerView {
         return barData;
     }
 
-    public static PieChart initBarChart(LineChart chart, List<Entry> values){
-        PieChart pieChart = new PieChart(this);
-        setContentView(pieChart);
+    public static PieChart initPieChart(PieChart pieChart, PieData pieData){
+        pieChart.setUsePercentValues(true);
 
-       //设置饼状图数据
-        pieChart.setData(getPieData());
+        pieChart.setDescription("");  //设置描述信息
 
-       //设置描述
-        pieChart.setDescription("");
-        pieChart.setDescriptionTextSize(20);
+        pieChart.setExtraOffsets(5,10,5,5);  //设置间距
 
-        //设置中心说明文字
-        pieChart.setCenterText("中心说明文字");
-        pieChart.setCenterTextSize(20);
-        pieChart.setCenterTextColor(Color.RED);
+        pieChart.setDragDecelerationFrictionCoef(0.95f);
 
-        pieChart.animateXY(3000,3000);
+        pieChart.setCenterTextTypeface(mTfLight);  //设置饼状图中间文字字体
+
+        pieChart.setCenterText("");  //设置饼状图中间文字，我需求里面并没有用到这个。。
+
+        pieChart.setDrawHoleEnabled(true);
+
+        pieChart.setHoleColor(Color.WHITE);
+
+        pieChart.setTransparentCircleColor(Color.WHITE);
+
+        pieChart.setTransparentCircleAlpha(110);
+
+        pieChart.setHoleRadius(58f);
+
+        pieChart.setTransparentCircleRadius(61f);
+
+        pieChart.setTouchEnabled(false);  //设置是否响应点击触摸
+
+        pieChart.setDrawCenterText(true);  //设置是否绘制中心区域文字
+
+        pieChart.setDrawEntryLabels(false);  //设置是否绘制标签
+
+        pieChart.setRotationAngle(0); //设置旋转角度
+
+        pieChart.setRotationEnabled(true); //设置是否旋转
+
+        pieChart.setHighlightPerTapEnabled(false);  //设置是否高亮显示触摸的区域
+
+        pieChart.setData(pieData);  //设置数据
+
+        pieChart.setOnChartValueSelectedListener(this); //设置选中监听
+
+        pieChart.setDrawMarkerViews(false);  //设置是否绘制标记
+
+        pieChart.animateY(1400, Easing.EasingOption.EaseInOutQuad);  //设置动画效果
+
+        return
 
 }
