@@ -346,6 +346,7 @@ class CustomMarkerView extends MarkerView {
         return barData;
     }
 
+<<<<<<< HEAD
     /**
 
      *初始化环状统计表
@@ -401,7 +402,6 @@ class CustomMarkerView extends MarkerView {
 
         pieChart.animateY(1400, Easing.EasingOption.EaseInOutQuad);  //设置动画效果
         return pieChart;
-
     }
 
 }
