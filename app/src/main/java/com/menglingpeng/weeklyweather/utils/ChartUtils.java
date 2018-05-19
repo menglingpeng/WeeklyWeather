@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.BarLineChartBase;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.AxisBase;
@@ -301,52 +302,7 @@ class CustomMarkerView extends MarkerView {
         return -getHeight();
     }
 
-    public static BarChart initBarChart(LineChart chart, List<Entry> values){
-        //创建条形数据对象
-        BarChart barChart = new BarChart(this);
-        setContentView(barChart);
-       //设置条形数据
-        barChart.setData(getBarData());
-       //设置描述
-        barChart.setDescription("");
-      //设置绘制bar的阴影
-        barChart.setDrawBarShadow(true);
-        //设置绘制的动画时间
-        barChart.animateXY(3000,3000);
-        return barChart;
 
-    }
-
-    public BarData getBarData() {
-        int maxX = 10;
-        //创建集合，存放每个柱子的数据
-        List<BarEntry> list = new ArrayList<>();
-        List<BarEntry> list2 = new ArrayList<>();
-        for (int i = 0; i < maxX; i++) {
-            //一个BarEntry就是一个柱子的数据对象
-            BarEntry barEntry = new BarEntry(i + 5, i);
-            list.add(barEntry);
-            BarEntry barEntry2 = new BarEntry(i + 3, i);
-            list2.add(barEntry2);
-        }
-        //创建BarDateSet对象，其实就是一组柱形数据
-        BarDataSet barSet = new BarDataSet(list, "Android");
-        BarDataSet barSet2 = new BarDataSet(list2, "iOS");
-        //设置柱形的颜色
-        barSet.setColor(Color.BLUE);
-        //设置是否显示柱子上面的数值
-        barSet.setDrawValues(false);
-        //设置柱子阴影颜色
-        barSet.setBarShadowColor(Color.GRAY);
-        //创建集合，存放所有组的柱形数据
-        List<IBarDataSet> dataSets = new ArrayList<>();
-        dataSets.add(barSet);
-        dataSets.add(barSet2);
-        BarData barData = new BarData(ChartData.generateXVals(0, maxX), dataSets);
-        return barData;
-    }
-
-<<<<<<< HEAD
     /**
 
      *初始化环状统计表
@@ -402,6 +358,68 @@ class CustomMarkerView extends MarkerView {
 
         pieChart.animateY(1400, Easing.EasingOption.EaseInOutQuad);  //设置动画效果
         return pieChart;
+    }
+
+    public class BarChartEntity extends BaseChart<BarEntry> {
+        public BarChartEntity(BarLineChartBase chart, List<BarEntry>[] entries, String[] labels,
+                              int[] chartColor, int valueColor, float textSize) {
+            super(chart, entries, labels, chartColor, valueColor, textSize);
+        }
+
+        @Override
+        protected void initChart() {
+            super.initChart();
+            chart.getAxisLeft().setDrawGridLines(true);
+            chart.getAxisLeft().enableGridDashedLine(10f, 15f, 0f);
+            chart.getAxisLeft().setGridLineWidth(0.5f);
+            chart.getAxisLeft().setGridColor(Color.parseColor("#f5f5f5"));
+            chart.getAxisLeft().setDrawZeroLine(false);
+            chart.getAxisRight().setDrawZeroLine(false);
+            chart.getAxisRight().setZeroLineWidth(0f);
+            chart.getAxisLeft().setZeroLineWidth(0f);
+            chart.getAxisLeft().setDrawAxisLine(false);
+            chart.getXAxis().setDrawAxisLine(false);
+            chart.getXAxis().setAxisMinimum(0);
+
+        }
+
+        @Override
+        protected void setChartData() {
+            BarDataSet barDataSet;
+            if (chart.getData() != null && chart.getData().getDataSetCount() > 0) {
+                barDataSet = (BarDataSet) chart.getData().getDataSetByIndex(0);
+                barDataSet.setValues(entries[0]);
+                chart.getData().notifyDataChanged();
+                chart.notifyDataSetChanged();
+            } else {
+                barDataSet = new BarDataSet(entries[0], labels == null ? "" : labels[0]);
+                barDataSet.setColors(chartColors);
+                List<Integer> colors = new ArrayList<>();
+                for (int color : chartColors) {
+                    colors.add(color);
+                }
+                barDataSet.setValueTextColors(colors);
+                ArrayList<IBarDataSet> dataSets = new ArrayList<>();
+                dataSets.add(barDataSet);
+                BarData data = new BarData(dataSets);
+                data.setValueTextSize(textSize);
+                data.setBarWidth(0.9f);
+                chart.setData(data);
+            }
+        }
+
+
+        public void setDrawValueAboveBar(boolean aboveBar) {
+            ((BarChart)chart).setDrawValueAboveBar(aboveBar);
+        }
+
+        /**
+         * <p>设置bar宽度</p>
+         * @param barWidth float
+         */
+        public void setBarWidth(float barWidth) {
+            ((BarChart)chart).getData().setBarWidth(barWidth);
+        }
     }
 
 }
