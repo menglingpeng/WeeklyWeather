@@ -360,8 +360,8 @@ class CustomMarkerView extends MarkerView {
         return pieChart;
     }
 
-    public class BarChartEntity extends BaseChart<BarEntry> {
-        public BarChartEntity(BarLineChartBase chart, List<BarEntry>[] entries, String[] labels,
+    public class BarChart extends BaseChart<BarEntry> {
+        public BarChart(BarLineChartBase chart, List<BarEntry>[] entries, String[] labels,
                               int[] chartColor, int valueColor, float textSize) {
             super(chart, entries, labels, chartColor, valueColor, textSize);
         }
