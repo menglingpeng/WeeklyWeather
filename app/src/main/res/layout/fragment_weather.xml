@@ -276,20 +276,20 @@
                 android:layout_height="match_parent"
                 android:layout_below="@+id/hours_24_weather_tv"/>
 
-            <com.github.mikephil.charting.charts.barChart
+            <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/hours_24_bar_chart"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/hours_24_weather_tv"/>
 
             <com.github.mikephil.charting.charts.BarChart
-                android:id="@+id/hours_24_air_pie_chart"
+                android:id="@+id/hours_24_air_bare_chart"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/hours_24_weather_tv"/>
 
             <com.github.mikephil.charting.charts.BarChart
-                android:id="@+id/hours_24_wind_pie_chart"
+                android:id="@+id/hours_24_wind_bar_chart"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_below="@+id/hours_24_weather_tv"/>

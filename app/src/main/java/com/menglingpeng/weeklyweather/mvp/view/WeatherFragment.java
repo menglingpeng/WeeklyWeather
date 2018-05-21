@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.menglingpeng.weeklyweather.BaseFragment;
@@ -93,6 +94,9 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
     private TextView hoursSunriseTimeTv;
     private ImageView hoursSunriseTimeIv;
 
+    private BarChart airQualigtyBc;
+    private BarChart windBc;
+
 
     private LineChart daysLineChart;
     List<String> xDataListDays;// x轴数据源
@@ -147,6 +151,9 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
         hoursSundonwTimeTv = (TextView)rootView.findViewById(R.id.hours_24_weather_sundown_time_tv);
         hoursSunriseTimeIv = (ImageView)rootView.findViewById(R.id.hours_24_weather_sunrise_time_iv);
         hoursSunriseTimeTv = (TextView)rootView.findViewById(R.id.hours_24_weather_sunrise_time_tv);
+
+        airQualigtyBc = (BarChart)rootView.findViewById(R.id.hours_24_air_bare_chart);
+        windBc = (BarChart) rootView.findViewById(R.id.hours_24_wind_bar_chart);
 
         //3天天气预报
 
