@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.app.NotificationCompat;
 import android.view.View;
 import android.widget.Button;
@@ -52,6 +53,15 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
     private RelativeLayout airQualityRl;
     private TextView airQualityTv;
     private TextView airQualityValueTv;
+
+    private RelativeLayout meteorologicalDisasterWarningRl;
+    private ImageView meteorologicalDisasterWarningIv;
+    private TextView meteorologicalDisasterWarningTv;
+
+    private RelativeLayout shortRainfallWarningRl;
+    private ImageView shortRainfallWarningIv;
+    private TextView shortRainfallWarningTv;
+
     private RelativeLayout todayWeatherRl;
     private TextView todayTv;
     private TextView todayTmpTv;
@@ -132,8 +142,16 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
         airQualityRl = (RelativeLayout)rootView.findViewById(R.id.air_quality_rl);
         airQualityTv = (TextView)rootView.findViewById(R.id.air_quality_tv);
         airQualityValueTv = (TextView)rootView.findViewById(R.id.air_quality_value_tv);
-        todayTv = (TextView)rootView.findViewById(R.id.today_tv);
+        meteorologicalDisasterWarningRl = (RelativeLayout)rootView.findViewById(
+                R.id.meteorological_disaster_warning_rl);
+        meteorologicalDisasterWarningIv = (ImageView)rootView.findViewById(R.id.meteorological_disaster_warning_iv);
+        meteorologicalDisasterWarningTv = (TextView)rootView.findViewById(R.id.meteorological_disaster_warning__tv);
+        shortRainfallWarningRl = (RelativeLayout)rootView.findViewById(R.id.short_rainfall_warning_rl);
+        shortRainfallWarningIv = (ImageView)rootView.findViewById(R.id.short_rainfall_warning_iv);
+        shortRainfallWarningTv = (TextView)rootView.findViewById(R.id.short_rainfall_warning_tv);
+
         //今天、明天天气
+        todayTv = (TextView)rootView.findViewById(R.id.today_tv);
         todayWeatherRl = (RelativeLayout)rootView.findViewById(R.id.today_weather_rl);
         todayAirQualityBt = (Button)rootView.findViewById(R.id.today_air_quality_bt);
         todayTmpTv = (TextView) rootView.findViewById(R.id.today_tmp_max_min_tv);
@@ -199,6 +217,24 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
         tmpMaxMinTv.setText(tmpMaxMinText);
         airQualityTv.setText(airQualityCollection.getHeWeather6().get(0).getAirNowCityBeans().get(0).getQlty());
         airQualityValueTv.setText(airQualityCollection.getHeWeather6().get(0).getAirNowCityBeans().get(0).getAqi());
+        meteorologicalDisasterWarningRl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        meteorologicalDisasterWarningTv.setText();
+        meteorologicalDisasterWarningIv.setImageResource();
+        shortRainfallWarningRl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ShortRainfallWarningActivity.class);
+                startActivity(intent);
+            }
+        });
+        shortRainfallWarningIv.setImageResource();
+        shortRainfallWarningTv.setText();
+
         //今天，明天天气综述
 
         //24小时天气预报

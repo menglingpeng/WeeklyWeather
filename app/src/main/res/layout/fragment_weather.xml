@@ -95,6 +95,54 @@
 
             </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/meteorological_disaster_warning_rl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tmp_max_min_tv"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/air_quality_rl_layout_margin_top">
+
+                <ImageView
+                    android:id="@+id/meteorological_disaster_warning_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"/>
+
+                <TextView
+                    android:id="@+id/meteorological_disaster_warning__tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:layout_below="@+id/meteorological_disaster_warning_iv"
+                    android:layout_marginTop="@dimen/air_quality_value_tv_layout_margin_top"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/short_rainfall_warning_rl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tmp_max_min_tv"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/air_quality_rl_layout_margin_top">
+
+                <ImageView
+                    android:id="@+id/short_rainfall_warning_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"/>
+
+                <TextView
+                    android:id="@+id/short_rainfall_warning_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/short_rainfall_warning_iv"
+                    android:layout_marginLeft="5dp"/>
+            </RelativeLayout>
+
         </RelativeLayout>
 
         <RelativeLayout
