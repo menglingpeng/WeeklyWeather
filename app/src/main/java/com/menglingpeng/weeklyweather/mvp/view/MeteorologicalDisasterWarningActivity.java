@@ -3,7 +3,6 @@ package com.menglingpeng.weeklyweather.mvp.view;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,14 +10,13 @@ import android.view.View;
 import com.menglingpeng.weeklyweather.BaseActivity;
 import com.menglingpeng.weeklyweather.R;
 
-public class ShortRainfallWarningActivity extends BaseActivity {
+public class MeteorologicalDisasterWarningActivity extends BaseActivity {
 
     private Toolbar toolbar;
 
-
     @Override
     protected void initLayoutId() {
-        layoutId = R.layout.activity_short_rainfall_warning;
+        layoutId = R.layout.activity_meteorological_disaster_warning;
     }
 
     @Override

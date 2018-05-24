@@ -33,7 +33,8 @@
         <activity android:name=".mvp.view.TravelIndexActivity" />
         <activity android:name=".mvp.view.AirPollutionDiffusionIndexActivity" />
         <activity android:name=".mvp.view.FluIndexActivity" />
-        <activity android:name=".mvp.view.ShortRainfallWarningActivity"></activity>
+        <activity android:name=".mvp.view.ShortRainfallWarningActivity" />
+        <activity android:name=".mvp.view.MeteorologicalDisasterWarningActivity"></activity>
     </application>
 
 </manifest>

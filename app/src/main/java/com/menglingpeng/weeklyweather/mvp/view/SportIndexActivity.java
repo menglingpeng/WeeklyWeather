@@ -58,7 +58,7 @@ public class SportIndexActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.acticity_index_toolbar_menu, menu);
+        getMenuInflater().inflate(R.menu.activity_index_toolbar_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

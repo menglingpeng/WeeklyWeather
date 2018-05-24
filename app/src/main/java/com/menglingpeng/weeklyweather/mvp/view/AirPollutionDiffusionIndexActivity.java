@@ -3,8 +3,6 @@ package com.menglingpeng.weeklyweather.mvp.view;
 import android.content.Context;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,8 +16,6 @@ import com.menglingpeng.weeklyweather.utils.Constants;
 import com.menglingpeng.weeklyweather.utils.IndexActivityUtils;
 
 import java.util.ArrayList;
-
-import javax.crypto.spec.RC2ParameterSpec;
 
 public class AirPollutionDiffusionIndexActivity extends BaseActivity {
 
@@ -62,7 +58,7 @@ public class AirPollutionDiffusionIndexActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.acticity_index_toolbar_menu, menu);
+        getMenuInflater().inflate(R.menu.activity_index_toolbar_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

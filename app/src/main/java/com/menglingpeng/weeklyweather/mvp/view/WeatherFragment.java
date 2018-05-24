@@ -220,7 +220,8 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
         meteorologicalDisasterWarningRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getActivity(), MeteorologicalDisasterWarningActivity.class);
+                startActivity(intent);
             }
         });
         meteorologicalDisasterWarningTv.setText();

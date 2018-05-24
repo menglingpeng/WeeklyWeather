@@ -1,9 +1,6 @@
 package com.menglingpeng.weeklyweather.mvp.view;
 
-import android.graphics.Paint;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,13 +10,6 @@ import android.widget.TextView;
 
 import com.menglingpeng.weeklyweather.BaseActivity;
 import com.menglingpeng.weeklyweather.R;
-import com.menglingpeng.weeklyweather.utils.FontUtils;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
 
 public class CalendarActivity extends BaseActivity {
 
@@ -61,7 +51,7 @@ public class CalendarActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.acticity_index_toolbar_menu, menu);
+        getMenuInflater().inflate(R.menu.activity_index_toolbar_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
