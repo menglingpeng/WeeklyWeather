@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.menglingpeng.weeklyweather.mvp.view.UVIndexActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/air_quality_detail_tb"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"></android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/air_quality_detail_release_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"/>
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/air_quality_detail_kind_bc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/air_quality_detail_release_time_tv"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp">
+
+        </com.github.mikephil.charting.charts.BarChart>
+        
+        <RelativeLayout
+            android:id="@+id/air_quality_detail_forecast_rl"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/air_quality_detail_kind_bc">
+            
+            <TextView
+                android:id="@+id/air_quality_detail_forecast_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TodayTomRlTextStyle"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/air_quality_detail_forecast_vaule_rv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/air_quality_detail_forecast_tv">
+            </android.support.v7.widget.RecyclerView>
+
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/air_quality_detail_forecast_lc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </com.github.mikephil.charting.charts.LineChart>
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/air_quality_detail_forecast_bc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </com.github.mikephil.charting.charts.BarChart>
+
+
+            
+        </RelativeLayout>
+        
+    </RelativeLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

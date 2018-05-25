@@ -64,4 +64,6 @@
     <string name="days_3_weather_tv_text">3天预报</string>
     <string name="hours_24_weather_tv_text">24小时预报</string>
 
+    <string name="short_rainfall_warning_tv_tx">短时</string>
+
 </resources>

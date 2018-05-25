@@ -11,6 +11,8 @@
     <dimen name="current_humidity_tv_layout_margin_left">10dp</dimen>
     <dimen name="air_quality_rl_layout_margin_top">20dp</dimen>
     <dimen name="air_quality_value_tv_layout_margin_top">10dp</dimen>
+    <dimen name="short_rainfall_warning_iv_layout_margin_left">10dp</dimen>
+    <dimen name="short_rainfall_warning_tv_layout_margin_left">5dp</dimen>
     <dimen name="cm_recycler_view_item_rl_layout_height">70dp</dimen>
     <dimen name="cm_recycler_view_item_iv_layout_height_width">50dp</dimen>
     <dimen name="cm_recycler_view_item_iv_layout_marginLeft">20dp</dimen>

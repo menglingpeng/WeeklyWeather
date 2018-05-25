@@ -34,7 +34,8 @@
         <activity android:name=".mvp.view.AirPollutionDiffusionIndexActivity" />
         <activity android:name=".mvp.view.FluIndexActivity" />
         <activity android:name=".mvp.view.ShortRainfallWarningActivity" />
-        <activity android:name=".mvp.view.MeteorologicalDisasterWarningActivity"></activity>
+        <activity android:name=".mvp.view.MeteorologicalDisasterWarningActivity" />
+        <activity android:name=".mvp.view.AirQualityDetailActivity"></activity>
     </application>
 
 </manifest>

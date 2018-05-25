@@ -131,7 +131,7 @@
                     android:id="@+id/short_rainfall_warning_iv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"/>
+                    android:layout_marginLeft="@dimen/short_rainfall_warning_iv_layout_margin_left"/>
 
                 <TextView
                     android:id="@+id/short_rainfall_warning_tv"
@@ -140,7 +140,8 @@
                     android:textColor="@android:color/white"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/short_rainfall_warning_iv"
-                    android:layout_marginLeft="5dp"/>
+                    android:layout_marginLeft="@dimen/short_rainfall_warning_tv_layout_margin_left"
+                    android:text="@string/short_rainfall_warning_tv_tx"/>
             </RelativeLayout>
 
         </RelativeLayout>
