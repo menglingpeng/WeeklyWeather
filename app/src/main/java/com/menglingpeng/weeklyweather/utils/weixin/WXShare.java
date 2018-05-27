@@ -10,9 +10,11 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
 
+import com.bumptech.glide.util.Util;
 import com.menglingpeng.weeklyweather.R;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.modelmsg.SendMessageToWX;
+import com.tencent.mm.opensdk.modelmsg.WXImageObject;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.modelmsg.WXTextObject;
 import com.tencent.mm.opensdk.modelmsg.WXWebpageObject;
@@ -96,6 +98,23 @@ public class WXShare {
         api.sendReq(req);
         return this;
     }
+
+    private void sharePicture(ShareContent shareContent, int shareType) {
+        Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), shareContent.getPictureResource());
+        WXImageObject imgObj = new WXImageObject(bitmap);
+
+        WXMediaMessage msg = new WXMediaMessage();
+        msg.mediaObject = imgObj;
+
+        Bitmap thumbBitmap =  Bitmap.createScaledBitmap(bitmap, THUMB_SIZE, THUMB_SIZE, true);
+        bitmap.recycle();
+        msg.thumbData = Util.bmpToByteArray(thumbBitmap, true);  //设置缩略图
+
+        SendMessageToWX.Req req = new SendMessageToWX.Req();
+        req.transaction = buildTransaction("imgshareappdata");
+        req.message = msg;
+        req.scene = shareType;
+        api.sendReq(req);
 
     public IWXAPI getApi() {
         return api;

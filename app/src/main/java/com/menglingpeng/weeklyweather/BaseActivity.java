@@ -16,6 +16,16 @@ public abstract class BaseActivity extends AppCompatActivity {
         initViews();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
     protected abstract void initLayoutId();
 
     protected void initViews() {

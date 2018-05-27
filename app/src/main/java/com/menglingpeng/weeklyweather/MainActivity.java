@@ -41,10 +41,17 @@ import com.menglingpeng.weeklyweather.utils.Constants;
 import com.menglingpeng.weeklyweather.utils.LocationService;
 import com.menglingpeng.weeklyweather.utils.SPUtils;
 import com.menglingpeng.weeklyweather.utils.ShareUtils;
+import com.menglingpeng.weeklyweather.utils.weixin.OnWXResponseListener;
+import com.menglingpeng.weeklyweather.utils.weixin.WXShare;
+import com.tencent.mm.opensdk.modelbase.BaseReq;
+import com.tencent.mm.opensdk.modelbase.BaseResp;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 
 import java.util.ArrayList;
 
-public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener,
+        IWXAPIEventHandler{
 
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
@@ -62,6 +69,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     private TabPagerFragmentAdapter adapter;
     private AlertDialog dialog;
     private String location = null;
+
+    private IWXAPI iwxapi;
+    private WXShare wxShare;
 
 
     @Override
@@ -135,6 +145,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     protected void onStart() {
         super.onStart();
         update();
+        wxShare.register();
     }
 
     private void update(){
@@ -151,7 +162,35 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.main_share){
             String text = null;
-            ShareUtils.share(context, text);
+            wxShare = new WXShare(this);
+            wxShare.setListener(new OnWXResponseListener() {
+                @Override
+                public void onSuccess() {
+
+                }
+                @Override
+                public void onCancel() {
+
+                }
+                @Override
+                public void onFail(String message) {
+
+                }
+            });
+            iwxapi = wxShare.getApi();
+            // 第三方开发者如果使用透明界面来实现WXEntryActivity，
+            // 需要判断handleIntent的返回值，如果返回值为false，
+            // 则说明入参不合法未被SDK处理，应finish当前透明界面，避
+            // 免外部通过传递非法参数的Intent导致停留在透明界面，
+            // 引起用户的疑惑
+            try {
+                if (!iwxapi.handleIntent(getIntent(), this)) {
+                    finish();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -241,6 +280,26 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         }else {
             super.onBackPressed();
         }
+    }
+
+
+
+    @Override
+    protected void onDestroy() {
+        wxShare.unregister();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onReq(BaseReq baseReq) {
+
+    }
+
+    @Override
+    public void onResp(BaseResp baseResp) {
+        Intent intent = new Intent(WXShare.ACTION_SHARE_RESPONSE);
+        intent.putExtra(WXShare.EXTRA_RESULT, new WXShare.Response(baseResp));
+        sendBroadcast(intent); finish();
     }
 
     private class LocationBroadcastReceiver extends BroadcastReceiver{
