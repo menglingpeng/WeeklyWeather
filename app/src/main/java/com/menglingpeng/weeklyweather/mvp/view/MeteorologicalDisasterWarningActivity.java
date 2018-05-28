@@ -10,6 +10,7 @@ import android.view.View;
 
 import com.menglingpeng.weeklyweather.BaseActivity;
 import com.menglingpeng.weeklyweather.R;
+import com.menglingpeng.weeklyweather.utils.weixin.OnWXResponseListener;
 import com.menglingpeng.weeklyweather.utils.weixin.WXShare;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
@@ -52,6 +53,33 @@ public class MeteorologicalDisasterWarningActivity extends BaseActivity implemen
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
+        if(item.getItemId() == com.menglingpeng.weeklyweather.mvp.view.R.id.short_rainfall_warning_share) {
+            wxShare = new WXShare(this);
+            wxShare.setListener(new OnWXResponseListener() {
+                @Override
+                public void onSuccess() {
+
+                }
+
+                @Override
+                public void onCancel() {
+
+                }
+
+                @Override
+                public void onFail(String message) {
+
+                }
+            });
+            iwxapi = wxShare.getApi();
+            try {
+                if (!iwxapi.handleIntent(getIntent(), this)) {
+                    finish();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override

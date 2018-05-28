@@ -1,6 +1,7 @@
 package com.menglingpeng.weeklyweather.mvp.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
@@ -14,10 +15,16 @@ import com.menglingpeng.weeklyweather.mvp.adapter.TabPagerFragmentAdapter;
 import com.menglingpeng.weeklyweather.mvp.bean.WeatherCollection;
 import com.menglingpeng.weeklyweather.utils.Constants;
 import com.menglingpeng.weeklyweather.utils.IndexActivityUtils;
+import com.menglingpeng.weeklyweather.utils.weixin.OnWXResponseListener;
+import com.menglingpeng.weeklyweather.utils.weixin.WXShare;
+import com.tencent.mm.opensdk.modelbase.BaseReq;
+import com.tencent.mm.opensdk.modelbase.BaseResp;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 
 import java.util.ArrayList;
 
-public class UVIndexActivity extends BaseActivity {
+public class UVIndexActivity extends BaseActivity implements IWXAPIEventHandler{
 
     private Toolbar toolbar;
     private TabLayout tabLayout;
@@ -27,6 +34,9 @@ public class UVIndexActivity extends BaseActivity {
     private TabPagerFragmentAdapter adapter;
     private Context context;
     private WeatherCollection weatherCollection;
+
+    private IWXAPI iwxapi;
+    private WXShare wxShare;
 
     @Override
     protected void initLayoutId() {
@@ -64,6 +74,56 @@ public class UVIndexActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.index_share);{
+            wxShare = new WXShare(this);
+            wxShare.setListener(new OnWXResponseListener() {
+                @Override
+                public void onSuccess() {
+
+                }
+                @Override
+                public void onCancel() {
+
+                }
+                @Override
+                public void onFail(String message) {
+
+                }
+            });
+            iwxapi = wxShare.getApi();
+            try {
+                if (!iwxapi.handleIntent(getIntent(), this)) {
+                    finish();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        wxShare.register();
+    }
+
+    @Override
+    protected void onDestroy() {
+        wxShare.unregister();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onReq(BaseReq baseReq) {
+
+    }
+
+    @Override
+    public void onResp(BaseResp baseResp) {
+        Intent intent = new Intent(WXShare.ACTION_SHARE_RESPONSE);
+        intent.putExtra(WXShare.EXTRA_RESULT, new WXShare.Response(baseResp));
+        sendBroadcast(intent); finish();
     }
 }

@@ -263,7 +263,7 @@ public class ChartUtils {
 /**
  * 自定义图表的MarkerView(点击坐标点，弹出提示框)
  */
-class CustomMarkerView extends MarkerView {
+public class CustomMarkerView extends MarkerView {
 
     private TextView tvContent;
     private String unitName;
