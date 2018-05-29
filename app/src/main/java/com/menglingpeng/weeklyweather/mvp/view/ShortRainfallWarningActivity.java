@@ -1,5 +1,6 @@
 package com.menglingpeng.weeklyweather.mvp.view;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -10,11 +11,19 @@ import android.view.View;
 
 import com.menglingpeng.weeklyweather.BaseActivity;
 import com.menglingpeng.weeklyweather.R;
+import com.menglingpeng.weeklyweather.utils.weixin.OnWXResponseListener;
+import com.menglingpeng.weeklyweather.utils.weixin.WXShare;
+import com.tencent.mm.opensdk.modelbase.BaseReq;
+import com.tencent.mm.opensdk.modelbase.BaseResp;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 
-public class ShortRainfallWarningActivity extends BaseActivity {
+public class ShortRainfallWarningActivity extends BaseActivity implements IWXAPIEventHandler{
 
     private Toolbar toolbar;
 
+    private IWXAPI iwxapi;
+    private WXShare wxShare;
 
     @Override
     protected void initLayoutId() {
@@ -44,6 +53,57 @@ public class ShortRainfallWarningActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == com.menglingpeng.weeklyweather.mvp.view.R.id.short_rainfall_warning_share) {
+            wxShare = new WXShare(this);
+            wxShare.setListener(new OnWXResponseListener() {
+                @Override
+                public void onSuccess() {
+
+                }
+
+                @Override
+                public void onCancel() {
+
+                }
+
+                @Override
+                public void onFail(String message) {
+
+                }
+            });
+            iwxapi = wxShare.getApi();
+            try {
+                if (!iwxapi.handleIntent(getIntent(), this)) {
+                    finish();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        wxShare.register();
+    }
+
+    @Override
+    protected void onDestroy() {
+        wxShare.unregister();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onReq(BaseReq baseReq) {
+
+    }
+
+    @Override
+    public void onResp(BaseResp baseResp) {
+        Intent intent = new Intent(WXShare.ACTION_SHARE_RESPONSE);
+        intent.putExtra(WXShare.EXTRA_RESULT, new WXShare.Response(baseResp));
+        sendBroadcast(intent); finish();
     }
 }
