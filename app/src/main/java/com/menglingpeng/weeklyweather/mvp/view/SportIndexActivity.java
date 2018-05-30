@@ -20,10 +20,11 @@ import com.menglingpeng.weeklyweather.utils.weixin.WXShare;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 
 import java.util.ArrayList;
 
-public class SportIndexActivity extends BaseActivity {
+public class SportIndexActivity extends BaseActivity implements IWXAPIEventHandler{
 
     private Toolbar toolbar;
     private TabLayout tabLayout;

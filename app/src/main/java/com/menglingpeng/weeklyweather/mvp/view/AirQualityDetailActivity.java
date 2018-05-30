@@ -32,6 +32,8 @@ public class AirQualityDetailActivity extends BaseActivity implements IWXAPIEven
 
     private IWXAPI iwxapi;
     private WXShare wxShare;
+    private TextView shareText;
+    private Ima
 
     @Override
     protected void initLayoutId() {

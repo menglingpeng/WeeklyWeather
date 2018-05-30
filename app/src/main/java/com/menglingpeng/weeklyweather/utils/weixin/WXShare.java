@@ -30,6 +30,7 @@ public class WXShare {
     public static final String APP_ID = "wx10e48798def4a607";
     public static final String ACTION_SHARE_RESPONSE = "action_wx_share_response";
     public static final String EXTRA_RESULT = "result";
+    public static final int THUMB_SIZE = 256;
 
     private final Context context;
     private final IWXAPI api;
