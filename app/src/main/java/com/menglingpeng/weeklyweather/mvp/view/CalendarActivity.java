@@ -18,7 +18,7 @@ import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 
-public class CalendarActivity extends BaseActivity implements IWXAPIEventHandler{
+public class CalendarActivity extends BaseActivity implements IWXAPIEventHandler {
 
     private Toolbar toolbar;
     private TextView holidayTv;

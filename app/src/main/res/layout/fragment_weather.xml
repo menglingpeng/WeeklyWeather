@@ -144,6 +144,11 @@
                     android:text="@string/short_rainfall_warning_tv_tx"/>
             </RelativeLayout>
 
+            <TextView
+                android:id="@+id/fragment_weather_detail_temperature_change_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
         </RelativeLayout>
 
         <RelativeLayout

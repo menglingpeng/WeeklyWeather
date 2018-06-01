@@ -21,13 +21,65 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/meteorological_disaster_warning_text_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:id="@+id/meteorological_disaster_warning_title_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/meteorological_disaster_warning_iv"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="15dp"/>
+
+            <TextView
+                android:id="@+id/meteorological_disaster_warning_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:id="@+id/meteorological_disaster_warning_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/meteorological_disaster_warning_title_tv"
+                android:layout_below="@+id/meteorological_disaster_warning_title_tv"
+                android:layout_marginTop="5dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/meteorological_disaster_warning_text_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:textAppearance="@style/TodayTomRlTextStyle"/>
+
+            <TextView
+                android:id="@+id/meteorological_disaster_warning_defense_guide_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/meteorological_disaster_warning_text_tv"
+                android:layout_alignLeft="@+id/meteorological_disaster_warning_text_tv"/>
+
+            <TextView
+                android:id="@+id/meteorological_disaster_warning_defense_guide_text_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/meteorological_disaster_warning_defense_guide_title_tv"
+                android:layout_alignLeft="@+id/meteorological_disaster_warning_defense_guide_title_tv"/>
+
+        </RelativeLayout>
+
     </RelativeLayout>
-
 
 </android.support.design.widget.CoordinatorLayout>
