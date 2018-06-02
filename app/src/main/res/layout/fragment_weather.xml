@@ -694,8 +694,30 @@
                 <TableRow
                     android:id="@+id/life_index_third_tr"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/life_index_1_tr_layout_height"
-                    android:visibility="gone">
+                    android:layout_height="@dimen/life_index_1_tr_layout_height">
+
+                    <RelativeLayout
+                        android:id="@+id/fishing_index_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/fishing_index_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/car_tail_number_limit_tv_layout_marginBottom"
+                            android:layout_marginTop="@dimen/car_tail_number_limit_tv_layout_marginTop"
+                            android:text="@string/fishing_index" />
+
+                        <TextView
+                            android:id="@+id/fishing_index_value_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/fishing_index_tv"
+                            android:layout_centerHorizontal="true" />
+
+                    </RelativeLayout>
 
                     <RelativeLayout
                         android:id="@+id/car_tail_number_limit_rl"

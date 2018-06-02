@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v4.app.NotificationCompat;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -25,6 +26,7 @@ import com.menglingpeng.weeklyweather.mvp.bean.AirQualityCollection;
 import com.menglingpeng.weeklyweather.mvp.bean.WeatherCollection;
 import com.menglingpeng.weeklyweather.utils.Constants;
 import com.menglingpeng.weeklyweather.utils.TimeUtils;
+import com.yuyh.library.BubblePopupWindow;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -53,6 +55,8 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
     private RelativeLayout airQualityRl;
     private TextView airQualityTv;
     private TextView airQualityValueTv;
+
+    private TextView weatherChangeTv;
 
     private RelativeLayout meteorologicalDisasterWarningRl;
     private ImageView meteorologicalDisasterWarningIv;
@@ -142,6 +146,7 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
         airQualityRl = (RelativeLayout)rootView.findViewById(R.id.air_quality_rl);
         airQualityTv = (TextView)rootView.findViewById(R.id.air_quality_tv);
         airQualityValueTv = (TextView)rootView.findViewById(R.id.air_quality_value_tv);
+        weatherChangeTv = (TextView)rootView.findViewById(R.id.fragment_weather_detail_temperature_change_tv );
         meteorologicalDisasterWarningRl = (RelativeLayout)rootView.findViewById(
                 R.id.meteorological_disaster_warning_rl);
         meteorologicalDisasterWarningIv = (ImageView)rootView.findViewById(R.id.meteorological_disaster_warning_iv);
@@ -217,6 +222,10 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
         tmpMaxMinTv.setText(tmpMaxMinText);
         airQualityTv.setText(airQualityCollection.getHeWeather6().get(0).getAirNowCityBeans().get(0).getQlty());
         airQualityValueTv.setText(airQualityCollection.getHeWeather6().get(0).getAirNowCityBeans().get(0).getAqi());
+        BubblePopupWindow rightWindow = new BubblePopupWindow(context);
+        View bubbleView = inflater.inflate(R.layout.weather_change_popup_window, null);
+        rightWindow.setBubbleView(bubbleView); // 设置气泡内容
+        rightWindow.show(view, Gravity.BOTTOM, 0); // 显示弹窗
         meteorologicalDisasterWarningRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
