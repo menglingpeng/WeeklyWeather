@@ -3,11 +3,14 @@ package com.menglingpeng.weeklyweather.utils.bubble;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.CornerPathEffect;
 import android.graphics.LinearGradient;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.RectF;
 import android.graphics.Shader;
 import android.os.Build;
 import android.util.AttributeSet;
@@ -15,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.menglingpeng.weeklyweather.R;
+
 
 /**
  * 气泡布局
@@ -34,6 +38,7 @@ public class BubbleLayout extends RelativeLayout{
     private final Paint paint = new Paint(Paint.DITHER_FLAG);
 
     private float bubbleLegOffset = 0.75f;
+    private BubbleOrientation bubbleOrientation = BubbleOrientation.RIGHT;
 
     public BubbleLayout(Context context) {
         this(context, null);
@@ -118,5 +123,67 @@ public class BubbleLayout extends RelativeLayout{
         bubbleLegPrototype.close();
     }
 
+    public void setBubbleParams(BubbleOrientation bubbleOrientation, final float bubbleOffset) {
+        bubbleLegOffset = bubbleOffset;
+        bubbleOrientation = bubbleOrientation;
+    }
+
+    /**
+     * 根据显示方向，获取尖角位置矩阵
+     * @param width
+     * @param height
+     * @return
+     */
+    private Matrix renderBubbleLegMatrix(final float width, final float height) {
+
+        final float offset = Math.max(bubbleLegOffset, MIN_LEG_DISTANCE);
+
+        float dstX = 0;
+        float dstY = Math.min(offset, height - MIN_LEG_DISTANCE);
+        final Matrix matrix = new Matrix();
+
+        switch (bubbleOrientation) {
+
+            case TOP:
+                dstX = Math.min(offset, width - MIN_LEG_DISTANCE);
+                dstY = 0;
+                matrix.postRotate(90);
+                break;
+
+            case RIGHT:
+                dstX = width;
+                dstY = Math.min(offset, height - MIN_LEG_DISTANCE);
+                matrix.postRotate(180);
+                break;
+
+            case BOTTOM:
+                dstX = Math.min(offset, width - MIN_LEG_DISTANCE);
+                dstY = height;
+                matrix.postRotate(270);
+                break;
+
+        }
+
+        matrix.postTranslate(dstX, dstY);
+        return matrix;
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+
+        final float width = canvas.getWidth();
+        final float height = canvas.getHeight();
+
+        path.rewind();
+        path.addRoundRect(new RectF(PADDING, PADDING, width - PADDING, height - PADDING),
+                CORNER_RADIUS, CORNER_RADIUS, Path.Direction.CW);
+        path.addPath(bubbleLegPrototype, renderBubbleLegMatrix(width, height));
+
+        canvas.drawPath(path, paint);
+        canvas.scale((width - STROKE_WIDTH) / width, (height - STROKE_WIDTH) / height, width / 2f,
+                height / 2f);
+
+        canvas.drawPath(path, fillPaint);
+    }
 
 }

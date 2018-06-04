@@ -112,4 +112,7 @@
 
     <dimen name="hours_24_weather_sunrise_time_tv_layout_marginRight">10dp</dimen>
     <dimen name="hours_24_weather_tv_layout_marginBottmo">15dp</dimen>
+
+    <dimen name="bl_bg_halfBaseOfLeg">16dp</dimen>
+    <dimen name="bl_bg_padding">16dp</dimen>
 </resources>
