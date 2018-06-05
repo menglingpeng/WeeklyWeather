@@ -26,11 +26,14 @@ import com.menglingpeng.weeklyweather.mvp.bean.AirQualityCollection;
 import com.menglingpeng.weeklyweather.mvp.bean.WeatherCollection;
 import com.menglingpeng.weeklyweather.utils.Constants;
 import com.menglingpeng.weeklyweather.utils.TimeUtils;
+import com.menglingpeng.weeklyweather.utils.bubble.BubbleWindow;
 import com.yuyh.library.BubblePopupWindow;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by mengdroid on 2018/1/15.
@@ -222,10 +225,8 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
         tmpMaxMinTv.setText(tmpMaxMinText);
         airQualityTv.setText(airQualityCollection.getHeWeather6().get(0).getAirNowCityBeans().get(0).getQlty());
         airQualityValueTv.setText(airQualityCollection.getHeWeather6().get(0).getAirNowCityBeans().get(0).getAqi());
-        BubblePopupWindow rightWindow = new BubblePopupWindow(context);
-        View bubbleView = inflater.inflate(R.layout.weather_change_popup_window, null);
-        rightWindow.setBubbleView(bubbleView); // 设置气泡内容
-        rightWindow.show(view, Gravity.BOTTOM, 0); // 显示弹窗
+        String content = null;
+        showWeatherChangeBubble(weatherChangeTv, content);
         meteorologicalDisasterWarningRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -381,5 +382,23 @@ public class WeatherFragment extends BaseFragment implements View.OnClickListene
         //发送通知
         notificationManager.notify(0x101,notification);
 
+    }
+
+    private void showWeatherChangeBubble(View view, String content){
+        final BubbleWindow rightWindow = new BubbleWindow(context);
+        View bubbleView = getLayoutInflater().inflate(R.layout.weather_change_popup_window, null);
+        TextView contentTv = (TextView)bubbleView.findViewById(R.id.content_tv);
+        contentTv.setText(content);
+        rightWindow.setBubbleView(bubbleView); // 设置气泡内容
+        rightWindow.show(view, Gravity.BOTTOM, 0); // 显示弹窗
+        //气泡提示两秒后消失。
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                rightWindow.dismiss();
+            }
+        };
+        Timer timer = new Timer();
+        timer.schedule(timerTask, 2000);
     }
 }

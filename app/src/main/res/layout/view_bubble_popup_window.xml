@@ -10,6 +10,11 @@
     app:halfBaseOfLeg="@dimen/bl_bg_halfBaseOfLeg"
     app:padding="@dimen/bl_bg_padding"
     app:shadowColor="@color/bl_bg_shadowColor"
-    app:strokeWidth="5">>
+    app:strokeWidth="5">
+
+    <TextView
+        android:id="@+id/content_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </com.menglingpeng.weeklyweather.utils.bubble.BubbleLayout>

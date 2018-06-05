@@ -38,4 +38,101 @@ public class BubbleWindow extends PopupWindow{
         setHeight(height);
     }
 
+    public void setBubbleView(View view) {
+        bubbleView = new BubbleLayout(context);
+        bubbleView.setBackgroundColor(Color.TRANSPARENT);
+        bubbleView.addView(view);
+        setContentView(bubbleView);
+    }
+
+    public void setParam(int width, int height) {
+        setWidth(width);
+        setHeight(height);
+    }
+
+    public void show(View parent) {
+        show(parent, Gravity.TOP, getMeasuredWidth() / 2);
+    }
+
+    public void show(View parent, int gravity) {
+        show(parent, gravity, getMeasuredWidth() / 2);
+    }
+
+    /**
+     * 显示弹窗
+     *
+     * @param parent
+     * @param gravity
+     * @param bubbleOffset 气泡尖角位置偏移量。默认位于中间
+     */
+    public void show(View parent, int gravity, float bubbleOffset) {
+        BubbleOrientation orientation = BubbleOrientation.Right;
+        if (!this.isShowing()) {
+            switch (gravity) {
+                case Gravity.BOTTOM:
+                    orientation = BubbleOrientation.TOP;
+                    break;
+                case Gravity.TOP:
+                    orientation = BubbleOrientation.BOTTOM;
+                    break;
+                case Gravity.RIGHT:
+                    orientation = BubbleOrientation.LEFT;
+                    break;
+                case Gravity.LEFT:
+                    orientation = BubbleOrientation.RIGHT;
+                    break;
+                default:
+                    break;
+            }
+            bubbleView.setBubbleParams(orientation, bubbleOffset); // 设置气泡布局方向及尖角偏移
+
+            int[] location = new int[2];
+            parent.getLocationOnScreen(location);
+
+            switch (gravity) {
+                case Gravity.BOTTOM:
+                    showAsDropDown(parent);
+                    break;
+                case Gravity.TOP:
+                    showAtLocation(parent, Gravity.NO_GRAVITY, location[0], location[1] - getMeasureHeight());
+                    break;
+                case Gravity.RIGHT:
+                    showAtLocation(parent, Gravity.NO_GRAVITY, location[0] + parent.getWidth(),
+                            location[1] - (parent.getHeight() / 2));
+                    break;
+                case Gravity.LEFT:
+                    showAtLocation(parent, Gravity.NO_GRAVITY, location[0] - getMeasuredWidth(),
+                            location[1] - (parent.getHeight() / 2));
+                    break;
+                default:
+                    break;
+            }
+        } else {
+            this.dismiss();
+        }
+    }
+
+    public void dismiss(){
+        this.dismiss();
+    }
+
+    /**
+     * 测量高度
+     * @return
+     */
+    public int getMeasureHeight() {
+        getContentView().measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        int popHeight = getContentView().getMeasuredHeight();
+        return popHeight;
+    }
+
+    /**
+     * 测量宽度
+     * @return
+     */
+    public int getMeasuredWidth() {
+        getContentView().measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        int popWidth = getContentView().getMeasuredWidth();
+        return popWidth;
+    }
 }
